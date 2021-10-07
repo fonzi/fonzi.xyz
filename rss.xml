@@ -1,15 +1,22 @@
-<head> 
-	<title> Fonzi Vazquez </title>
-	<link rel="stylesheet" href="styles.css">
-	<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-</head>
-<body class=content>
-<h1 class="center">Rough Stuff and Bluff</h1>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="rss.css" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Fonzi.xyz</title>
+<description>Fonzi.xyz blog. Nothing much of importance here, but will share toughts.</description>
+<language>en-us</language>
+<link>https://fonzi.xyz/rss.xml</link>
+<atom:link href="https://fonzi.xyz/rss.xml" rel="self" type="application/rss+xml" />
+
 <!-- LB -->
-<div class='entry'>
-<h2 id='hello-there'> 
-Hello There!</h2>
-<small>[<a href='#hello-there'>link</a>&mdash;<a href='blog/hello-there.html'>standalone</a>]</small>
+
+<item>
+<title> 
+Hello There!</title>
+<guid>https://fonzi.xyz/blog.html#hello-there</guid>
+<pubDate>Thu, 07 Oct 2021 02:36:16 +0000</pubDate>
+<description><![CDATA[
 	<div class="left">
 		<p> If you ended up here either you agreed with something on the homepage. Or you're just clicking around. Either way.. Hello!
 		This blog is dedicated to things I find interesting. Things about technology most of the time, but I also enjoy sociology a lot. So writing about human interactions may be something from time to time. 
@@ -21,21 +28,11 @@ Hello There!</h2>
 		I have an idea to write about this bloated software and how I think modern society has shaped this. 
 		</p>
 	</div>
-<small class=date>Thu, 07 Oct 2021 02:55:42 +0000</small>
-</div>
+]]></description>
+</item>
 
 
-</body>
-<footer class="center content">
-    <p>
-    <a href="https://github.com/fonzi">Github</a> 
-    - 
-    <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> 
-    - 
-    <a href="https://fonzi.xyz">Home</a> 
-    - 
-    <a href="https://fonzi.xyz/blog.html">Blog</a>
-    -
-    <a href="https://fonzi.xyz/rss.xml">RSS</a>
-    </p>
-</footer>
+
+
+</channel>
+</rss>

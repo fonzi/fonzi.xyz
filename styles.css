@@ -18,6 +18,13 @@ p
 h1 {
 	color: #8be9fd
 }
+.entry h2{
+	color: #bd93f9
+	
+}
+.date {
+	color: #ffb86c;
+}
 .center{
 	text-align: center;
 }
@@ -54,7 +61,7 @@ a:hover {
 .right h2{
 	color: #bd93f9;
 	text-align: right;
-	margin-righ:0px;
+	margin-right:0px;
 	overflow:auto;
 	display:block;
 }
