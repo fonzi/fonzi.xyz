@@ -16,16 +16,16 @@
 <guid>https://fonzi.xyz/blog.html#facebook-down-a-warning</guid>
 <pubDate>Sat, 09 Oct 2021 00:59:43 +0000</pubDate>
 <description><![CDATA[
-So as you've heard Facebook was down. Not just facebook, but all of facebook. Instragram, Whatsapp, Facebook, and some other smaller services. 
-I got to see first hand how hard this actually was. In the United States we are pretty lucky that almost every person has a cell phone with data. 
-However, in other countries like Mexico, they use facebook messenger, and whatsapp as a means of primary communication.
+So as you've heard Facebook was down. Not just Facebook, but all of Facebook. Instagram, Whatsapp, Facebook, and some other smaller services. 
+	I got to see firsthand how hard this actually was. In the United States, we are pretty lucky that almost every person has a cell phone with data. 
+	However, in other countries like Mexico, they use Facebook messenger, and WhatsApp as a means of primary communication.
 
-Facebook is free of data-useage and so its whatsapp down in Mexico with almost every plan that you can buy. For this reason a lot of people use 
-these services instead of using other non facebook services. The real issue here is not that facebook is giving their product for free, but rather,
-that people are willing to give all that personal information for just a simple messaging app. Data is a Billion dollar industry. Everyone wants data. 
-And people get hardley any compensation for it because they are not aware of how much data is worth. 
+	Facebook is free of data usage and so it's WhatsApp down in Mexico with almost every plan that you can buy. For this reason, a lot of people use 
+	these services instead of using other non-facebook services. The real issue here is not that Facebook is giving their product for free, but rather,
+	that people are willing to give all that personal information for just a simple messaging app. Data is a Billion dollar industry. Everyone wants data. 
+	And people get hardly any compensation for it because they are not aware of how much data is worth. 
 
-Protect your data. Don't give it away for free, at least make a little profit.
+	Protect your data. Don't give it away for free, at least make a little profit.
 ]]></description>
 </item>
 
@@ -35,7 +35,20 @@ Protect your data. Don't give it away for free, at least make a little profit.
 <guid>https://fonzi.xyz/blog.html#blogging-frameworks-are-bloat</guid>
 <pubDate>Thu, 07 Oct 2021 03:26:17 +0000</pubDate>
 <description><![CDATA[
-<div class="left">Yes! Blogging Frameworks are bloat. Think about wordpress. Some people install wordpress just to blog. How many issues do you introduce to a website with wordpress. Even if you look at other frameworks that are found on github. They all require some other stack that's never on your server. Then you get stuck in limbo trying to get this framework that has 1000 stars because people star it but never actually try it out. So I ended just doing plain HTML with a little script I found in <a href="https://github.com/lukesmithxyz/lb">github</a>. I still need to modify this a bit, however it got me off the ground right away. It's gnu compliant so it'll run on any system that has SED and bash. It just inserts blobs of text into files. In my instance it throws code to blog.html and adds a new file for a standalone blog html as well as inserts text to rss.xml. This allows me to just write and not worry about how to run a specific framework, and all the security issues it brings with it. Now I hope that I'll blog more since this is a much easier way to just add files to the blog list. No more manually adding those, no more cryptic commands that only exist in 1 project. This opens the question about what is happening to the tech industry/community. Do developers no longer enjoy simplicity? I can only imagine the things old timers think when they see all this bloat on pages. Another popular way people do blogging, journalist mostly pay someoneelse to host their blog so they get an easy WYSIWYG system, but then complain when their freedom of speech is taken because they never actually owned the blog. It's on someone elses server. Their rules at that point. I do hope that this, what I'm doing having a very minimal website takes off again, what's better than going back to decentralization with what already exists until the blockchain can fully be adopted if it's ever adopted. Normal people will just not waste 30+ gb of space on their machine to have a copy of the monero blockchain. So if everyone starts a website like so, simple, minimal and fast to deploy that's how we get accross the rampant censorship going on. 
+<div class="left">
+		Yes! Blogging Frameworks are bloat. Think about WordPress. Some people install WordPress just to blog. How many issues do you introduce to a website with WordPress?
+        Even if you look at other frameworks that are found on Github. They all require some other stack that's never on your server. 
+        Then you get stuck in limbo trying to get this framework that has 1000 stars because people star it but never actually try it out. 
+        So I ended just doing plain HTML with a little script I found in <a href="https://github.com/lukesmithxyz/lb">github</a>. 
+        I still need to modify this a bit, however, it got me off the ground right away. 
+        It's gnu compliant so it'll run on any system that has SED and bash. It just inserts blobs of text into files. 
+        In my instance, it throws code to blog.html and adds a new file for a standalone blog HTML as well as inserts text to rss.xml. 
+        This allows me to just write and not worry about how to run a specific framework, and all the security issues it brings with it. 
+        Now I hope that I'll blog more since this is a much easier way to just add files to the blog list. 
+        No more manually adding those, no more cryptic commands that only exist in 1 project. This opens the question about what is happening to the tech industry/community. 
+        Do developers no longer enjoy simplicity? I can only imagine the things old-timers think when they see all this bloat on pages. 
+        Another popular way people do blogging, journalists mostly pay someone else to host their blog so they get an easy WYSIWYG system, but then complain when their freedom of speech is taken because they never actually owned the blog. 
+        It's on someone else server. Their rules at that point. I do hope that this, what I'm doing having a very minimal website takes off again, what's better than going back to decentralization with what already exists until the blockchain can fully be adopted if it's ever adopted.  
 </div>
 ]]></description>
 </item>
@@ -49,14 +62,14 @@ Hello There!</title>
 <description><![CDATA[
 	<div class="left">
 		<p> If you ended up here either you agreed with something on the homepage. Or you're just clicking around. Either way.. Hello!
-		This blog is dedicated to things I find interesting. Things about technology most of the time, but I also enjoy sociology a lot. So writing about human interactions may be something from time to time. 
-		Also you will find just recommendations for different things. This will mostly be a something for myself but I will try to curate those list.  You will also find quick lessons I've learned. This blog also follows
-		the minimalist web theme. Where I don't have a bloggin platform besides SSH a terminal and my taughts. So you will just see new entries here without sorting or anything. Perphaps in the future I'll add something 
-		like that along with RSS to keep this going. One of my biggest pet-peeves is trying to do a blog site. Imagine my shock when I looked through countless github repositories just looking for something that allowed me
-		to just write and would auto-publish, after hours I found nothing that's simple enough. Every technology for this sort of stuff has very very very complex mechanism for what they do. Take a look. You'll find things 
-		like a specific language for just that one bloggin platform with no other uses. Worst thing is that is had about 1k stars. What is going on in the modern technology field? Do we no longer like elegant simple solutions?
+		This blog is dedicated to things I find interesting. Things about technology most of the time, but I also enjoy sociology a lot. So writing about human interactions maybe something from time to time. 
+		Also, you will find just recommendations for different things. This will mostly be something for me but I will try to curate those lists.  You will also find quick lessons I've learned. This blog also follows
+		the minimalist web theme. Where I don't have a blogging platform besides SSH a terminal and my thoughts. So you will just see new entries here without sorting or anything. Perhaps in the future, I'll add something 
+		like that along with RSS to keep this going. One of my biggest pet peeves is trying to do a blog site. Imagine my shock when I looked through countless GitHub repositories just looking for something that allowed me
+		to just write and would auto-publish, after hours I found nothing that's simple enough. Every technology for this sort of stuff has a very very very complex mechanism for what they do. Take a look. You'll find things 
+		like a specific language for just that one blogging platform with no other uses. The worst thing is that it had about 1k stars. What is going on in the modern technology field? Do we no longer like elegant simple solutions?
 		I have an idea to write about this bloated software and how I think modern society has shaped this. 
-		</p>
+			</p>
 	</div>
 ]]></description>
 </item>
