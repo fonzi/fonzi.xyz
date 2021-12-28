@@ -1,1 +1,3 @@
-![Alt text](fonzi.gif)
+<p align="center">
+  <img src="fonzi.gif"/>
+</p>
