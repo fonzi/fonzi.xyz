@@ -1,1 +1,1 @@
-![Alt text](fonzi.xyz.gif)
+![Alt text](fonzi.gif)
