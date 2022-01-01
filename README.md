@@ -7,7 +7,20 @@ Also a personal play site in order to learn more about the basic building blocks
 are trying to learn lower level basics.  
 
 Searx instance is installed on the server. 
-conf files locations at `/etc/nginx/default.d/*` & at `etc/nginx/sites-enabled/*`
+searx conf files locations at `/home/debian/searx/` (main branch) personal settings at `/etc/searx` and automated at `/usr/local/searx/`
+nginx conf files locations at `/etc/nginx/default.d/*` & at `etc/nginx/sites-enabled/*`
+
+to update 
+`cd /home/debian/searx/` <---- initial location then the automated process does the rest
+`sudo -H ./utils/searx.sh update searx` (cds into `/usr/local/searx/` then spits out conf files to `/etc/searx/`)
+`sudo -H ./utils/filtron.sh update filtron`
+`sudo -H ./utils/morty.sh update morty`
+`sudo -H service uwsgi restart searx`
+
+for more go here : https://searx.github.io/searx/admin/update-searx.html?highlight=update
 
 Website Html files are located at `/var/www/*`
+
+
+Restart nginx command 
 
