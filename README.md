@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="fonzi.gif"/>
+  <a href="fonzi.xyz"><img src="fonzi.gif"/></a>
 </p>
 
 A simple, minimal personal page. Written in pure HTML and CSS. Used as a way to blog with RSS and keep technology I've encountered and found and used.
