@@ -15,7 +15,8 @@ Searx instance is installed on the server.
 searx conf files locations at `/home/debian/searx/` (main branch) personal settings at `/etc/searx` and automated at `/usr/local/searx/`
 nginx conf files locations at `/etc/nginx/default.d/*` & at `etc/nginx/sites-enabled/*`
 
-to update 
+To update:
+
 `cd /home/debian/searx/` <---- initial location then the automated process does the rest
 
 `sudo -H ./utils/searx.sh update searx` (cds into `/usr/local/searx/` then spits out conf files to `/etc/searx/`)
