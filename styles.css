@@ -101,6 +101,7 @@ a:hover {
     top: 30px;
     left: -32px;
     width:145px;
+	font-weight: 900;
 }
 
 .ribbon a {
