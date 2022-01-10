@@ -28,7 +28,7 @@ h1 {
 .center{
 	text-align: center;
 }
-a {
+a{
 	color: #50fa7b
 } 
 a:hover {
@@ -87,4 +87,22 @@ a:hover {
 ::selection {
     background-color: #ff79c6;
     color: #000;
+}
+
+.ribbon-holder{
+    overflow: hidden;
+}
+.ribbon{
+	position: absolute;
+	background: #ffb86c;
+    color: black;
+    transform: rotate(-45deg);
+    text-align: center;
+    top: 30px;
+    left: -32px;
+    width:145px;
+}
+
+.ribbon a:link {
+	color: black;
 }
