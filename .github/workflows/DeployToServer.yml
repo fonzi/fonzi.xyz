@@ -19,4 +19,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           whoami
+          cd /var/www/jukebox
+          ls -all
+          git pull
           ls -all
