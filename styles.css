@@ -15,6 +15,15 @@ p
 	overflow:auto;
 	display:block
 }
+li{
+	color: #f8f8f2;
+}
+b{
+	color: #bd93f9;
+	margin-left: 0px;
+	overflow:auto;
+	display:block;
+}
 h1 {
 	color: #8be9fd
 }
