@@ -1,5 +1,6 @@
 ---
 type: 'blank'
+description: "Welcome to Fonzi's site! Enjoy random rants."
 ---
 
 # I'm Fonzi Vazquez
