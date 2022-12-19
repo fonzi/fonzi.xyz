@@ -2,13 +2,18 @@ baseURL = 'https://fonzi.xyz'
 languageCode = 'en-us'
 title = 'Fonzi Vazquez'
 theme = "hugo-theme-monochrome"
-
+defaultContentLanguage = "en"
+enableRobotsTXT = true
 [params]
 footer = '<p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz">Home</a> <a href="https://fonzi.xyz/blog.html">Blog</a> <a href="https://fonzi.xyz/index.xml">RSS</a></p>'
 menu = 'main'
 enable_site_search = true # default: false
 enable_open_graph = true # default: true
 enable_zooming_js = true # default: true
+author = 'Fonzi Vazquez'
+description = 'Tech rants and maybe some tutorials.'
+title = "Fonzi's site"
+images = ["images/skull.png"]
 [[menu.navbar]]
 identifier = "Blog"
 name = "Blog"
@@ -20,9 +25,10 @@ weight = 100
 home = ["HTML", "RSS", "JSON"]
 
 [author]
-  name = "Fonzi Vazquez"
-  homepage = "https://fonzi.xyz"
-  
+name = "Fonzi Vazquez"
+homepage = "https://fonzi.xyz"
+
+
 [minify]
   disableCSS = false
   disableHTML = false
