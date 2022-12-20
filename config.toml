@@ -5,7 +5,7 @@ theme = "hugo-theme-monochrome"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 [params]
-footer = '<p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz">Home</a> <a href="https://fonzi.xyz/blog.html">Blog</a> <a href="https://fonzi.xyz/index.xml">RSS</a></p>'
+footer = '<p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a></p>'
 menu = 'main'
 enable_site_search = true # default: false
 enable_open_graph = true # default: true
@@ -19,7 +19,26 @@ identifier = "Blog"
 name = "Blog"
 title = "Blog"
 url = "/blog/"
-weight = 100
+weight = 2
+#[[menu.navbar]]
+#identifier = "About"
+#name = "About"
+#title = "About"
+#url = "/about/"
+#weight = 3
+#[[menu.navbar]]
+#identifier = "Tutorials"
+#name = "Tutorials"
+#title = "Tutorials"
+#url = "/tutorials/"
+#weight = 4
+[[menu.navbar]]
+identifier = "Searx"
+name = "Searx"
+title = "Searx"
+url = "https://searx.fonzi.xyz"
+weight = 5
+
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
