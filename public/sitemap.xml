@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://fonzi.xyz/</loc>
-    <lastmod>2022-12-16T16:14:08-06:00</lastmod>
+    <lastmod>2022-12-20T14:51:43-05:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/blog/</loc>
-    <lastmod>2022-12-16T16:14:08-06:00</lastmod>
+    <lastmod>2022-12-20T14:51:43-05:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/blog/hugo-ftw/</loc>
+    <lastmod>2022-12-20T14:51:43-05:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/blog/testopts-what-is-that/</loc>
     <lastmod>2022-12-16T16:14:08-06:00</lastmod>

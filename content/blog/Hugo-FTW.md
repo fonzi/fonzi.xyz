@@ -1,6 +1,6 @@
 ---
 title: "Why I switched to Hugo?"
-date: Tue, 20 Sep 2022 14:51:43 -0500
+date: Tue, 20 Dec 2022 14:51:43 -0500
 draft: false
 description: "Hugo FTW"
 ---
