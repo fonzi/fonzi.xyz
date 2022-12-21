@@ -39,6 +39,12 @@ title = "Searx"
 url = "https://searx.fonzi.xyz"
 weight = 5
 
+[[menu.navbar]]
+identifier = "Tor"
+name = "Tor"
+title = "Tor"
+url = "http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion"
+weight = 10
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
