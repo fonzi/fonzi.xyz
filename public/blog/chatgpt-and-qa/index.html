@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatgpt and QA - Fonzi Vazquez</title>
+
+    
+    <meta name="description" content="How ChatGPT has changed the way I work." />
+    
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:title" content="Chatgpt and QA" />
+<meta property="og:description" content="How ChatGPT has changed the way I work." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/chatgpt-and-qa/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-01-17T10:54:36-06:00" />
+<meta property="article:modified_time" content="2023-01-17T10:54:36-06:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+
+    
+
+    
+        <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fonzi.xyz/skull.png"/>
+
+<meta name="twitter:title" content="Chatgpt and QA"/>
+<meta name="twitter:description" content="How ChatGPT has changed the way I work."/>
+
+    <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
+
+
+
+
+
+    
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.7a2a109ec3782c57bad0332b662f8a5f41765505936b69868eb8bd5241de9daf23c388e82ca1831f6d09935013dcb9f71bfa7face3975880c1076028b7b0a6e1.js" integrity="sha512-eioQnsN4LFe60DMrZi&#43;KX0F2VQWTa2mGjri9UkHena8jw4joLKGDH20Jk1AT3Ln3G/p/rOOXWIDBB2Aot7Cm4Q=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.56e07a74dd440b068ab36af35542ed8960865686c19fb809f38436877ac081570612cc8a913650b0c0e3073a336680c5df960e73bf7b1de83dc6aa996f2db858.js" integrity="sha512-VuB6dN1ECwaKs2rzVULtiWCGVobBn7gJ84Q2h3rAgVcGEsyKkTZQsMDjBzozZoDF35YOc797Heg9xqqZby24WA=="></script>
+        
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.677e05c714f837051483647d736c45051126c22a2696ca5f981b59da962d48962f3ea71150f559ba84884fd1aadf1c7aadce55bb31a3e5b75c0f173b763c109a.js" integrity="sha512-Z34FxxT4NwUUg2R9c2xFBREmwiomlspfmBtZ2pYtSJYvPqcRUPVZuoSIT9Gq3xx6rc5VuzGj5bdcDxc7djwQmg=="></script>
+
+
+
+
+</head><body>
+        <main><header>
+    <div class="brand">
+        <div id="sidebar_btn">
+            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></svg>
+        </div>
+
+        <div>
+            <a href="/">Fonzi Vazquez</a>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></svg>
+            <svg id="light_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+    <link rel="alternate"
+      type="application/rss+xml"
+      href="https://fonzi.xyz/index.xml"
+      title="Fonzi Vazquez">
+</header>
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+<div id="sidebar_canvas_overlay" class="hidden"></div>
+<div id="sidebar" class="close">
+    <ul><li>
+                    <a href="/blog/">Blog</a>
+                </li><li>
+                    <a href="https://searx.fonzi.xyz">Searx</a>
+                </li><li>
+                    <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a>
+                </li></ul>
+</div><div id="content" class="content-margin">
+                
+
+
+    <div class="content-margin">
+
+<article class="line-numbers">
+    
+    
+    <h1 id="chatgpt-speeding-up-every-part-of-the-sdlc">ChatGPT. Speeding up every part of the SDLC</h1>
+<p>If you read this blog, then you have heard of ChatGPT. AI for the masses. You know, a lot of people are saying it&rsquo;s the end of software
+development as we know it, but are they right? I think it&rsquo;s just another tool to help speed up development. I don&rsquo;t think we are at the
+location where jobs can be fully replaced. Yet&hellip; So how has it increased the SDLC speed. To start doing small simple POC projects
+has become really easy with this new tool. Not just that, but the context that ChatGPT has is amazing. You can literally use it as a more
+Junior or Senior Developer, depending on your own personal knowledge. If you know how to code, you will most likely use it to write up quick
+scripts that you know how to integrate. If you don&rsquo;t know how to code, or you are just starting, it will be able to guide you through a full SaaS setup.</p>
+<p>This is the magic behind it. You must know some coding and understand some basics for you to be able to tell it how to take some code and arramge it. Or give it well known context so that it can continue the basic items it gave you.</p>
+<p>I wanted to do a small experiement with ChatGPT and see how it could help me be more efficient. So I gave it the following piece of code and asked for it to lint it and comment it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span>, <span style="color:#a6e22e">expect</span>, <span style="color:#a6e22e">APIRequestContext</span>, <span style="color:#a6e22e">request</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@playwright/test&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Organization</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">reqContext</span>: <span style="color:#66d9ef">APIRequestContext</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">errorBlankName</span>: <span style="color:#66d9ef">any</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">limit</span>: <span style="color:#66d9ef">Number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">offset</span>: <span style="color:#66d9ef">Number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">sort</span>: <span style="color:#66d9ef">String</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">organizationId</span>: <span style="color:#66d9ef">String</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">statusResponse</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">callResponse</span>: <span style="color:#66d9ef">any</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span> (<span style="color:#a6e22e">request</span>: <span style="color:#66d9ef">APIRequestContext</span>, <span style="color:#a6e22e">limit</span>: <span style="color:#66d9ef">Number</span>, <span style="color:#a6e22e">offset</span>: <span style="color:#66d9ef">Number</span>, <span style="color:#a6e22e">sort</span>: <span style="color:#66d9ef">String</span>, <span style="color:#a6e22e">organizationId</span>: <span style="color:#66d9ef">String</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">reqContext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">limit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">limit</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">offset</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sort</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sort</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">organizationId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">organizationId</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">getMessage</span>(<span style="color:#a6e22e">token</span>: <span style="color:#66d9ef">any</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`I can make a GET call to organization`</span>,<span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Request sending: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">baseAPIURL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/v2/organization/</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">organizationId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/departments?limit=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">limit</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;offset=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">offset</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;sort=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sort</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Token: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">token</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">reqContext</span>.<span style="color:#66d9ef">get</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">baseAPIURL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/v2/organization/</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">organizationId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/departments?limit=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">limit</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;offset=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">offset</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;sort=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sort</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;headers&#39;</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Authorization&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">statusResponse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">callResponse</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">StatusResponseCodeIs</span>(<span style="color:#a6e22e">status</span>: <span style="color:#66d9ef">any</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`The organization status is </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">status</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#66d9ef">async</span>() <span style="color:#f92672">=&gt;</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">statusResponse</span>, <span style="color:#e6db74">&#39;Expected Status&#39;</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">status</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">OrganizationBodyIsValid</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`The Organization JSON Body is validated`</span>, <span style="color:#66d9ef">async</span>() <span style="color:#f92672">=&gt;</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">jsonObj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">callResponse</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">IOrganization</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">jsonObj</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">nextPage</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">nextPage</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">limit</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">totalCount</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">userCount</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">clientCount</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">id</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">OrganizationBodyIsUndefined</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`The Organization JSON Body is undefined`</span>, <span style="color:#66d9ef">async</span>() <span style="color:#f92672">=&gt;</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">callResponse</span>.<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">undefined</span>);
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IOrgInnerData</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">userCount</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">clientCount</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IOrganization</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">totalCount</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">offset</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">limit</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">IOrgInnerData</span>[];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextPage</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Sure enough it printed comments with context on the code I wrote. In the future this might be able to get placed in a pipeline where the dev pushes and ChatGPT can now update comments and lint and maybe even optimize?</p>
+<p>Here is the code it gave me back.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span>, <span style="color:#a6e22e">expect</span>, <span style="color:#a6e22e">APIRequestContext</span>, <span style="color:#a6e22e">request</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@playwright/test&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Organization class representing the organization&#39;s API calls
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Organization</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Request context, which holds the request function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">reqContext</span>: <span style="color:#66d9ef">APIRequestContext</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Error message for blank name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">errorBlankName</span>: <span style="color:#66d9ef">any</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Query parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">limit</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">offset</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">sort</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">organizationId</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Response properties
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">statusResponse</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">callResponse</span>: <span style="color:#66d9ef">any</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">request</span>: <span style="color:#66d9ef">APIRequestContext</span>, <span style="color:#a6e22e">limit</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">offset</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">sort</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">organizationId</span>: <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">reqContext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">limit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">limit</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">offset</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sort</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sort</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">organizationId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">organizationId</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Get message by making a GET call to the organization endpoint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param token - The token for the request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">getMessage</span>(<span style="color:#a6e22e">token</span>: <span style="color:#66d9ef">any</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`I can make a GET call to organization`</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Request sending: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">baseAPIURL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/v2/organization/</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">organizationId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/departments?limit=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">limit</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;offset=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">offset</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;sort=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sort</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Token: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">token</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">reqContext</span>.<span style="color:#66d9ef">get</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">baseAPIURL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/v2/organization/</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">organizationId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/departments?limit=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">limit</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;offset=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">offset</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;sort=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sort</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Authorization&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">statusResponse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">callResponse</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Asserts that the response status code is the expected one
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param status - The expected status code
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">StatusResponseCodeIs</span>(<span style="color:#a6e22e">status</span>: <span style="color:#66d9ef">any</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`The organization status is </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">status</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">statusResponse</span>, <span style="color:#e6db74">&#39;Expected Status&#39;</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">status</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Asserts that the organization&#39;s body is valid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">OrganizationBodyIsValid() {</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`The Organization JSON Body is validated`</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">jsonObj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">callResponse</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">IOrganization</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">jsonObj</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">nextPage</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">nextPage</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">limit</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">totalCount</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">userCount</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">clientCount</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">id</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">jsonObj</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Asserts that the organization&#39;s body is undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">OrganizationBodyIsUndefined() {</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">step</span>(<span style="color:#e6db74">`The Organization JSON Body is undefined`</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">expect</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">callResponse</span>.<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">undefined</span>);
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Organization Interface for body response inner data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IOrgInnerData</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">userCount</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">clientCount</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Organization Interface for body response
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IOrganization</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">totalCount</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">offset</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">limit</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">IOrgInnerData</span>[];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextPage</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Pretty cool!
+Altough, I really wanted to see if it could optimize this. The server became overloaded with all the people using it. So I opted to leave it here. I did take that code and moved it over into my repo since it had comments. :)</p>
+<p>So this got me thinking if something like this might be possible.</p>
+<pre tabindex="0"><code>                +----------+
+                |          |
+                |  ChatGPT |
+                |          |
+                +----^-+---+
+                     | |
+                     | |
++---------+     +----+-v---+   +---------+
+|         +-----&gt;          |   |Deployed |
+|  DEV    |     |   Git    +--&gt;|Optimized|
+|         &lt;-----+          |   |Code     |
++---------+     +----------+   +---------+
+</code></pre><p>Could you get a little service looking at Git and as code goes in ChatGPT would just optimize it and comment it if missing. This would require some decent CI in order to not break what&rsquo;s on git.</p>
+<p>*2023-01-17T10:54:36-06:00</p>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a></p></article>
+</footer>
+
+</main>
+    </body>
+</html>
