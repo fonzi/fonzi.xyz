@@ -17,6 +17,7 @@
 &lt;p&gt;You can see how most of these &amp;ldquo;modern&amp;rdquo; companies try to be kanban by adding feature flags to undone features, breaking one of the main tenants of sprints. &amp;ldquo;The focus is on delivering a complete and usable product&amp;rdquo;. Why even call yourself sprint and break one of the major tenants. Also take a look at the &amp;ldquo;planning&amp;rdquo; and how bad people are at estimating time. So why keep failing for years instead of just switching. The nice thing about Kanban is that you can still deploy every 2-3 weeks if it helps you feel better, but at least following the basic Kanban flow will help QA and DevOps.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll take it even further saying that with a true CI/CD and Kanban you don&amp;rsquo;t even need a separate pipeline for hot fixes. You&amp;rsquo;d just release the fix as another normal release, one of many during the day. Also look at the sprint meetings. Sprint planning (which every company I&amp;rsquo;ve seen fails at really planning correctly and delivering), sprint reviews which is an artifact of not planning well. Retrospective, which is way too out in the future to recall anything good done. Usually only the bad shows up. Or vise versa in a nice team.&lt;/p&gt;
 &lt;p&gt;At the end of the day Kanban &amp;gt; Sprint. Sprints are the boomers of tech. If you still use sprints and you have the power to change it. Go apologize to your team.&lt;/p&gt;
+&lt;p&gt;2023-02-07T09:10:03-06:00&lt;/p&gt;
 </description>
     </item>
     
