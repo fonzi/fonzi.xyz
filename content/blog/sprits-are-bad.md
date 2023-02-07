@@ -10,4 +10,4 @@ You can see how most of these "modern" companies try to be kanban by adding feat
 
 I'll take it even further saying that with a true CI/CD and Kanban you don't even need a separate pipeline for hot fixes. You'd just release the fix as another normal release, one of many during the day. Also look at the sprint meetings. Sprint planning (which every company I've seen fails at really planning correctly and delivering), sprint reviews which is an artifact of not planning well. Retrospective, which is way too out in the future to recall anything good done. Usually only the bad shows up. Or vise versa in a nice team. 
 
-At the end of the day Kanban > Sprint. Sprints are the boomers of tech. If you still use sprints and you have hte power to change it. Go apologize to your team.
+At the end of the day Kanban > Sprint. Sprints are the boomers of tech. If you still use sprints and you have the power to change it. Go apologize to your team.
