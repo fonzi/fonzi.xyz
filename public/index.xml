@@ -6,7 +6,16 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Feb 2023 09:10:03 -0600</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 19:22:56 -0600</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pipelining Qa in Gitlab</title>
+      <link>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</link>
+      <pubDate>Mon, 06 Mar 2023 19:22:56 -0600</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</guid>
+      <description>It&amp;rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab. I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&amp;rsquo;m not sure if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads.</description>
+    </item>
+    
     <item>
       <title>Sprints Are Bad For Every Department in Modern Software</title>
       <link>https://fonzi.xyz/blog/sprits-are-bad/</link>

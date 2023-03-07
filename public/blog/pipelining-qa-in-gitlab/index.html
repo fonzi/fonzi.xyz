@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blogs - Fonzi Vazquez</title>
+    <title>Pipelining Qa in Gitlab - Fonzi Vazquez</title>
 
     
 
@@ -29,10 +29,12 @@
     
 
     
-        <meta property="og:title" content="Blogs" />
-<meta property="og:description" content="Tech rants and maybe some tutorials." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://fonzi.xyz/blog/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="og:site_name" content="Fonzi&#39;s site" />
+        <meta property="og:title" content="Pipelining Qa in Gitlab" />
+<meta property="og:description" content="It&rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab. I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&rsquo;m not sure if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/pipelining-qa-in-gitlab/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-03-06T19:22:56-06:00" />
+<meta property="article:modified_time" content="2023-03-06T19:22:56-06:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
 
 
     
@@ -41,8 +43,8 @@
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fonzi.xyz/skull.png"/>
 
-<meta name="twitter:title" content="Blogs"/>
-<meta name="twitter:description" content="Tech rants and maybe some tutorials."/>
+<meta name="twitter:title" content="Pipelining Qa in Gitlab"/>
+<meta name="twitter:description" content="It&rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab. I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&rsquo;m not sure if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads."/>
 
     <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
 
@@ -120,7 +122,7 @@
         
     </div>
 </header>
-<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item active">
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
                     
                         <a href="/blog/" class="pure-menu-link">Blog</a>
                     
@@ -147,130 +149,30 @@
                 
 
 
-    
-        <div class="content-margin">
-            <h1>2023</h1>
+    <div class="content-margin">
 
-<ul class="list-layout">
+<article class="line-numbers">
     
-        <li>
-            <a href="/blog/pipelining-qa-in-gitlab/">Pipelining Qa in Gitlab</a>
-            
-                <span>
-                    03/06
-                </span>
-            
-        </li>
     
-        <li>
-            <a href="/blog/sprits-are-bad/">Sprints Are Bad For Every Department in Modern Software</a>
-            
-                <span>
-                    02/07
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/chatgpt-and-qa/">Chatgpt and QA</a>
-            
-                <span>
-                    01/17
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2022</h1>
+    <p>It&rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab.
+I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&rsquo;m not sure
+if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads. So why would Gitlab continue to propagate the re-invention of the wheel? Ideally CICD makes you more productive. But if you have to keep
+writing custom code that other people have solved. Even if it just takes 30 minutes to look up, copy, paste and run, it would still be faster to have a
+market place with small pieces of code that solve a very specific issue.</p>
+<p>Another one of my gripes with Gitlab is the fact that you cannot have multiple actions. But rather you must either use templates and pull into a single file, which I understand the concept, but ideally I should be able to seperate files per functionality completly different behavior from one another.</p>
+<p>Here&rsquo;s the example of the issue above.</p>
+<ol>
+<li>I want to run X amount of pipeliens at night</li>
+<li>I want to run X amount of pipelines that are differnt manually.</li>
+</ol>
+<p>I must place both of those rules in the same file, instead of having two well defined files that reduce the scope of each pipeline.</p>
+<p>One project can have multiple pipelines especially in QA depending on the bussiness need. QA Could want to run Smoke or Regression without having to share the file just to make it easier.</p>
+<p>Gitlab also forces you to do things by pipeline. However, in a QA world, sometimes you have data generation scripts that you might want to run at any given time that do not fit on a pipeline and you want to outsource that run to less experienced peeps that might not know how to run scripts locally. Github Actions allows you to give them a link and tell them just click run. Vs Gitlab forces you to have a pipeline setup. Makes no sense. I understand the concept of jobs inside pipelines, but not everything is always a pipeline.</p>
+<p>So if you are looking to go with Github or Gitlab. Choose Github. It&rsquo;s the clear winner from a QA perspective.</p>
+<p>*2023-03-06T19:22:56-06:00</p>
 
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/hugo-ftw/">Why I switched to Hugo?</a>
-            
-                <span>
-                    12/20
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/testopts-what-is-that/">TestOps? What is that?</a>
-            
-                <span>
-                    12/16
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/ui-automation-root-issues/">UI Automation Root Issues</a>
-            
-                <span>
-                    09/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/node-ipc-going-back-in-time/">Node IPC. Going back in time.</a>
-            
-                <span>
-                    03/26
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/dudkduckgo-failed-search-engine/">DuckDuckGo Failed Search Engine</a>
-            
-                <span>
-                    03/12
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2021</h1>
-
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/facebook-down-a-warning/">Facebook down! A warning.</a>
-            
-                <span>
-                    10/09
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/blogging-frameworks-are-bloat/">Blogging Frameworks Are Bloat</a>
-            
-                <span>
-                    10/07
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/hello-there/">Hello There</a>
-            
-                <span>
-                    10/07
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-    
-
-
+</article>
+</div>
 
 
                 
