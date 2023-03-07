@@ -59,7 +59,7 @@ Writing in markdown files, and just having it generate static HTML is great. No 
       <pubDate>Sat, 26 Mar 2022 18:35:15 -0500</pubDate>
       
       <guid>https://fonzi.xyz/blog/node-ipc-going-back-in-time/</guid>
-      <description>DuckDuckGo Failed Search Engine Well I&amp;rsquo;m sure if you follow this blog (if anyone). You most likley heard of node-ipc. This reminds me a lot from when people did not know how malwayre worked, and the famouse worm that self duplicated by looking up everyone in the email contacts and sending itself out. What does this recent event says about the current &amp;lsquo;software developers&amp;rsquo; that it affected. It means that they have or at least had no concern about security.</description>
+      <description>Node IPC Going Back in Time Well I&amp;rsquo;m sure if you follow this blog (if anyone). You most likley heard of node-ipc. This reminds me a lot from when people did not know how malwayre worked, and the famouse worm that self duplicated by looking up everyone in the email contacts and sending itself out. What does this recent event says about the current &amp;lsquo;software developers&amp;rsquo; that it affected. It means that they have or at least had no concern about security.</description>
     </item>
     
     <item>
