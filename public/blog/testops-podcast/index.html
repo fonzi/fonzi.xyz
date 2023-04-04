@@ -18,10 +18,10 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UI Automation Root Issues - Fonzi Vazquez</title>
+    <title>TestOps Podcast - Fonzi Vazquez</title>
 
     
-    <meta name="description" content="What really causes flaky tests?" />
+    <meta name="description" content="TestOps Podcast with QAMeta" />
     
 
     
@@ -31,12 +31,12 @@
     
 
     
-        <meta property="og:title" content="UI Automation Root Issues" />
-<meta property="og:description" content="What really causes flaky tests?" />
+        <meta property="og:title" content="TestOps Podcast" />
+<meta property="og:description" content="TestOps Podcast with QAMeta" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fonzi.xyz/blog/ui-automation-root-issues/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2022-09-04T23:55:43-05:00" />
-<meta property="article:modified_time" content="2022-09-04T23:55:43-05:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+<meta property="og:url" content="https://fonzi.xyz/blog/testops-podcast/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-04-04T09:55:59-05:00" />
+<meta property="article:modified_time" content="2023-04-04T09:55:59-05:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
 
     
 
@@ -44,8 +44,8 @@
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fonzi.xyz/skull.png"/>
 
-<meta name="twitter:title" content="UI Automation Root Issues"/>
-<meta name="twitter:description" content="What really causes flaky tests?"/>
+<meta name="twitter:title" content="TestOps Podcast"/>
+<meta name="twitter:description" content="TestOps Podcast with QAMeta"/>
 
     <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
 
@@ -152,19 +152,6 @@
                 </li></ul>
 </div><div id="content" class="content-margin">
                 
-    
-    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
-        
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#bad-architecture">Bad Architecture</a></li>
-    <li><a href="#bad-implementation">Bad Implementation</a></li>
-    <li><a href="#bad-infrastructure">Bad Infrastructure</a></li>
-  </ul>
-</nav>
-        
-    </div></div>
-
 
 
     <div class="content-margin">
@@ -172,24 +159,20 @@
 <article class="line-numbers">
     
     
-    <h1 id="ui-automation-root-issues">UI Automation Root Issues</h1>
-<p>Ever since the inception of webapps, there has been issues with UI automation. Teams tend to overlook the automation phase and ignore it. Mostly because it&rsquo;s time consuming and it&rsquo;s really hard to have a decent framework. Test are also brittle. However, I peronslly think the brittle-ness is not Automation specific but usually and underlaying issue in the web app. It usually ends up showing up as bad code. Bad implementations, and bad architecture. Since automation is usually created after the webapp, it usually follows those same bad practices as the webapp. Now I&rsquo;m NOT saying that these are the only issues. But from my experience these are usually the true root issues.</p>
-<p>So how do we solve for this. Usually there seems to be three main problems to solve.</p>
-<ol>
-<li>Bad Architecture</li>
-<li>Bad Implementation</li>
-<li>Bad Infrastructure</li>
-</ol>
-<h2 id="bad-architecture">Bad Architecture</h2>
-<p>Usually this is the first issue. When a webapp has no cohesion around UI and functionality, each page will be it&rsquo;s own small domain. This will make it very hard to abstract tests in order to re-use automation methods. The fix here is to get early into the development cycle and try to drive the model that will be used. However, this is easier said that done. Best approach is to point it out to developers in a nice way. However, good architecs are hard to find, so webapps end up displaying very odd functionality.</p>
-<p>Modals with functionality - This is the terrbile espeially with smooth appearing
-Dropdows with a single button inside - Why is there even a dropdown button for a single button
-Async calls - This is usually where the bad architecture shows itself and it&rsquo;s hardest to debug. Having all the network calls in async, and not understanding how and why they load in certain orders can cause havoc.</p>
-<h2 id="bad-implementation">Bad Implementation</h2>
-<p>This is usually done when there is some new cool hip JS library (another reason why I hate JS) and it&rsquo;s the modern thing. Developers use the new library. And it&rsquo;s not implemented correctly. Things are getting forced to the way of the webapp instead of the philosophy of the framework. This is usually and issue with developers not giving back to the Opensource Community. They want to take these establish frameworks. Make them work with some very specific need, and instead of making a PR for the framework to support the case, they&rsquo;ll just hack around it. Usually by mixing another framework or another library making another half-assed implementation.</p>
-<h2 id="bad-infrastructure">Bad Infrastructure</h2>
-<p>Now this one is a bit harder to track down, but usually it&rsquo;s obvious once you know what too look for. Usually, bad infrastructure shows as the webapp gets really slow when automation is running. This is usually observable by looking at a Monitoring Tool. Another easy spot is to look at the DB calls that it makes and see if something is locking the db. The final and hardest thing to track down with Infrastructure is the complextity around WAFs. If automation is distributed it might be that the WAF is blocking calls.</p>
-<p><em>Sun, 04 Sep 2022 23:55:43 -0500</em></p>
+    <h1 id="i-was-in-a-podcast-somehow">I was in a podcast. Somehow.</h1>
+<p>First, I want to thank Ruslan Akhmetzianov from QAMeta for inviting me over. If you have not heard of QAMeta, you&rsquo;ve most likely heard of Allure, as I talk about it quite a bit.</p>
+<p>Feel free to listen to the podcast and share your opinions with me. Did I make a fool out of myself? Did I say enough? Not enough?</p>
+<p>Well, either way, this is one big step in a good direction for the testing industry and QA, as well as for myself. We are witnessing the birth of next-gen testing. The days of just manual testing are nearly done. The days of just knowing enough Selenium or Playwright are nearly done. As software gets larger and more complex, so does the need for QA testing. The testing needs to scale, go faster, and be more stable.</p>
+<p>For all the companies I&rsquo;ve worked for, it&rsquo;s always been a rare sight to see reporting fully done and fully working, or even a functional process. Automation frameworks usually are an afterthought. There are rarely companies that are willing to implement frameworks from scratch that can scale. However, Allure TestOps has been a big step in the right direction where every person involved, from CTO to QA to PM, can all agree it&rsquo;s a good tool to have.</p>
+<p>This new paradigm brings a question, a large question:</p>
+<blockquote>
+<p>As a QA engineer, can you fully architect an automation framework?</p>
+</blockquote>
+<p>For me, it was not until recently that I could answer this as a yes.</p>
+<p>A few months ago, I still had no idea how to do correct load testing and the actual difference between performance vs. load vs. stress.</p>
+<p>If you answered &rsquo;no&rsquo; to that question. I highly suggest you learn everything you can. As in the podcast, we also spoke about AI tools and how those will eventually make their way into testing (some already have). So you can easily see that manual testing will perhaps no longer be 100% manual. Even if you don&rsquo;t code, you will be required to know some basic universal industry-wide skills, such as Bash, Shell, and Git, just to start testing around modern software.</p>
+<p>With new tools such as post-SQL DBs, where you can make table changes on the fly, a lot of these stable QA/UAT environments that manual testers depend on to validate could very likely become fully ephemeral. This will require everyone on the team to understand basics like branching or running a script. And TestOps, or something similar, will be the reporting tool for such new testing teams.</p>
+<p><a href="https://qameta.io/blog/dreams-and-tech-behind-automation/">https://qameta.io/blog/dreams-and-tech-behind-automation/</a></p>
 
 </article>
 </div>
