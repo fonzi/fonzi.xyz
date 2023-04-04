@@ -2,7 +2,6 @@
 title: "TestOps Podcast"
 date: 2023-04-04T09:55:59-05:00
 draft: false
-description: "TestOps Podcast with QAMeta"
 ---
 
 # I was in a podcast. Somehow.
