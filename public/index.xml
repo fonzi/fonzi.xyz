@@ -6,7 +6,16 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Jun 2023 22:16:28 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jul 2023 11:22:09 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unlocking Efficiency with Parallel Testing in Playwright</title>
+      <link>https://fonzi.xyz/blog/test-parallelization/</link>
+      <pubDate>Wed, 26 Jul 2023 11:22:09 -0500</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/test-parallelization/</guid>
+      <description>Parallel Testing in Playwright Software testing is a critical aspect of the development process, ensuring that applications function as expected and meet the required quality standards. However, as projects grow in complexity, the test suite can become time-consuming to execute, leading to longer feedback loops and delayed releases. To overcome this challenge, developers turn to parallel testing, a technique that distributes test execution across multiple machines or processes simultaneously. In this blog, we explore how Playwright, a powerful end-to-end testing framework, enables developers to implement and monitor parallel testing for faster, more efficient testing workflows.</description>
+    </item>
+    
     <item>
       <title>CTOs and QA</title>
       <link>https://fonzi.xyz/blog/ctos-and-qa/</link>
