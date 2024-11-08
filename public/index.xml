@@ -6,7 +6,17 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Jun 2024 00:36:26 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Nov 2024 17:48:43 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Starlink... In the Middle of Nowhere</title>
+      <link>https://fonzi.xyz/blog/starlink/</link>
+      <pubDate>Thu, 07 Nov 2024 17:48:43 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/starlink/</guid>
+      <description>Starlink. I&amp;rsquo;ve been keeping my eye on it since I first heard about it. Finally, in 2024, I had the chance to buy a unit and install it. In the middle of nowhere, for that matter.
+I own some land in Mexico 🇲🇽, so I&amp;rsquo;ve been building a small office as a stepping stone to the full house. Since I need to visit every once in a while to make sure everything is progressing.</description>
+    </item>
+    
     <item>
       <title>Unlocking Efficiency with Parallel Testing in Playwright</title>
       <link>https://fonzi.xyz/blog/test-parallelization/</link>
