@@ -8,6 +8,17 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jun 2024 00:36:26 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Grafana</title>
+      <link>https://fonzi.xyz/blog/grafana/</link>
+      <pubDate>Mon, 30 Dec 2024 10:22:41 -0600</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/grafana/</guid>
+      <description>Sometimes, there&amp;rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.
+The Problem: No way to monitor significant deviations.
+Initially, I figured it&amp;rsquo;d be cool to read directly from our data source.</description>
+    </item>
+    
+    <item>
       <title>Starlink... In the Middle of Nowhere</title>
       <link>https://fonzi.xyz/blog/starlink/</link>
       <pubDate>Thu, 07 Nov 2024 17:48:43 +0000</pubDate>

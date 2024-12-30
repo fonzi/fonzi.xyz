@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog - Fonzi Vazquez</title>
+    <title>Grafana - Fonzi Vazquez</title>
 
     
 
@@ -29,10 +29,14 @@
     
 
     
-        <meta property="og:title" content="Blog" />
-<meta property="og:description" content="Tech rants and maybe some tutorials." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://fonzi.xyz/blog/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="og:site_name" content="Fonzi&#39;s site" />
+        <meta property="og:title" content="Grafana" />
+<meta property="og:description" content="Sometimes, there&rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.
+The Problem: No way to monitor significant deviations.
+Initially, I figured it&rsquo;d be cool to read directly from our data source." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/grafana/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-12-30T10:22:41-06:00" />
+<meta property="article:modified_time" content="2024-12-30T10:22:41-06:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
 
 
     
@@ -41,8 +45,10 @@
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fonzi.xyz/skull.png"/>
 
-<meta name="twitter:title" content="Blog"/>
-<meta name="twitter:description" content="Tech rants and maybe some tutorials."/>
+<meta name="twitter:title" content="Grafana"/>
+<meta name="twitter:description" content="Sometimes, there&rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.
+The Problem: No way to monitor significant deviations.
+Initially, I figured it&rsquo;d be cool to read directly from our data source."/>
 
     <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
 
@@ -120,7 +126,7 @@
         
     </div>
 </header>
-<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item active">
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
                     
                         <a href="/blog/" class="pure-menu-link">Blog</a>
                     
@@ -147,191 +153,39 @@
                 
 
 
-    
-        <div class="content-margin">
-            <h1>2024</h1>
+    <div class="content-margin">
 
-<ul class="list-layout">
+<article class="line-numbers">
     
-        <li>
-            <a href="/blog/grafana/">Grafana</a>
-            
-                <span>
-                    12/30
-                </span>
-            
-        </li>
     
-        <li>
-            <a href="/blog/starlink/">Starlink... In the Middle of Nowhere</a>
-            
-                <span>
-                    11/07
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2023</h1>
+    <p>Sometimes, there&rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.</p>
+<p>The Problem: No way to monitor significant deviations.</p>
+<p>Initially, I figured it&rsquo;d be cool to read directly from our data source. In this case, MongoDB. We had a simple limitation: not being in the enterprise Grafana tier nor MongoDB Enterprise, which meant we did not have a direct connection to MongoDB as a data source.</p>
+<p>The first obstacle was figuring out how to read directly from the database in hopes of identifying some cool historical trends. No biggie. I was sure someone had already solved this issue, and I was mostly right. Someone had created a plugin that was easy to install: MongoDB Datasource Plugin. Coincidentally, there was a bug fix our team needed, and the author of the plugin was already working on it. You can see me testing this here: Issue #15. Pretty sweet to be able to collaborate with Open Source for a day job, all because of a quick need.</p>
+<p>At first, this solution seemed like all we needed. However, I quickly realized we were missing something critical: historical data. To detect deviations, we needed a historical record of the user’s data before any changes occurred. Since this was not implemented in MongoDB, I had to find another way.</p>
+<p>You can see that I had a cool Login Failure Rate. Since that does have historical data in its collection. However, I still needed properties.</p>
+<p><img src="https://i.ibb.co/vQQn8MM/grafana-first.png" alt="Grafana"></p>
+<p>The middleware I created was a quick tool that scraped the MongoDB collection, pushed the data to Pushgateway and Prometheus, and then allowed Prometheus/InfluxDB to retain the historical data. We run this tool every two hours, which gives us solid historical insights.</p>
+<p>This is pretty cool, actually. We already had a case where we needed some data to be stored, and the way it works is as follows:</p>
+<p><code>Script Runs in Bibtucket ----&gt; Bitucket Restuls get pushed to PushGateway ----&gt; PushGateway is scraped by Prometheus ----&gt; Prometheus stores in InfluxDB</code></p>
+<p>This is the general pipeline of data flow. From MongoDB with no historical data to keeping historical data on a pinch. The ideal solution would be to update the MongoDB collection to keep the data as well.</p>
+<p>Once we had this setup, we could calculate deviations by percentage. Now, we get Slack alerts if a user experiences a significant drop in properties. This allows us to monitor all our users simultaneously without fear of missing critical changes.</p>
+<p><img src="https://i.ibb.co/tq8Yh95/percentage-monitor.png" alt="Monitor"></p>
+<p>We use this type of monitor now, with an environment variable for each of our users, to avoid being overwhelmed with lines and to narrow down to the problem user.</p>
+<p>Some of the math involved behind the scenes includes:</p>
+<p><code>sum by (email) (user_hotel_info{environment=&quot;prod&quot;} offset 15m)</code> (historical data)</p>
+<p><code>sum by (email) (user_hotel_info{environment=&quot;prod&quot;})</code> (current data now)</p>
+<p>Then, in the match function and a reduce function, we use the following:
+<code>(($A - $B) / ($A + 1e-10)) * ($A &gt; $B)</code>
+This checks for sudden drops in properties.</p>
+<p>Finally, we set this as an alert:
+<code>abs(($A - $B) / ($A + 1e-10)) &gt; 0.1</code>
+Here, 0.1 represents 10%, but it can be adjusted as needed.</p>
+<p>Even QA has a use for Grafana, and more QA engineers should explore the DevOps world to solve internal issues like this one, beyond just UI/API automation. I&rsquo;ve noticed a trend where QA engineers thrive as solution engineers, with QA being their primary role.</p>
+<p>2024-12-30T10:22:41-06:00</p>
 
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/test-parallelization/">Unlocking Efficiency with Parallel Testing in Playwright</a>
-            
-                <span>
-                    07/26
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/ctos-and-qa/">CTOs and QA</a>
-            
-                <span>
-                    06/24
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/how-to-scale-a-qa-team/">Why Modern QA Needs an Upgrade: Addressing Technical Skill Gaps</a>
-            
-                <span>
-                    05/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/testops-podcast/">TestOps Podcast</a>
-            
-                <span>
-                    04/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/pipelining-qa-in-gitlab/">Pipelining Qa in Gitlab</a>
-            
-                <span>
-                    03/06
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/sprits-are-bad/">Sprints Are Bad For Every Department in Modern Software</a>
-            
-                <span>
-                    02/07
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/chatgpt-and-qa/">Chatgpt and QA</a>
-            
-                <span>
-                    01/17
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2022</h1>
-
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/hugo-ftw/">Why I switched to Hugo?</a>
-            
-                <span>
-                    12/20
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/testopts-what-is-that/">TestOps? What is that?</a>
-            
-                <span>
-                    12/16
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/ui-automation-root-issues/">UI Automation Root Issues</a>
-            
-                <span>
-                    09/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/node-ipc-going-back-in-time/">Node IPC. Going back in time.</a>
-            
-                <span>
-                    03/26
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/dudkduckgo-failed-search-engine/">DuckDuckGo Failed Search Engine</a>
-            
-                <span>
-                    03/12
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2021</h1>
-
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/facebook-down-a-warning/">Facebook down! A warning.</a>
-            
-                <span>
-                    10/09
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/blogging-frameworks-are-bloat/">Blogging Frameworks Are Bloat</a>
-            
-                <span>
-                    10/07
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/hello-there/">Hello There</a>
-            
-                <span>
-                    10/07
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-    
-
-
+</article>
+</div>
 
 
                 
