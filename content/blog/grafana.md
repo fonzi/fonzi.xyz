@@ -10,9 +10,9 @@ The Problem: No way to monitor significant deviations.
 
 Initially, I figured it'd be cool to read directly from our data source. In this case, MongoDB. We had a simple limitation: not being in the enterprise Grafana tier nor MongoDB Enterprise, which meant we did not have a direct connection to MongoDB as a data source.
 
-The first obstacle was figuring out how to read directly from the database in hopes of identifying some cool historical trends. No biggie. I was sure someone had already solved this issue, and I was mostly right. Someone had created a plugin that was easy to install: MongoDB Datasource Plugin. Coincidentally, there was a bug fix our team needed, and the author of the plugin was already working on it. You can see me testing this here: Issue #15. Pretty sweet to be able to collaborate with Open Source for a day job, all because of a quick need.
+The first obstacle was figuring out how to read directly from the database in hopes of identifying some cool historical trends. No biggie. I was sure someone had already solved this issue, and I was mostly right. Someone had created a plugin that was easy to install:[MongoDB Datasource Plugin](https://github.com/haohanyang/mongodb-datasource). Coincidentally, there was a bug fix our team needed, and the author of the plugin was already working on it. You can see me testing this here: [Issue #15](https://github.com/haohanyang/mongodb-datasource/issues/15). Pretty sweet to be able to collaborate with Open Source for a day job, all because of a quick need.
 
-At first, this solution seemed like all we needed. However, I quickly realized we were missing something critical: historical data. To detect deviations, we needed a historical record of the user’s data before any changes occurred. Since this was not implemented in MongoDB, I had to find another way.
+At first, this solution seemed like all we needed. However, I quickly realized we were missing something critical: historical data. To detect deviations, we needed a historical record of the user's data before any changes occurred. Since this was not implemented in MongoDB, I had to find another way.
 
 You can see that I had a cool Login Failure Rate. Since that does have historical data in its collection. However, I still needed properties.
 
