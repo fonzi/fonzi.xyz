@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Grafana - Fonzi Vazquez</title>
+    <title>K6 - Fonzi Vazquez</title>
 
     
 
@@ -29,14 +29,15 @@
     
 
     
-        <meta property="og:title" content="Grafana" />
-<meta property="og:description" content="Sometimes, there&rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.
-The Problem: No way to monitor significant deviations.
-Initially, I figured it&rsquo;d be cool to read directly from our data source." />
+        <meta property="og:title" content="K6" />
+<meta property="og:description" content="Load Testing.
+A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.
+First, let’s clarify the difference between Load Testing and Performance Testing — they are not the same thing.
+Load Testing – Literally overload your system to simulate peak and worst-case user influx scenarios. You could say that load testing is a subset of performance testing." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fonzi.xyz/blog/grafana/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2024-12-30T10:22:41-06:00" />
-<meta property="article:modified_time" content="2024-12-30T10:22:41-06:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+<meta property="og:url" content="https://fonzi.xyz/blog/k6/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-03-27T20:38:42-05:00" />
+<meta property="article:modified_time" content="2025-03-27T20:38:42-05:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
 
 
     
@@ -45,10 +46,11 @@ Initially, I figured it&rsquo;d be cool to read directly from our data source." 
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fonzi.xyz/skull.png"/>
 
-<meta name="twitter:title" content="Grafana"/>
-<meta name="twitter:description" content="Sometimes, there&rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.
-The Problem: No way to monitor significant deviations.
-Initially, I figured it&rsquo;d be cool to read directly from our data source."/>
+<meta name="twitter:title" content="K6"/>
+<meta name="twitter:description" content="Load Testing.
+A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.
+First, let’s clarify the difference between Load Testing and Performance Testing — they are not the same thing.
+Load Testing – Literally overload your system to simulate peak and worst-case user influx scenarios. You could say that load testing is a subset of performance testing."/>
 
     <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
 
@@ -75,6 +77,13 @@ Initially, I figured it&rsquo;d be cool to read directly from our data source."/
 
 
 
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.56e07a74dd440b068ab36af35542ed8960865686c19fb809f38436877ac081570612cc8a913650b0c0e3073a336680c5df960e73bf7b1de83dc6aa996f2db858.js" integrity="sha512-VuB6dN1ECwaKs2rzVULtiWCGVobBn7gJ84Q2h3rAgVcGEsyKkTZQsMDjBzozZoDF35YOc797Heg9xqqZby24WA=="></script>
+        
+    
 
 
 
@@ -158,32 +167,49 @@ Initially, I figured it&rsquo;d be cool to read directly from our data source."/
 <article class="line-numbers">
     
     
-    <p>Sometimes, there&rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.</p>
-<p>The Problem: No way to monitor significant deviations.</p>
-<p>Initially, I figured it&rsquo;d be cool to read directly from our data source. In this case, MongoDB. We had a simple limitation: not being in the enterprise Grafana tier nor MongoDB Enterprise, which meant we did not have a direct connection to MongoDB as a data source.</p>
-<p>The first obstacle was figuring out how to read directly from the database in hopes of identifying some cool historical trends. No biggie. I was sure someone had already solved this issue, and I was mostly right. Someone had created a plugin that was easy to install: <a href="https://github.com/haohanyang/mongodb-datasource">MongoDB Datasource Plugin</a>. Coincidentally, there was a bug fix our team needed, and the author of the plugin was already working on it. You can see me testing this here: <a href="https://github.com/haohanyang/mongodb-datasource/issues/15">Issue #15</a>. Pretty sweet to be able to collaborate with Open Source for a day job, all because of a quick need.</p>
-<p>At first, this solution seemed like all we needed. However, I quickly realized we were missing something critical: historical data. To detect deviations, we needed a historical record of the user&rsquo;s data before any changes occurred. Since this was not implemented in MongoDB, I had to find another way.</p>
-<p>You can see that I had a cool Login Failure Rate. Since that does have historical data in its collection. However, I still needed properties.</p>
-<p><img src="https://i.ibb.co/vQQn8MM/grafana-first.png" alt="Grafana"></p>
-<p>The middleware I created was a quick tool that scraped the MongoDB collection, pushed the data to Pushgateway and Prometheus, and then allowed Prometheus/InfluxDB to retain the historical data. We run this tool every two hours, which gives us solid historical insights.</p>
-<p>This is pretty cool, actually. We already had a case where we needed some data to be stored, and the way it works is as follows:</p>
-<p><code>Script Runs in Bibtucket ----&gt; Bitucket Restuls get pushed to PushGateway ----&gt; PushGateway is scraped by Prometheus ----&gt; Prometheus stores in InfluxDB</code></p>
-<p>This is the general pipeline of data flow. From MongoDB with no historical data to keeping historical data on a pinch. The ideal solution would be to update the MongoDB collection to keep the data as well.</p>
-<p>Once we had this setup, we could calculate deviations by percentage. Now, we get Slack alerts if a user experiences a significant drop in properties. This allows us to monitor all our users simultaneously without fear of missing critical changes.</p>
-<p><img src="https://i.ibb.co/tq8Yh95/percentage-monitor.png" alt="Monitor"></p>
-<p>We use this type of monitor now, with an environment variable for each of our users, to avoid being overwhelmed with lines and to narrow down to the problem user.</p>
-<p>Some of the math involved behind the scenes includes:</p>
-<p><code>sum by (email) (user_hotel_info{environment=&quot;prod&quot;} offset 15m)</code> (historical data)</p>
-<p><code>sum by (email) (user_hotel_info{environment=&quot;prod&quot;})</code> (current data now)</p>
-<p>Then, in the match function and a reduce function, we use the following:
-<code>(($A - $B) / ($A + 1e-10)) * ($A &gt; $B)</code>
-This checks for sudden drops in properties.</p>
-<p>Finally, we set this as an alert:
-<code>abs(($A - $B) / ($A + 1e-10)) &gt; 0.1</code>
-Here, 0.1 represents 10%, but it can be adjusted as needed.</p>
-<p>Even QA has a use for Grafana, and more QA engineers should explore the DevOps world to solve internal issues like this one, beyond just UI/API automation. I&rsquo;ve noticed a trend where QA engineers thrive as solution engineers, with QA being their primary role.</p>
-<p>2024-12-30T10:22:41-06:00</p>
+    <p><strong>Load Testing.</strong><br>
+A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.</p>
+<p>First, let’s clarify the difference between <strong>Load Testing</strong> and <strong>Performance Testing</strong> — they are <em>not</em> the same thing.</p>
+<p><strong>Load Testing</strong> – Literally overload your system to simulate peak and worst-case user influx scenarios. You could say that load testing is a subset of performance testing.</p>
+<p><strong>Performance Testing</strong> – Ensures your platform performs well under certain pre-determined loads. This is a much broader category.</p>
+<p>I like to think of performance as an abstract idea: <em>What is performant for X given Y?</em> And those variables can only be defined by your organization.</p>
+<hr>
+<p>We recently had an idea: what if we actually started load testing our startup app?</p>
+<p>Thanks to <strong>K6</strong>, we discovered some cool things.</p>
+<p>We found that we could handle about <strong>3500 VUs</strong> over a 30-second timespan, with <strong>50 actual users</strong> hitting a specific endpoint.</p>
+<p>We leveraged K6 (which was super easy to set up) and used an existing <strong>Grafana dashboard</strong> to monitor <strong>P99 latency, request failures, request success rates</strong>, etc.</p>
+<p>This small exercise gave us surprising insights:</p>
+<ul>
+<li>We&rsquo;re likely <strong>over-provisioned</strong>. Since we don’t actually hit 3500 users at peak, we might be able to scale down and save some money (awww yeah 💸).</li>
+<li>We uncovered that we might not be using the <strong>most optimal Garbage Collection tool</strong> in Java.</li>
+</ul>
+<p>The fact that all this was exposed by a simple <strong>Node app (~300 LOC)</strong> is <em>wild</em>. The value we got in return was way more than expected.</p>
+<hr>
+<p>While I get that load testing can feel daunting, it&rsquo;s 100% worth doing from time to time. We&rsquo;re now better positioned for the future because we understand our limits and tip-over points.</p>
+<p>This was a small project that I pushed for at our company, and it taught me a few key lessons:</p>
+<ul>
+<li>Never underestimate what a simple test can expose.</li>
+<li>Setting up <strong>Grafana</strong> and <strong>K6</strong> with a <strong>remote write endpoint</strong> was easier than expected.</li>
+</ul>
+<p>Here’s what we added to our <code>prometheus.yml</code> to make it work:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">remote_write</span>:
+  - <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;http://localhost:9090/api/v1/write&#34;</span>
+    <span style="color:#f92672">queue_config</span>:
+      <span style="color:#f92672">capacity</span>: <span style="color:#ae81ff">5000</span>
+      <span style="color:#f92672">max_shards</span>: <span style="color:#ae81ff">10</span>
+      <span style="color:#f92672">min_shards</span>: <span style="color:#ae81ff">1</span>
+      <span style="color:#f92672">max_samples_per_send</span>: <span style="color:#ae81ff">1000</span>
+    <span style="color:#f92672">write_relabel_configs</span>:
+      - <span style="color:#f92672">source_labels</span>: [<span style="color:#ae81ff">__name__]</span>
+        <span style="color:#f92672">regex</span>: <span style="color:#e6db74">&#34;.*&#34;</span>
+        <span style="color:#f92672">action</span>: <span style="color:#ae81ff">keep</span>
+</code></pre></div><p>And we ran k6 scripts with:</p>
+<pre tabindex="0"><code>K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write \
+K6_PROMETHEUS_RW_USERNAME=USERNAME \
+K6_PROMETHEUS_RW_PASSWORD=PASSWORD \
+k6 run -o experimental-prometheus-rw script.js
 
+</code></pre>
 </article>
 </div>
 

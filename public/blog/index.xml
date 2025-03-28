@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jun 2024 00:36:26 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>K6</title>
+      <link>https://fonzi.xyz/blog/k6/</link>
+      <pubDate>Thu, 27 Mar 2025 20:38:42 -0500</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/k6/</guid>
+      <description>Load Testing.
+A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.
+First, let’s clarify the difference between Load Testing and Performance Testing — they are not the same thing.
+Load Testing – Literally overload your system to simulate peak and worst-case user influx scenarios. You could say that load testing is a subset of performance testing.</description>
+    </item>
+    
+    <item>
       <title>Grafana</title>
       <link>https://fonzi.xyz/blog/grafana/</link>
       <pubDate>Mon, 30 Dec 2024 10:22:41 -0600</pubDate>
