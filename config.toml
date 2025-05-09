@@ -32,6 +32,13 @@ weight = 2
 #title = "Tutorials"
 #url = "/tutorials/"
 #weight = 4
+
+[[menu.navbar]]
+identifier = "Relay"
+name = "Relay"
+title = "Relay"
+url = "/relay/"
+weight = 2
 [[menu.navbar]]
 identifier = "Searx"
 name = "Searx"
