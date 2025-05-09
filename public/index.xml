@@ -6,7 +6,25 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Mar 2025 20:38:42 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://fonzi.xyz/relay/post1/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/relay/post1/</guid>
+      <description>Debugged the upload, verified S3, wrote the curl — then got asked for my request body.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fonzi.xyz/relay/post2/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/relay/post2/</guid>
+      <description>I needed a place for stray thoughts, technical friction, and half-built ideas. But not a social media.💀</description>
+    </item>
+    
     <item>
       <title>K6</title>
       <link>https://fonzi.xyz/blog/k6/</link>
