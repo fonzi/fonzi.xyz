@@ -6,7 +6,16 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://fonzi.xyz/relay/post3/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/relay/post3/</guid>
+      <description>I almost added a like button. Then I remembered my email is at the bottom.</description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://fonzi.xyz/relay/post1/</link>
@@ -194,15 +203,6 @@ Writing in markdown files, and just having it generate static HTML is great. No 
       
       <guid>https://fonzi.xyz/blog/hello-there/</guid>
       <description>Hello There If you ended up here either you agreed with something on the homepage. Or you&amp;rsquo;re just clicking around. Either way.. Hello! This blog is dedicated to things I find interesting. Things about technology most of the time, but I also enjoy sociology a lot. So writing about human interactions maybe something from time to time. Also, you will find just recommendations for different things. This will mostly be something for me but I will try to curate those lists.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://fonzi.xyz/relay/post3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://fonzi.xyz/relay/post3/</guid>
-      <description>I almost added a like button. Then I remembered my email is at the bottom.</description>
     </item>
     
   </channel>

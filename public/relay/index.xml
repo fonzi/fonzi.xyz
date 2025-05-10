@@ -6,7 +6,16 @@
     <description>Recent content in Relay on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/relay/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/relay/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://fonzi.xyz/relay/post3/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/relay/post3/</guid>
+      <description>I almost added a like button. Then I remembered my email is at the bottom.</description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://fonzi.xyz/relay/post1/</link>
@@ -23,15 +32,6 @@
       
       <guid>https://fonzi.xyz/relay/post2/</guid>
       <description>I needed a place for stray thoughts, technical friction, and half-built ideas. But not a social media.💀</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://fonzi.xyz/relay/post3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://fonzi.xyz/relay/post3/</guid>
-      <description>I almost added a like button. Then I remembered my email is at the bottom.</description>
     </item>
     
   </channel>
