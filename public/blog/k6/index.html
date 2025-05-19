@@ -39,7 +39,6 @@ Load Testing – Literally overload your system to simulate peak and worst-case 
 <meta property="article:published_time" content="2025-03-27T20:38:42-05:00" />
 <meta property="article:modified_time" content="2025-03-27T20:38:42-05:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
 
-
     
 
     
@@ -70,7 +69,7 @@ Load Testing – Literally overload your system to simulate peak and worst-case 
 
 
 
-    <script defer src="/js/zooming.fc76b730bcba24949cb337c58c5e935f727dbea8418e918e3b1794f0707d130aadf4ead341e9305a2c6045f7bc66700d73cc5c7f5d8f6ae2c7631e095f4e18ae.js" integrity="sha512-/Ha3MLy6JJScszfFjF6TX3J9vqhBjpGOOxeU8HB9Ewqt9OrTQekwWixgRfe8ZnANc8xcf12PauLHYx4JX04Yrg=="></script>
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
 
 
 
@@ -198,23 +197,22 @@ A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s 
 <li>Setting up <strong>Grafana</strong> and <strong>K6</strong> with a <strong>remote write endpoint</strong> was easier than expected.</li>
 </ul>
 <p>Here’s what we added to our <code>prometheus.yml</code> to make it work:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">remote_write</span>:
-  - <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;http://localhost:9090/api/v1/write&#34;</span>
-    <span style="color:#f92672">queue_config</span>:
-      <span style="color:#f92672">capacity</span>: <span style="color:#ae81ff">5000</span>
-      <span style="color:#f92672">max_shards</span>: <span style="color:#ae81ff">10</span>
-      <span style="color:#f92672">min_shards</span>: <span style="color:#ae81ff">1</span>
-      <span style="color:#f92672">max_samples_per_send</span>: <span style="color:#ae81ff">1000</span>
-    <span style="color:#f92672">write_relabel_configs</span>:
-      - <span style="color:#f92672">source_labels</span>: [<span style="color:#ae81ff">__name__]</span>
-        <span style="color:#f92672">regex</span>: <span style="color:#e6db74">&#34;.*&#34;</span>
-        <span style="color:#f92672">action</span>: <span style="color:#ae81ff">keep</span>
-</code></pre></div><p>And we ran k6 scripts with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">remote_write</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;http://localhost:9090/api/v1/write&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">queue_config</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">capacity</span>: <span style="color:#ae81ff">5000</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">max_shards</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">min_shards</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">max_samples_per_send</span>: <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">write_relabel_configs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">source_labels</span>: [<span style="color:#ae81ff">__name__]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">regex</span>: <span style="color:#e6db74">&#34;.*&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">action</span>: <span style="color:#ae81ff">keep</span>
+</span></span></code></pre></div><p>And we ran k6 scripts with:</p>
 <pre tabindex="0"><code>K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write \
 K6_PROMETHEUS_RW_USERNAME=USERNAME \
 K6_PROMETHEUS_RW_PASSWORD=PASSWORD \
 k6 run -o experimental-prometheus-rw script.js
-
 </code></pre><p>2025-03-27T21:08:22-43-04:00</p>
 
 </article>
