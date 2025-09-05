@@ -1,0 +1,295 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E2E Tests For Maps - Fonzi Vazquez</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:title" content="E2E Tests For Maps" />
+<meta property="og:description" content="Testing Interactive Maps with Playwright and MapGrab Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.
+I recently built an automated test suite for map views using Playwright together with the MapGrab" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/maps/" /><meta property="og:image" content="https://fonzi.xyz/skull.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-09-05T14:44:55-05:00" />
+<meta property="article:modified_time" content="2025-09-05T14:44:55-05:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+
+
+    
+
+    
+        <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fonzi.xyz/skull.png"/>
+
+<meta name="twitter:title" content="E2E Tests For Maps"/>
+<meta name="twitter:description" content="Testing Interactive Maps with Playwright and MapGrab Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.
+I recently built an automated test suite for map views using Playwright together with the MapGrab"/>
+
+    <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
+
+
+
+
+
+    
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.7a2a109ec3782c57bad0332b662f8a5f41765505936b69868eb8bd5241de9daf23c388e82ca1831f6d09935013dcb9f71bfa7face3975880c1076028b7b0a6e1.js" integrity="sha512-eioQnsN4LFe60DMrZi&#43;KX0F2VQWTa2mGjri9UkHena8jw4joLKGDH20Jk1AT3Ln3G/p/rOOXWIDBB2Aot7Cm4Q=="></script>
+
+
+
+    <script defer src="/js/zooming.fc76b730bcba24949cb337c58c5e935f727dbea8418e918e3b1794f0707d130aadf4ead341e9305a2c6045f7bc66700d73cc5c7f5d8f6ae2c7631e095f4e18ae.js" integrity="sha512-/Ha3MLy6JJScszfFjF6TX3J9vqhBjpGOOxeU8HB9Ewqt9OrTQekwWixgRfe8ZnANc8xcf12PauLHYx4JX04Yrg=="></script>
+
+
+
+
+
+
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.56e07a74dd440b068ab36af35542ed8960865686c19fb809f38436877ac081570612cc8a913650b0c0e3073a336680c5df960e73bf7b1de83dc6aa996f2db858.js" integrity="sha512-VuB6dN1ECwaKs2rzVULtiWCGVobBn7gJ84Q2h3rAgVcGEsyKkTZQsMDjBzozZoDF35YOc797Heg9xqqZby24WA=="></script>
+        
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.677e05c714f837051483647d736c45051126c22a2696ca5f981b59da962d48962f3ea71150f559ba84884fd1aadf1c7aadce55bb31a3e5b75c0f173b763c109a.js" integrity="sha512-Z34FxxT4NwUUg2R9c2xFBREmwiomlspfmBtZ2pYtSJYvPqcRUPVZuoSIT9Gq3xx6rc5VuzGj5bdcDxc7djwQmg=="></script>
+
+
+
+
+</head><body>
+        <main><header>
+    <div class="brand">
+        <div id="sidebar_btn">
+            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></svg>
+        </div>
+
+        <div>
+            <a href="/">Fonzi Vazquez</a>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></svg>
+            <svg id="light_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/relay/" class="pure-menu-link">Relay</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+<div id="sidebar_canvas_overlay" class="hidden"></div>
+<div id="sidebar" class="close">
+    <ul><li>
+                    <a href="/blog/">Blog</a>
+                </li><li>
+                    <a href="/relay/">Relay</a>
+                </li><li>
+                    <a href="https://searx.fonzi.xyz">Searx</a>
+                </li><li>
+                    <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a>
+                </li></ul>
+</div><div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-merging-test-contexts">1. Merging Test Contexts</a></li>
+    <li><a href="#2-bootstrapping-the-map">2. Bootstrapping the Map</a></li>
+    <li><a href="#3-custom-map-helper-class">3. Custom Map Helper Class</a></li>
+    <li><a href="#4-handling-multiple-layers">4. Handling Multiple Layers</a></li>
+    <li><a href="#5-injecting-mapgrab-into-the-app">5. Injecting MapGrab into the App</a></li>
+    <li><a href="#6-example-test">6. Example Test</a></li>
+    <li><a href="#7-lessons-learned">7. Lessons Learned</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+<article class="line-numbers">
+    
+    
+    <h1 id="testing-interactive-maps-with-playwright-and-mapgrab">Testing Interactive Maps with Playwright and MapGrab</h1>
+<p>Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a <!-- raw HTML omitted --> you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.</p>
+<p>I recently built an automated test suite for map views using <a href="https://playwright.dev/">Playwright</a> together with the <a href="https://mapgrab.github.io/">MapGrab</a></p>
+<h2 id="1-merging-test-contexts">1. Merging Test Contexts</h2>
+<p>The first hurdle: getting Playwright and MapGrab expectations (expect) and fixtures (test) to coexist.</p>
+<p>I solved this with a support file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// MapSupport.ts
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> {
+  <span style="color:#a6e22e">test</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">playwrightTest</span>,
+  <span style="color:#a6e22e">mergeTests</span>,
+  <span style="color:#a6e22e">expect</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">playwrightExpect</span>,
+  <span style="color:#a6e22e">mergeExpects</span>,
+} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@playwright/test&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">mapGrabTest</span>, <span style="color:#a6e22e">expect</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">mapGrabExpect</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mapgrab/playwright&#34;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mergeTests</span>(<span style="color:#a6e22e">playwrightTest</span>, <span style="color:#a6e22e">mapGrabTest</span>);
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">expect</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mergeExpects</span>(<span style="color:#a6e22e">playwrightExpect</span>, <span style="color:#a6e22e">mapGrabExpect</span>);
+</code></pre></div><p>This gave me a unified test and expect that support both DOM checks and map-specific checks like toBeVisibleOnMap().</p>
+<h2 id="2-bootstrapping-the-map">2. Bootstrapping the Map</h2>
+<p>Each test begins by logging in (via a Page Object) and asserting that the base “earth” layer is visible:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapHelper</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MapHelper</span>(<span style="color:#a6e22e">page</span>);
+<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mapHelper</span>.<span style="color:#a6e22e">assertEarthVisible</span>();
+</code></pre></div><p>This ensures the map actually rendered before deeper validation.</p>
+<h2 id="3-custom-map-helper-class">3. Custom Map Helper Class</h2>
+<p>To keep tests clean, I wrapped common interactions in a MapHelper class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">fitTileToMap</span>(<span style="color:#a6e22e">code</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">browserName</span>: <span style="color:#66d9ef">string</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tile</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTileLocator</span>(<span style="color:#a6e22e">code</span>);
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">tile</span>).<span style="color:#a6e22e">toBeVisibleOnMap</span>();
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">fitMap</span>({ <span style="color:#a6e22e">padding</span>: <span style="color:#66d9ef">this.getPadding</span>(<span style="color:#a6e22e">browserName</span>) });
+}
+</code></pre></div><p>This method zooms/pans the map so the requested tile is centered. Padding logic accounts for browser rendering differences.</p>
+<p>Clicking and validating tiles required a bit more work:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">clickAndVerifyInfoPanel</span>(<span style="color:#a6e22e">code</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">label</span>: <span style="color:#66d9ef">string</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tile</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTileLocatorByLayer</span>(<span style="color:#a6e22e">code</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">box</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">boundingBox</span>();
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clickX</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">box</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">box</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clickY</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">box</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">box</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">mouse</span>.<span style="color:#a6e22e">click</span>(<span style="color:#a6e22e">clickX</span>, <span style="color:#a6e22e">clickY</span>);
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">infoPanel</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">locator</span>(<span style="color:#e6db74">&#39;.info-box&#39;</span>);
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">infoPanel</span>).<span style="color:#a6e22e">toBeVisible</span>();
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">infoPanel</span>.<span style="color:#a6e22e">locator</span>(<span style="color:#e6db74">&#39;.layer-name&#39;</span>)).<span style="color:#a6e22e">toContainText</span>(<span style="color:#a6e22e">label</span>);
+}
+</code></pre></div><p>This ensures not just that the tile exists, but that clicking it triggers the correct info panel and button set.</p>
+<h2 id="4-handling-multiple-layers">4. Handling Multiple Layers</h2>
+<p>The app supports multiple tile layers (e.g., layer vs. sublayer). I kept my helper flexible by passing a layer type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTileLocatorByLayer</span>(<span style="color:#a6e22e">code</span>, <span style="color:#e6db74">&#39;sublayer&#39;</span>)
+</code></pre></div><h2 id="5-injecting-mapgrab-into-the-app">5. Injecting MapGrab into the App</h2>
+<ol start="5">
+<li>Injecting MapGrab into the App</li>
+</ol>
+<p>The scariest part was wiring MapGrab into the app’s map instance. The library expects a map object to hook into, but our app doesn’t export it by default.</p>
+<p>The fix: install a stub and inject MapGrab on map load.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// map-interface/index.ts
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">installMapGrab</span>(...<span style="color:#a6e22e">_args</span>: <span style="color:#66d9ef">unknown</span>[])<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+  <span style="color:#75715e">// no-op stub for tests
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>And in the initializer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;load&#39;</span>, () <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#a6e22e">installMapGrab</span>(<span style="color:#a6e22e">map</span>, <span style="color:#e6db74">&#39;mainMap&#39;</span>);
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">mapReadySubject</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">map</span>);
+});
+
+</code></pre></div><p>Now the tests can “see” the map internals without modifying production code.</p>
+<h2 id="6-example-test">6. Example Test</h2>
+<p>Here’s a simplified end-to-end test:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Verify map view is loaded&#39;</span>, <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">page</span>, <span style="color:#a6e22e">browserName</span> }) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#75715e">// log in
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapHelper</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MapHelper</span>(<span style="color:#a6e22e">page</span>);
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mapHelper</span>.<span style="color:#a6e22e">assertEarthVisible</span>();
+  
+  <span style="color:#75715e">// verify main tile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mapHelper</span>.<span style="color:#a6e22e">fitTileToMap</span>(<span style="color:#e6db74">&#34;CODE123&#34;</span>, <span style="color:#a6e22e">browserName</span>);
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mapHelper</span>.<span style="color:#a6e22e">clickAndVerifyInfoPanel</span>(<span style="color:#e6db74">&#34;CODE123&#34;</span>, <span style="color:#e6db74">&#34;Layer: Example&#34;</span>);
+  
+  <span style="color:#75715e">// verify sub-tile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mapHelper</span>.<span style="color:#a6e22e">fitTileToMap</span>(<span style="color:#e6db74">&#34;CODE456&#34;</span>, <span style="color:#a6e22e">browserName</span>);
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mapHelper</span>.<span style="color:#a6e22e">clickAndVerifyInfoPanel</span>(<span style="color:#e6db74">&#34;CODE456&#34;</span>, <span style="color:#e6db74">&#34;Sublayer: Example&#34;</span>, <span style="color:#e6db74">&#34;sublayer&#34;</span>);
+});
+
+</code></pre></div><h2 id="7-lessons-learned">7. Lessons Learned</h2>
+<p>Maps require spatial awareness. Clicking at x, y is often more reliable than locator.click().
+Cross-browser padding is essential. Different engines render map extents slightly differently.
+Helper classes keep tests readable. Without MapHelper, the tests would be noisy and fragile.
+Injection was the secret sauce. Without installing MapGrab on map load, expectations like toBeVisibleOnMap() wouldn’t work.
+Browser limitation: currently this approach only works in Chromium (headless). Firefox and WebKit do not render the map in headless mode, so they can’t be validated with this setup.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Testing maps isn’t as straightforward as testing forms or buttons. But with Playwright + MapGrab, plus some thoughtful helper code, you can validate tiles, layers, tooltips, and navigation in a way that’s both stable and maintainable.</p>
+<p>This setup now runs in CI alongside other UI tests, giving confidence that when we say “the map is ready,” it actually is.</p>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p></article>
+</footer>
+
+</main>
+    </body>
+</html>

@@ -6,7 +6,17 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Sep 2025 14:44:55 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>E2E Tests For Maps</title>
+      <link>https://fonzi.xyz/blog/maps/</link>
+      <pubDate>Fri, 05 Sep 2025 14:44:55 -0500</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/maps/</guid>
+      <description>Testing Interactive Maps with Playwright and MapGrab Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.
+I recently built an automated test suite for map views using Playwright together with the MapGrab</description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://fonzi.xyz/relay/post5/</link>

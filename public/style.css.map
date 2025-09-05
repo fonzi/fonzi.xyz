@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.css",
-	"sourceRoot": "/home/fonzi/Devel/Personal/fonzi.xyz",
+	"sourceRoot": "/home/fonzi/devel/Personal/fonzi.xyz",
 	"sources": [
 		"themes/hugo-theme-monochrome/assets/scss/core.scss",
 		"themes/hugo-theme-monochrome/assets/scss/purecss/_base.scss",
