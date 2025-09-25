@@ -13,7 +13,6 @@ enable_zooming_js = true # default: true
 author = 'Fonzi Vazquez'
 description = 'Tech rants and maybe some tutorials.'
 title = "Fonzi's site"
-goatcounter = "stats.bison.software" # GoatCounter instance
 [[menu.navbar]]
 identifier = "Blog"
 name = "Blog"
