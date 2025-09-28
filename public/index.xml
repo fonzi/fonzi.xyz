@@ -6,7 +6,17 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Sep 2025 14:44:55 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://fonzi.xyz/relay/post6/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/relay/post6/</guid>
+      <description>After years of performing lead/architect-level QA work without concern for titles, but rather for the sake of learning, I started Bison Software. The surprise wasn&amp;rsquo;t the technical work; it was the taxes. There were forms to fill out with a due date of 30 days before penalties and fees ensued. The true bugs were in the paperwork.
+All good software has some bs. I guess all good systems have some bs as well&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>E2E Tests For Maps</title>
       <link>https://fonzi.xyz/blog/maps/</link>
