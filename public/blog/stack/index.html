@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog - Fonzi Vazquez</title>
+    <title>Running Two Sites, Analytics, and a Search Engine on a $5 VPS - Fonzi Vazquez</title>
 
     
 
@@ -29,18 +29,26 @@
     
 
     
-        <meta property="og:title" content="Blog" />
-<meta property="og:description" content="Tech rants and maybe some tutorials." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://fonzi.xyz/blog/" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+        <meta property="og:title" content="Running Two Sites, Analytics, and a Search Engine on a $5 VPS" />
+<meta property="og:description" content="There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.
+The truth is simpler: I run two websites, analytics, and even a full search engine on a single $5/month Vultr VPS. And it works just fine.
+ The VPS My entire setup lives on a $5/month Vultr instance with:
+ 1 vCPU 1 GB RAM 25 GB SSD  That’s all I need." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/stack/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-09-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-09-28T00:00:00+00:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
 
 
     
 
     
         <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Blog"/>
-<meta name="twitter:description" content="Tech rants and maybe some tutorials."/>
+<meta name="twitter:title" content="Running Two Sites, Analytics, and a Search Engine on a $5 VPS"/>
+<meta name="twitter:description" content="There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.
+The truth is simpler: I run two websites, analytics, and even a full search engine on a single $5/month Vultr VPS. And it works just fine.
+ The VPS My entire setup lives on a $5/month Vultr instance with:
+ 1 vCPU 1 GB RAM 25 GB SSD  That’s all I need."/>
 
     <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
 
@@ -118,7 +126,7 @@
         
     </div>
 </header>
-<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item active">
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
                     
                         <a href="/blog/" class="pure-menu-link">Blog</a>
                     
@@ -149,227 +157,106 @@
                 </li></ul>
 </div><div id="content" class="content-margin">
                 
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-vps">The VPS</a></li>
+    <li><a href="#domains">Domains</a></li>
+    <li><a href="#what-runs-inside">What Runs Inside</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#monitoring-without-bloat">Monitoring Without Bloat</a></li>
+    <li><a href="#why-minimal-works">Why Minimal Works</a></li>
+    <li><a href="#closing">Closing</a></li>
+  </ul>
+</nav>
+        
+    </div></div>
 
 
-    
-        <div class="content-margin">
-            <h1>2025</h1>
 
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/stack/">Running Two Sites, Analytics, and a Search Engine on a $5 VPS</a>
-            
-                <span>
-                    09/28
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/maps/">E2E Tests For Maps</a>
-            
-                <span>
-                    09/05
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/k6/">K6</a>
-            
-                <span>
-                    03/27
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2024</h1>
+    <div class="content-margin">
 
-<ul class="list-layout">
+<article class="line-numbers">
     
-        <li>
-            <a href="/blog/grafana/">Grafana</a>
-            
-                <span>
-                    12/30
-                </span>
-            
-        </li>
     
-        <li>
-            <a href="/blog/starlink/">Starlink... In the Middle of Nowhere</a>
-            
-                <span>
-                    11/07
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2023</h1>
+    <p>There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.</p>
+<p>The truth is simpler: I run <strong>two websites</strong>, <strong>analytics</strong>, and even <strong>a full search engine</strong> on a single <strong>$5/month Vultr VPS</strong>. And it works just fine.</p>
+<hr>
+<h2 id="the-vps">The VPS</h2>
+<p>My entire setup lives on a $5/month Vultr instance with:</p>
+<ul>
+<li>1 vCPU</li>
+<li>1 GB RAM</li>
+<li>25 GB SSD</li>
+</ul>
+<p>That’s all I need. No autoscaling groups, no sprawling services, just one small virtual machine.</p>
+<hr>
+<h2 id="domains">Domains</h2>
+<p>I split my domains between two registrars:</p>
+<ul>
+<li><strong>Epik</strong> for <code>fonzi.xyz</code></li>
+<li><strong>Namecheap</strong> for <code>bison.software</code></li>
+</ul>
+<p>Both point to the same VPS, where Nginx handles SSL with Let’s Encrypt and routes requests to the right service.</p>
+<hr>
+<h2 id="what-runs-inside">What Runs Inside</h2>
+<p>Here’s the breakdown of what actually lives on this box:</p>
+<ul>
+<li>
+<p><strong>Static websites</strong></p>
+<ul>
+<li><code>fonzi.xyz</code>: generated with Hugo.</li>
+<li><code>bison.software</code>: plain HTML, with a static contact form that posts to <a href="https://www.staticforms.xyz">staticforms.xyz</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Analytics</strong></p>
+<ul>
+<li><a href="https://www.goatcounter.com/">GoatCounter</a>, running in Docker.</li>
+<li>A lightweight, privacy-friendly alternative to Google Analytics.</li>
+</ul>
+</li>
+<li>
+<p><strong>Search engine</strong></p>
+<ul>
+<li><a href="https://searxng.org/">SearXNG</a>, also in Docker.</li>
+<li>This isn’t just a search box — it’s a full metasearch engine that queries dozens of sources.</li>
+<li>Served at <code>searx.fonzi.xyz</code>.</li>
+</ul>
+</li>
+</ul>
+<p>At idle, the whole system sits around ~500 MB RAM. That leaves breathing room even on this tiny instance.</p>
+<hr>
+<h2 id="architecture">Architecture</h2>
+<p>Here’s how everything connects:</p>
+<p><img src="/diagram.svg" alt="Architecture diagram"></p>
+<hr>
+<h2 id="monitoring-without-bloat">Monitoring Without Bloat</h2>
+<p>Monitoring is simple:</p>
+<ul>
+<li><strong>htop</strong> for live CPU/memory/disk checks.</li>
+<li><strong>sysstat (sar)</strong> for historical CPU and memory logs.</li>
+</ul>
+<p>No dashboards, no bloated agents, no extra services consuming resources. Just the basics.</p>
+<hr>
+<h2 id="why-minimal-works">Why Minimal Works</h2>
+<p>This approach works because it focuses on what matters:</p>
+<ul>
+<li><strong>Cost</strong> all of this runs for less than $6/month.</li>
+<li><strong>Control</strong> Vultr doesn’t decide what’s acceptable content; they only enforce legality.</li>
+<li><strong>Simplicity</strong> static sites and Dockerized apps mean fewer moving parts.</li>
+<li><strong>Rebuildability</strong> I can redeploy from scratch in under an hour if needed.</li>
+</ul>
+<p>Minimal doesn’t mean fragile. It means focused, efficient, and easy to maintain.</p>
+<hr>
+<h2 id="closing">Closing</h2>
+<p>You don’t need a complex cluster or a big monthly cloud bill to put real projects online. With a small VPS, some static sites, and a couple of containers, you can host everything you need and keep full control of it.</p>
+<p>This setup runs two domains, analytics, and a search engine — all on a $5 Vultr server. Nothing more required.</p>
 
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/test-parallelization/">Unlocking Efficiency with Parallel Testing in Playwright</a>
-            
-                <span>
-                    07/26
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/ctos-and-qa/">CTOs and QA</a>
-            
-                <span>
-                    06/24
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/how-to-scale-a-qa-team/">Why Modern QA Needs an Upgrade: Addressing Technical Skill Gaps</a>
-            
-                <span>
-                    05/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/testops-podcast/">TestOps Podcast</a>
-            
-                <span>
-                    04/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/pipelining-qa-in-gitlab/">Pipelining Qa in Gitlab</a>
-            
-                <span>
-                    03/06
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/sprits-are-bad/">Sprints Are Bad For Every Department in Modern Software</a>
-            
-                <span>
-                    02/07
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/chatgpt-and-qa/">Chatgpt and QA</a>
-            
-                <span>
-                    01/17
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2022</h1>
-
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/hugo-ftw/">Why I switched to Hugo?</a>
-            
-                <span>
-                    12/20
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/testopts-what-is-that/">TestOps? What is that?</a>
-            
-                <span>
-                    12/16
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/ui-automation-root-issues/">UI Automation Root Issues</a>
-            
-                <span>
-                    09/04
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/node-ipc-going-back-in-time/">Node IPC. Going back in time.</a>
-            
-                <span>
-                    03/26
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/dudkduckgo-failed-search-engine/">DuckDuckGo Failed Search Engine</a>
-            
-                <span>
-                    03/12
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-        <div class="content-margin">
-            <h1>2021</h1>
-
-<ul class="list-layout">
-    
-        <li>
-            <a href="/blog/facebook-down-a-warning/">Facebook down! A warning.</a>
-            
-                <span>
-                    10/09
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/blogging-frameworks-are-bloat/">Blogging Frameworks Are Bloat</a>
-            
-                <span>
-                    10/07
-                </span>
-            
-        </li>
-    
-        <li>
-            <a href="/blog/hello-there/">Hello There</a>
-            
-                <span>
-                    10/07
-                </span>
-            
-        </li>
-    
-</ul></div>
-    
-    
-
-
+</article>
+</div>
 
 
                 

@@ -18,6 +18,18 @@ All good software has some bs. I guess all good systems have some bs as well&amp
     </item>
     
     <item>
+      <title>Running Two Sites, Analytics, and a Search Engine on a $5 VPS</title>
+      <link>https://fonzi.xyz/blog/stack/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/stack/</guid>
+      <description>There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.
+The truth is simpler: I run two websites, analytics, and even a full search engine on a single $5/month Vultr VPS. And it works just fine.
+ The VPS My entire setup lives on a $5/month Vultr instance with:
+ 1 vCPU 1 GB RAM 25 GB SSD  That’s all I need.</description>
+    </item>
+    
+    <item>
       <title>E2E Tests For Maps</title>
       <link>https://fonzi.xyz/blog/maps/</link>
       <pubDate>Fri, 05 Sep 2025 14:44:55 -0500</pubDate>
