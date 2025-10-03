@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>canvas on Fonzi Vazquez</title>
+    <link>https://fonzi.xyz/tags/canvas/</link>
+    <description>Recent content in canvas on Fonzi Vazquez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/tags/canvas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing HTML5 Canvas with CanvasGrid</title>
+      <link>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</guid>
+      <description>How I built a Playwright-first library to make automated canvas testing easy, after my MapGrab integration broke.</description>
+    </item>
+    
+  </channel>
+</rss>

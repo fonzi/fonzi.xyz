@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://fonzi.xyz/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/canvas/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/javascript/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/playwright/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/testing/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/relay/post6/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
@@ -90,7 +108,5 @@
     <lastmod>2021-10-07T02:55:42+00:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/categories/</loc>
-  </url><url>
-    <loc>https://fonzi.xyz/tags/</loc>
   </url>
 </urlset>

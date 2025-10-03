@@ -1,0 +1,276 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing HTML5 Canvas with CanvasGrid - Fonzi Vazquez</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:title" content="Testing HTML5 Canvas with CanvasGrid" />
+<meta property="og:description" content="How I built a Playwright-first library to make automated canvas testing easy, after my MapGrab integration broke." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-10-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-10-03T00:00:00+00:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+
+
+    
+
+    
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Testing HTML5 Canvas with CanvasGrid"/>
+<meta name="twitter:description" content="How I built a Playwright-first library to make automated canvas testing easy, after my MapGrab integration broke."/>
+
+    <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
+
+
+
+
+
+    
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.7a2a109ec3782c57bad0332b662f8a5f41765505936b69868eb8bd5241de9daf23c388e82ca1831f6d09935013dcb9f71bfa7face3975880c1076028b7b0a6e1.js" integrity="sha512-eioQnsN4LFe60DMrZi&#43;KX0F2VQWTa2mGjri9UkHena8jw4joLKGDH20Jk1AT3Ln3G/p/rOOXWIDBB2Aot7Cm4Q=="></script>
+
+
+
+    <script defer src="/js/zooming.fc76b730bcba24949cb337c58c5e935f727dbea8418e918e3b1794f0707d130aadf4ead341e9305a2c6045f7bc66700d73cc5c7f5d8f6ae2c7631e095f4e18ae.js" integrity="sha512-/Ha3MLy6JJScszfFjF6TX3J9vqhBjpGOOxeU8HB9Ewqt9OrTQekwWixgRfe8ZnANc8xcf12PauLHYx4JX04Yrg=="></script>
+
+
+
+
+
+
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.56e07a74dd440b068ab36af35542ed8960865686c19fb809f38436877ac081570612cc8a913650b0c0e3073a336680c5df960e73bf7b1de83dc6aa996f2db858.js" integrity="sha512-VuB6dN1ECwaKs2rzVULtiWCGVobBn7gJ84Q2h3rAgVcGEsyKkTZQsMDjBzozZoDF35YOc797Heg9xqqZby24WA=="></script>
+        
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.677e05c714f837051483647d736c45051126c22a2696ca5f981b59da962d48962f3ea71150f559ba84884fd1aadf1c7aadce55bb31a3e5b75c0f173b763c109a.js" integrity="sha512-Z34FxxT4NwUUg2R9c2xFBREmwiomlspfmBtZ2pYtSJYvPqcRUPVZuoSIT9Gq3xx6rc5VuzGj5bdcDxc7djwQmg=="></script>
+
+
+
+
+</head><body>
+        <main><header>
+    <div class="brand">
+        <div id="sidebar_btn">
+            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></svg>
+        </div>
+
+        <div>
+            <a href="/">Fonzi Vazquez</a>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></svg>
+            <svg id="light_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/relay/" class="pure-menu-link">Relay</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+<div id="sidebar_canvas_overlay" class="hidden"></div>
+<div id="sidebar" class="close">
+    <ul><li>
+                    <a href="/blog/">Blog</a>
+                </li><li>
+                    <a href="/relay/">Relay</a>
+                </li><li>
+                    <a href="https://searx.fonzi.xyz">Searx</a>
+                </li><li>
+                    <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a>
+                </li></ul>
+</div><div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-canvas-testing-is-hard">Why Canvas Testing Is Hard</a></li>
+    <li><a href="#the-two-camps-of-canvas-testing">The Two Camps of Canvas Testing</a></li>
+    <li><a href="#motivation-mapgrab-broke-so-i-built-this">Motivation: MapGrab Broke, So I Built This</a></li>
+    <li><a href="#introducing-canvasgrid">Introducing CanvasGrid</a></li>
+    <li><a href="#example-usage">Example Usage</a></li>
+    <li><a href="#canvasgrid-in-action">CanvasGrid in Action</a>
+      <ul>
+        <li><a href="#dragging-a-canvas-ball">Dragging a Canvas Ball</a></li>
+      </ul>
+    </li>
+    <li><a href="#real-world-benefits">Real-World Benefits</a></li>
+    <li><a href="#try-it-out">Try It Out</a></li>
+    <li><a href="#where-to-find-canvasgrid">Where to Find CanvasGrid</a></li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+<article class="line-numbers">
+    
+    
+    <h2 id="why-canvas-testing-is-hard">Why Canvas Testing Is Hard</h2>
+<p>HTML5 canvas elements are everywhere games, maps, drawing apps, custom visualizations. But testing them has always been a pain. Unlike regular DOM elements, you can&rsquo;t just select, click, or inspect canvas content with standard browser automation tools.</p>
+<h2 id="the-two-camps-of-canvas-testing">The Two Camps of Canvas Testing</h2>
+<p>When it comes to automating canvas testing, there are generally two camps:</p>
+<ol>
+<li>
+<p><strong>Deserialization and Direct Calls:</strong> Some tools try to &ldquo;read&rdquo; the canvas by deserializing its pixel data or using direct API calls. This can work for simple cases, but quickly gets complicated for dynamic or interactive canvases, and often requires deep integration with the app&rsquo;s code.</p>
+</li>
+<li>
+<p><strong>ML/AI Training:</strong> Others use machine learning or AI to visually recognize elements and simulate clicks or drags. This approach is powerful, but requires training data, setup, and can be overkill for simple interactions.</p>
+</li>
+</ol>
+<p>I wanted something easier to plug in for basic canvas actions like clicking, dragging, or finding tooltips. So I thought: why not just overlay a dynamic grid at test runtime? That way, you can interact with any region of the canvas, without needing to reverse-engineer its internals or train a model.</p>
+<h2 id="motivation-mapgrab-broke-so-i-built-this">Motivation: MapGrab Broke, So I Built This</h2>
+<p>I started working on <code>canvas-grid</code> after my MapGrab integration broke due to some layering confusion. Tooltips and overlays were appearing in the DOM only after canvas interactions, and existing tools couldn&rsquo;t reliably automate or verify these behaviors. I needed a way to:</p>
+<ul>
+<li>Click and drag on specific canvas regions</li>
+<li>Detect tooltips or overlays that appear in the DOM after canvas events</li>
+<li>Sample colors and verify rendering</li>
+</ul>
+<h2 id="introducing-canvasgrid">Introducing CanvasGrid</h2>
+<p><code>canvas-grid</code> is a Playwright-first library for testing HTML5 canvas elements using a grid-based approach. It&rsquo;s experimental, but it makes previously impossible tests easy-ish:</p>
+<ul>
+<li>Overlay a grid on any canvas</li>
+<li>Click, drag, and hover on grid cells</li>
+<li>Sample pixel colors</li>
+<li>Find tooltips or DOM elements triggered by canvas events</li>
+</ul>
+<h2 id="example-usage">Example Usage</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span>, <span style="color:#a6e22e">expect</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@playwright/test&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CanvasGrid</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;canvas-grid&#39;</span>;
+
+<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;canvas testing example&#39;</span>, <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">page</span> }) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#66d9ef">goto</span>(<span style="color:#e6db74">&#39;https://your-canvas-app.com&#39;</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">grid</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CanvasGrid</span>(<span style="color:#a6e22e">page</span>)
+    .<span style="color:#a6e22e">locator</span>(<span style="color:#e6db74">&#39;canvas&#39;</span>)
+    .<span style="color:#a6e22e">gridSize</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>);  <span style="color:#75715e">// 10 cols, 8 rows
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">attach</span>();
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">clickCell</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>);
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">hoverCell</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">sampleCell</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>);
+  <span style="color:#75715e">// Now check for tooltips or overlays
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tooltip</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">locator</span>(<span style="color:#e6db74">&#39;.tooltip&#39;</span>).<span style="color:#a6e22e">textContent</span>();
+  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">tooltip</span>).<span style="color:#a6e22e">toContain</span>(<span style="color:#e6db74">&#39;Expected text&#39;</span>);
+});
+</code></pre></div><h2 id="canvasgrid-in-action">CanvasGrid in Action</h2>
+<p>Below there is a GIF showing CanvasGrid running against a test app:</p>
+<h3 id="dragging-a-canvas-ball">Dragging a Canvas Ball</h3>
+<video src="/gridplaywright.webm" controls width="800" height="400" poster="" style="aspect-ratio: 1 / 1; object-fit: cover;">
+  Your browser does not support the video tag.
+</video>
+
+<h2 id="real-world-benefits">Real-World Benefits</h2>
+<p>With <code>canvas-grid</code>, you can finally automate:</p>
+<ul>
+<li>Drag-and-drop interactions</li>
+<li>Pixel-perfect UI checks</li>
+<li>DOM overlays triggered by canvas events</li>
+<li>Regression tests for games, maps, and more</li>
+</ul>
+<h2 id="try-it-out">Try It Out</h2>
+<p>The project is still experimental, but you can find it in my repo. If you have feedback or want to contribute, reach out!</p>
+<h2 id="where-to-find-canvasgrid">Where to Find CanvasGrid</h2>
+<p>CanvasGrid lives here for now:</p>
+<ul>
+<li><a href="https://github.com/Bison-Software/CanvasGrid">GitHub: Bison-Software/CanvasGrid</a></li>
+<li><a href="https://www.npmjs.com/package/@bisonsoftware/canvas-grid-playwright?activeTab=readme">npm: @bisonsoftware/canvas-grid-playwright</a></li>
+</ul>
+<p>This project is under my new company, Bison Software LLC.</p>
+<p>Learn more at <a href="https://bison.software">bison.software</a></p>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p></article>
+</footer>
+
+</main>
+    </body>
+</html>

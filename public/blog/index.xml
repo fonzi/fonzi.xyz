@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jun 2024 00:36:26 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Testing HTML5 Canvas with CanvasGrid</title>
+      <link>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</guid>
+      <description>How I built a Playwright-first library to make automated canvas testing easy, after my MapGrab integration broke.</description>
+    </item>
+    
+    <item>
       <title>Running Two Sites, Analytics, and a Search Engine on a $5 VPS</title>
       <link>https://fonzi.xyz/blog/stack/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
