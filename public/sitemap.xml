@@ -3,21 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://fonzi.xyz/</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/auth0/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/automation/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/e2e/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/blog/playwright-auth0-parallel/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/playwright/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fonzi.xyz/tags/testing/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/tags/canvas/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/tags/javascript/</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fonzi.xyz/tags/playwright/</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fonzi.xyz/tags/</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fonzi.xyz/tags/testing/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</loc>

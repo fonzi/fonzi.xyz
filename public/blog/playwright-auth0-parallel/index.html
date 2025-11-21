@@ -1,0 +1,333 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain - Fonzi Vazquez</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:title" content="Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain" />
+<meta property="og:description" content="How we built a robust Playwright auth fixture to handle Auth0&rsquo;s session limitations, and why it&rsquo;s worth the pain." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/playwright-auth0-parallel/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-11-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-11-21T00:00:00+00:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+
+
+    
+
+    
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain"/>
+<meta name="twitter:description" content="How we built a robust Playwright auth fixture to handle Auth0&rsquo;s session limitations, and why it&rsquo;s worth the pain."/>
+
+    <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
+
+
+
+
+
+    
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.7a2a109ec3782c57bad0332b662f8a5f41765505936b69868eb8bd5241de9daf23c388e82ca1831f6d09935013dcb9f71bfa7face3975880c1076028b7b0a6e1.js" integrity="sha512-eioQnsN4LFe60DMrZi&#43;KX0F2VQWTa2mGjri9UkHena8jw4joLKGDH20Jk1AT3Ln3G/p/rOOXWIDBB2Aot7Cm4Q=="></script>
+
+
+
+    <script defer src="/js/zooming.fc76b730bcba24949cb337c58c5e935f727dbea8418e918e3b1794f0707d130aadf4ead341e9305a2c6045f7bc66700d73cc5c7f5d8f6ae2c7631e095f4e18ae.js" integrity="sha512-/Ha3MLy6JJScszfFjF6TX3J9vqhBjpGOOxeU8HB9Ewqt9OrTQekwWixgRfe8ZnANc8xcf12PauLHYx4JX04Yrg=="></script>
+
+
+
+
+
+
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.56e07a74dd440b068ab36af35542ed8960865686c19fb809f38436877ac081570612cc8a913650b0c0e3073a336680c5df960e73bf7b1de83dc6aa996f2db858.js" integrity="sha512-VuB6dN1ECwaKs2rzVULtiWCGVobBn7gJ84Q2h3rAgVcGEsyKkTZQsMDjBzozZoDF35YOc797Heg9xqqZby24WA=="></script>
+        
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.677e05c714f837051483647d736c45051126c22a2696ca5f981b59da962d48962f3ea71150f559ba84884fd1aadf1c7aadce55bb31a3e5b75c0f173b763c109a.js" integrity="sha512-Z34FxxT4NwUUg2R9c2xFBREmwiomlspfmBtZ2pYtSJYvPqcRUPVZuoSIT9Gq3xx6rc5VuzGj5bdcDxc7djwQmg=="></script>
+
+
+
+
+</head><body>
+        <main><header>
+    <div class="brand">
+        <div id="sidebar_btn">
+            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></svg>
+        </div>
+
+        <div>
+            <a href="/">Fonzi Vazquez</a>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></svg>
+            <svg id="light_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/relay/" class="pure-menu-link">Relay</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+<div id="sidebar_canvas_overlay" class="hidden"></div>
+<div id="sidebar" class="close">
+    <ul><li>
+                    <a href="/blog/">Blog</a>
+                </li><li>
+                    <a href="/relay/">Relay</a>
+                </li><li>
+                    <a href="https://searx.fonzi.xyz">Searx</a>
+                </li><li>
+                    <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a>
+                </li></ul>
+</div><div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#auth0-the-painful-migration">Auth0 The Painful Migration</a></li>
+    <li><a href="#the-downside-of-leaving-things-in-serial-mode-and-the-upside-of-working-around-limitations">The Downside of leaving things in serial mode, and the upside of working around limitations</a></li>
+    <li><a href="#api-authentication-the-service-account-pattern">API Authentication: The Service Account Pattern</a></li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+<article class="line-numbers">
+    
+    
+    <h2 id="auth0-the-painful-migration">Auth0 The Painful Migration</h2>
+<p>When we migrated our authentication to Auth0, we quickly discovered that Auth0&rsquo;s session model is not designed for parallel browser automation. Running Playwright tests in parallel led to all our workers sharing the same Auth0 session, which caused flaky tests, random logouts, and a world of pain. The root of the problem is that Auth0, like many SSO providers, stores session state in browser cookies. If multiple Playwright workers use the same user, they end up overwriting each other&rsquo;s sessions. This is manageable for manual QA, but a nightmare for automated, parallel E2E testing. One test might log in, another logs out, and suddenly all your tests fail.</p>
+<p>To solve this, we built a Playwright fixture that dynamically discovers all available test users from environment variables. On startup, the fixture scans your <code>.env</code> for any variable matching patterns like <code>uname</code>, <code>plusname</code>, <code>proname</code>, <code>superuser</code>, and their numbered variants. Each variable represents a unique test user for a specific role or tier. When you run Playwright with multiple workers, each worker is assigned a unique user from the discovered pool in a round-robin fashion. For example, with eight workers and eight users, each worker gets its own user. If you have fewer users than workers, users are reused in order. Scaling up is as simple as adding more user credentials to your <code>.env</code> file and increasing the worker count no code changes required. Tests can still override the assigned user to log in as a different role, but each worker’s session remains isolated.</p>
+<p>This architecture means you can scale your parallel E2E tests as far as you have users, with no session collisions and minimal config changes. The core logic is straightforward: scan the environment for user variables, assign each worker a user in round-robin fashion, and proceed to login with those credentials. As you add more users to your environment, your parallel test runs scale automatically.</p>
+<p>One interesting outcome of this journey was how we ended up blending Playwright’s fixture system with the Page Object Model (POM) pattern. Playwright encourages the use of fixtures for dependency injection and test setup, while POM is a classic approach for encapsulating UI logic. In our solution, the auth fixture provides login/logout helpers and user context, while the actual login and logout flows are implemented as page objects. The fixture handles user assignment, session management, and exposes simple <code>auth.login()</code> and <code>auth.logout()</code> methods, while the page objects encapsulate the UI interactions for each flow. This separation keeps tests clean and readable, while making it easy to update UI logic in one place. It also plays nicely with Playwright’s parallelism and fixture injection, giving us the best of both worlds.</p>
+<h2 id="the-downside-of-leaving-things-in-serial-mode-and-the-upside-of-working-around-limitations">The Downside of leaving things in serial mode, and the upside of working around limitations</h2>
+<p>The results speak for themselves. Before this architecture, a single deployment with nearly 3,000 tests took over 11 hours to complete due to Auth0 session collisions and forced serial execution. After implementing worker-based user isolation and true parallelization, we not only got back to our original two-hour runtime, but pushed it even further down to about 1.5 hours. This means faster feedback, more reliable releases, and a much happier team. The pain of setup is real, but the payoff is massive.</p>
+<p>Of course, setting this up isn&rsquo;t trivial. You need to maintain a pool of test users, keep passwords and roles in sync, and update your <code>.env</code> and sometimes your test data when adding new users. Debugging user assignment can be tricky. But the payoff is huge: no more flaky parallel tests, true role isolation, and confidence that your auth flows work for every user type.</p>
+<p>If you’re running Playwright tests against an Auth0-protected app, don’t settle for serial runs or flaky parallelism. Build (or borrow) a worker-isolated auth fixture, keep a pool of test users, and enjoy reliable, scalable E2E tests even if it takes some pain to get there.</p>
+<p>Here’s a diagram of how the architecture fits together:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">┌────────────┐      ┌────────────┐      ┌────────────┐
+│ .env file  │───▶  │ User Pool  │───▶  │ Playwright │
+│ (users)    │      │ Discovery  │      │ Workers    │
+└────────────┘      └────────────┘      └────────────┘
+    |                   |                    |
+    |  uname, plusname  |  Assign users      |  Each worker
+    |  proname, ...     |  round-robin       |  gets unique
+    |                   |                    |  session
+</code></pre></div><p>For those interested in the full implementation, here is the complete (obfuscated and genericized) Playwright auth fixture class that powers this approach:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">base</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@playwright/test&#39;</span>;
+<span style="color:#75715e">// ... import your Login and Logout page objects, and any TOTP helpers as needed
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserTier</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;base&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;plus&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;pro&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;super&#39;</span>;
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AuthFx</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">user</span>: <span style="color:#66d9ef">UserTier</span>;
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">void</span>&gt;;
+        <span style="color:#a6e22e">loginAs</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">tier</span>: <span style="color:#66d9ef">UserTier</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">void</span>&gt;;
+        <span style="color:#a6e22e">logout</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">void</span>&gt;;
+    };
+};
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAvailableUsers</span>()<span style="color:#f92672">:</span> { [<span style="color:#a6e22e">key</span>: <span style="color:#66d9ef">string</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span> } {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span><span style="color:#f92672">:</span> { [<span style="color:#a6e22e">key</span>: <span style="color:#66d9ef">string</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span> } <span style="color:#f92672">=</span> {};
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">name</span>) <span style="color:#a6e22e">users</span>[<span style="color:#e6db74">&#39;base&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">uname</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">plusname</span>) <span style="color:#a6e22e">users</span>[<span style="color:#e6db74">&#39;plus&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">plusname</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">proname</span>) <span style="color:#a6e22e">users</span>[<span style="color:#e6db74">&#39;pro&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">proname</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">superuser</span>) <span style="color:#a6e22e">users</span>[<span style="color:#e6db74">&#39;super&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">superuser</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">envKeys</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>);
+    <span style="color:#a6e22e">envKeys</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">key</span> <span style="color:#f92672">=&gt;</span> {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">match</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/^(name|plusname|proname|superuser)(\d+)$/</span>);
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">match</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>[<span style="color:#a6e22e">key</span>]) {
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">baseType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;uname&#39;</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;base&#39;</span> <span style="color:#f92672">:</span>
+                <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;superuser&#39;</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;super&#39;</span> <span style="color:#f92672">:</span>
+                    <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>);
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userKey</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">baseType</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+            <span style="color:#a6e22e">users</span>[<span style="color:#a6e22e">userKey</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>[<span style="color:#a6e22e">key</span>] <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">string</span>;
+        }
+    });
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">users</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">creds</span>(<span style="color:#a6e22e">tier</span>: <span style="color:#66d9ef">UserTier</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">availableUsers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getAvailableUsers</span>();
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userKey</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">availableUsers</span>).<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">key</span> <span style="color:#f92672">=&gt;</span>
+        <span style="color:#a6e22e">key</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#a6e22e">tier</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;base&#39;</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;base&#39;</span> <span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">tier</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;super&#39;</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;super&#39;</span> <span style="color:#f92672">:</span>
+                <span style="color:#a6e22e">tier</span>)
+    );
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">userKey</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">availableUsers</span>[<span style="color:#a6e22e">userKey</span>]) {
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">`No </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">tier</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> user found in environment variables`</span>);
+    }
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">availableUsers</span>[<span style="color:#a6e22e">userKey</span>];
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pass</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tier</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;super&#39;</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">process.env.superpass</span> : <span style="color:#66d9ef">process.env.pass</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">email</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">pass</span>) {
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">`Missing credentials for </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">tier</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> user`</span>);
+    }
+    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">pass</span> };
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">base</span>.<span style="color:#a6e22e">extend</span>&lt;<span style="color:#f92672">AuthFx</span>&gt;({
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;base&#39;</span>, { <span style="color:#a6e22e">option</span>: <span style="color:#66d9ef">true</span> }],
+    <span style="color:#a6e22e">auth</span>: <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">page</span>, <span style="color:#a6e22e">user</span> }, <span style="color:#a6e22e">use</span>) <span style="color:#f92672">=&gt;</span> {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">loginPO</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Login</span>(<span style="color:#a6e22e">page</span>);
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">logoutPO</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Logout</span>(<span style="color:#a6e22e">page</span>);
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">doLogin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">tier?</span>: <span style="color:#66d9ef">UserTier</span>) <span style="color:#f92672">=&gt;</span> {
+            <span style="color:#75715e">// login flow: navigate, enter credentials, handle MFA, wait for login success
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// ...actual login logic goes here
+</span><span style="color:#75715e"></span>        };
+        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">use</span>({
+            <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">doLogin</span>(),
+            <span style="color:#a6e22e">loginAs</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">tier</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">doLogin</span>(<span style="color:#a6e22e">tier</span>),
+            <span style="color:#a6e22e">logout</span>: <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+                <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">logoutPO</span>.<span style="color:#a6e22e">performLogout</span>();
+            },
+        });
+    },
+});
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">expect</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">expect</span>;
+</code></pre></div><p>This class handles user discovery, assignment, login, logout, and role switching, and is designed to be extended and customized for your own Playwright E2E needs.</p>
+<hr>
+<p>Here&rsquo;s a sample test showing how to use this fixture in practice. Note that we&rsquo;ve further obfuscated the environment variable names for demonstration:</p>
+<p>Example <code>.env</code> (obfuscated):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-env" data-lang="env">APP_BASE_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://your-app-url.com&#39;</span>
+USER_A<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user1@example.com&#39;</span>
+USER_B<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user2@example.com&#39;</span>
+USER_C<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user3@example.com&#39;</span>
+ADMIN_USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;admin@example.com&#39;</span>
+USER_PASS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;YourPassword123!&#39;</span>
+ADMIN_PASS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SuperSecret!&#39;</span>
+</code></pre></div><p>Sample Playwright test:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../fixture/auth&#39;</span>;
+
+<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Admin can access dashboard&#39;</span>, <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">auth</span> }) <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">loginAs</span>(<span style="color:#e6db74">&#39;admin&#39;</span>);
+    <span style="color:#75715e">// ...test admin dashboard logic
+</span><span style="color:#75715e"></span>});
+
+<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Regular user can view profile&#39;</span>, <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">auth</span> }) <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">login</span>(); <span style="color:#75715e">// Uses the worker&#39;s assigned user
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// ...test profile logic
+</span><span style="color:#75715e"></span>});
+</code></pre></div><p>This approach keeps your tests clean and role-aware, while the fixture handles all the session and user management under the hood.</p>
+<h2 id="api-authentication-the-service-account-pattern">API Authentication: The Service Account Pattern</h2>
+<p>Another challenge we faced was authenticating our APIs in a way that worked with Auth0. For this, we had to create a dedicated &ldquo;machine-to-machine&rdquo; (M2M) or service account application in Auth0. This app is not the same as our main user-facing app—it exists solely to issue tokens for backend and automated API access.</p>
+<p>The process works like this: our test code (or backend service) sends a POST request to the Auth0 authentication server—not the main app—using the Auth0 client ID, client secret, and the correct audience for our API. Auth0 then returns a bearer token, which we can use to authenticate requests to our protected APIs.</p>
+<p>Here&rsquo;s a simplified example of how this works in code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">AUTH_SERVER_URL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/oauth/token`</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">requestBody</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">grant_type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;client_credentials&#34;</span>,
+  <span style="color:#a6e22e">client_id</span>: <span style="color:#66d9ef">process.env.API_CLIENT_ID</span>,
+  <span style="color:#a6e22e">client_secret</span>: <span style="color:#66d9ef">process.env.API_CLIENT_SECRET</span>,
+  <span style="color:#a6e22e">audience</span>: <span style="color:#66d9ef">process.env.API_AUDIENCE</span>
+};
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">url</span>, {
+  <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+  <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span> },
+  <span style="color:#a6e22e">body</span>: <span style="color:#66d9ef">JSON.stringify</span>(<span style="color:#a6e22e">requestBody</span>)
+});
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">access_token</span>;
+</code></pre></div><p>This token can then be sent as a Bearer token in the <code>Authorization</code> header of any API request. This approach is essential for automated testing and backend integrations, and it keeps your API authentication decoupled from your user-facing login flows.</p>
+<p>If you need to test user-level flows (with MFA, etc.), you can use a similar approach as shown in the <code>APILogin</code> class, but for most backend and CI/CD scenarios, the service account pattern is the way to go.</p>
+<p><em>Note: We also ended up injecting MFA (multi-factor authentication) into our flows for certain user-level tests, but that&rsquo;s a topic for another blog post on advanced Auth0 automation.</em></p>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p></article>
+</footer>
+
+</main>
+    </body>
+</html>
