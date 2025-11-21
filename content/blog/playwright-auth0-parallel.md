@@ -150,9 +150,9 @@ This approach keeps your tests clean and role-aware, while the fixture handles a
 
 ## API Authentication: The Service Account Pattern
 
-Another challenge we faced was authenticating our APIs in a way that worked with Auth0. For this, we had to create a dedicated "machine-to-machine" (M2M) or service account application in Auth0. This app is not the same as our main user-facing app—it exists solely to issue tokens for backend and automated API access.
+Another challenge we faced was authenticating our APIs in a way that worked with Auth0. For this, we had to create a dedicated "machine-to-machine" (M2M) or service account application in Auth0. This app is not the same as our main user-facing app it exists solely to issue tokens for backend and automated API access.
 
-The process works like this: our test code (or backend service) sends a POST request to the Auth0 authentication server—not the main app—using the Auth0 client ID, client secret, and the correct audience for our API. Auth0 then returns a bearer token, which we can use to authenticate requests to our protected APIs.
+The process works like this: our test code (or backend service) sends a POST request to the Auth0 authentication server not the main app using the Auth0 client ID, client secret, and the correct audience for our API. Auth0 then returns a bearer token, which we can use to authenticate requests to our protected APIs.
 
 Here's a simplified example of how this works in code:
 
