@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openvpn on Fonzi Vazquez</title>
+    <link>https://fonzi.xyz/tags/openvpn/</link>
+    <description>Recent content in Openvpn on Fonzi Vazquez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)</title>
+      <link>https://fonzi.xyz/blog/openvpn3-rust/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/openvpn3-rust/</guid>
+      <description>A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality.</description>
+    </item>
+    
+  </channel>
+</rss>

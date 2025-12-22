@@ -1,0 +1,227 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI) - Fonzi Vazquez</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:title" content="Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)" />
+<meta property="og:description" content="A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fonzi.xyz/blog/openvpn3-rust/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-12-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-12-20T00:00:00+00:00" /><meta property="og:site_name" content="Fonzi&#39;s site" />
+
+
+    
+
+    
+        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)"/>
+<meta name="twitter:description" content="A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality."/>
+
+    <link rel="stylesheet" href="/style.min.5297c96c59a52afaa5bcda4a6cedf3813081f64025c209b25b2ee6d0c8f74d462b625ad3404a92a14d7a51b4ec0a420337ae70f426fa4bce2d5f7459a3ca7274.css" integrity="sha512-UpfJbFmlKvqlvNpKbO3zgTCB9kAlwgmyWy7m0Mj3TUYrYlrTQEqSoU16UbTsCkIDN65w9Cb6S84tX3RZo8pydA==">
+
+
+
+
+
+    
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.7a2a109ec3782c57bad0332b662f8a5f41765505936b69868eb8bd5241de9daf23c388e82ca1831f6d09935013dcb9f71bfa7face3975880c1076028b7b0a6e1.js" integrity="sha512-eioQnsN4LFe60DMrZi&#43;KX0F2VQWTa2mGjri9UkHena8jw4joLKGDH20Jk1AT3Ln3G/p/rOOXWIDBB2Aot7Cm4Q=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.1673d4830ee4ce3c4c87a23698a8ec40e83a1819e6bc44d78ac9480cb517dc925b6ab17a1f1f69dd606c493532b730fad074346ee994b35d4a2f31123fad072b.js" integrity="sha512-FnPUgw7kzjxMh6I2mKjsQOg6GBnmvETXislIDLUX3JJbarF6Hx9p3WBsSTUytzD60HQ0bumUs11KLzESP60HKw=="></script>
+
+
+
+
+</head><body>
+        <main><header>
+    <div class="brand">
+        <div id="sidebar_btn">
+            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></svg>
+        </div>
+
+        <div>
+            <a href="/">Fonzi Vazquez</a>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></svg>
+            <svg id="light_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu"><ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/relay/" class="pure-menu-link">Relay</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+<div id="sidebar_canvas_overlay" class="hidden"></div>
+<div id="sidebar" class="close">
+    <ul><li>
+                    <a href="/blog/">Blog</a>
+                </li><li>
+                    <a href="/relay/">Relay</a>
+                </li><li>
+                    <a href="https://searx.fonzi.xyz">Searx</a>
+                </li><li>
+                    <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a>
+                </li></ul>
+</div><div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-context-cli-is-not-the-enemy">The Context: CLI Is Not the Enemy</a></li>
+    <li><a href="#the-evolution-from-python-to-rust">The Evolution: From Python to Rust</a></li>
+    <li><a href="#why-the-gui-wins-features-you-cant-tail">Why the GUI Wins: Features You Can&rsquo;t &quot;Tail&quot;</a></li>
+    <li><a href="#tech-stack-rust-iced-and-libcosmic">Tech Stack: Rust, Iced, and libcosmic</a></li>
+    <li><a href="#current-status">Current Status</a></li>
+    <li><a href="#where-to-find-it">Where to Find It</a></li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+<article class="line-numbers">
+    
+    
+    <h2 id="the-context-cli-is-not-the-enemy">The Context: CLI Is Not the Enemy</h2>
+<p>I like the CLI. I use the OpenVPN3 CLI regularly, and for servers or automation, it’s the correct interface. But a desktop environment is not a server, and a desktop user is not a shell script.</p>
+<p>If COSMIC is going to succeed as a serious desktop environment, common workflows need to be discoverable and visible without requiring a terminal session. VPNs are the perfect example of this gap.</p>
+<h2 id="the-evolution-from-python-to-rust">The Evolution: From Python to Rust</h2>
+<p>This project actually started as a Python/PyQt5 application. It worked well enough as a proof of concept, but it felt like a guest on the system rather than a resident.</p>
+<p><img src="https://preview.redd.it/built-a-full-openvpn3-gui-for-linux-tested-on-cosmic-live-v0-n1y15b5ssw6g1.png?width=1080&amp;crop=smart&amp;auto=webp&amp;s=27148542470967daaa3bfdfd8d1a8f787083c13b" alt="The Original Python Prototype - Functional, but the UI was a bit &lsquo;boring&rsquo;">
+<em>The initial Python/PyQt5 version. It proved the demand was there, but it didn&rsquo;t feel &lsquo;COSMIC&rsquo;.</em></p>
+<p>After sharing the prototype on r/pop_os, the feedback was clear: if I wanted it to be a true &ldquo;first-class citizen&rdquo; of the COSMIC ecosystem, I needed a more performant foundation. I decided to rewrite the entire thing in <strong>Rust using the Iced framework</strong>.</p>
+<p><img src="https://preview.redd.it/update-openvpn3-gui-now-rebuilt-in-rust-repo-link-included-v0-x5bo9zqyea7g1.png?width=1080&amp;crop=smart&amp;auto=webp&amp;s=47c52d3bba5ea9abec5d256cefa30bd891421f87" alt="The Rust/Iced Evolution - Native look and feel with better performance">
+<em>The Rust rewrite: Faster, lighter, and much closer to the modern Linux desktop aesthetic.</em></p>
+<h2 id="why-the-gui-wins-features-you-cant-tail">Why the GUI Wins: Features You Can&rsquo;t &quot;Tail&quot;</h2>
+<p>A thin wrapper shouldn&rsquo;t just replicate CLI commands; it should surface data that is tedious to track in a terminal.</p>
+<ul>
+<li><strong>Live Traffic Graph:</strong> Real-time visualization of throughput (Bytes in/out) and latency monitoring.</li>
+<li><strong>SSO &amp; 2FA Support:</strong> Handles modern authentication flows by automatically handing off to your default browser and reflecting the result in the UI.</li>
+<li><strong>Wayland Tray Integration:</strong> A functional system tray icon that works under Wayland, allowing you to monitor status without keeping the main window open.</li>
+<li><strong>Recent Configurations:</strong> A quick-access dropdown for your most used profiles, so you aren&rsquo;t hunting through directories for <code>.ovpn</code> files.</li>
+</ul>
+<h2 id="tech-stack-rust-iced-and-libcosmic">Tech Stack: Rust, Iced, and libcosmic</h2>
+<p>Choosing Rust wasn&rsquo;t about being trendy; it was about stability. The app can sit quietly in the background for days with a negligible memory footprint.</p>
+<p>Following some great feedback from the System76 team (thanks <strong>mmstick</strong>!), the project is moving toward deeper <strong>libcosmic</strong> integration. This ensures the app respects the system’s theme engine (Light/Dark mode) and handles Wayland windowing exactly how COSMIC expects.</p>
+<h2 id="current-status">Current Status</h2>
+<p>The project is currently in early alpha but is already &ldquo;daily-driver&rdquo; ready:</p>
+<ul>
+<li><strong>Connect / Disconnect</strong> with one click.</li>
+<li><strong>Real-time network stats</strong> &amp; session monitoring.</li>
+<li><strong>Log Export</strong> for when things inevitably go wrong.</li>
+<li><strong>Auto-reconnect</strong> on drop.</li>
+</ul>
+<p><em>Known quirks:</em> I&rsquo;m still refining the session persistence when the UI is closed, and the dock icon currently requires manual pinning in the alpha build of COSMIC.</p>
+<h2 id="where-to-find-it">Where to Find It</h2>
+<p>The project lives here:</p>
+<ul>
+<li><a href="https://github.com/fonzi/openvpn-gui-rust">https://github.com/fonzi/openvpn-gui-rust</a></li>
+</ul>
+<p>Feedback is welcome the scope is intentionally small to keep the project sustainable, but the goal is to make it the best VPN client for the modern Linux desktop.</p>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p></article>
+</footer>
+
+</main>
+    </body>
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)</title>
+      <link>https://fonzi.xyz/blog/openvpn3-rust/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://fonzi.xyz/blog/openvpn3-rust/</guid>
+      <description>A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality.</description>
+    </item>
+    
     <item>
       <title>Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain</title>
       <link>https://fonzi.xyz/blog/playwright-auth0-parallel/</link>
@@ -43,8 +52,8 @@ All good software has some bs. I guess all good systems have some bs as well&amp
       <guid>https://fonzi.xyz/blog/stack/</guid>
       <description>There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.
 The truth is simpler: I run two websites, analytics, and even a full search engine on a single $5/month Vultr VPS. And it works just fine.
- The VPS My entire setup lives on a $5/month Vultr instance with:
- 1 vCPU 1 GB RAM 25 GB SSD  That’s all I need.</description>
+The VPS My entire setup lives on a $5/month Vultr instance with:
+1 vCPU 1 GB RAM 25 GB SSD That’s all I need.</description>
     </item>
     
     <item>
