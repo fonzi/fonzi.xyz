@@ -1,9 +1,12 @@
 baseURL = 'https://fonzi.xyz'
-languageCode = 'en-us'
-title = "Fonzi Vazquez" # This is the site title that appears in browser tabs
+locale = 'en-us' # UPDATED: replaced languageCode
+title = "Fonzi Vazquez"
 theme = "hugo-theme-monochrome"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
+
+[markup.goldmark.renderer]
+  unsafe = true # Correct! This fixes your Map blog post
 
 [params]
   description = 'Tech rants and maybe some tutorials.'
@@ -13,42 +16,36 @@ enableRobotsTXT = true
   enable_open_graph = true
   enable_zooming_js = true
 
-  # FIX: Author must be defined as a block with a 'name' field
   [params.author]
     name = 'Fonzi Vazquez'
 
 [[menu.navbar]]
   identifier = "Blog"
   name = "Blog"
-  title = "Blog"
   url = "/blog/"
   weight = 2
 
 [[menu.navbar]]
   identifier = "Relay"
   name = "Relay"
-  title = "Relay"
   url = "/relay/"
   weight = 2
 
 [[menu.navbar]]
   identifier = "Searx"
   name = "Searx"
-  title = "Searx"
   url = "https://searx.fonzi.xyz"
   weight = 5
 
 [[menu.navbar]]
   identifier = "Tor"
   name = "Tor"
-  title = "Tor"
   url = "http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion"
   weight = 10
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
-# This is standard Hugo author info (good to keep)
 [author]
   name = "Fonzi Vazquez"
   homepage = "https://fonzi.xyz"
@@ -63,25 +60,21 @@ enableRobotsTXT = true
   minifyOutput = false
   [minify.tdewolff]
     [minify.tdewolff.css]
-      keepCSS2 = true
+      version = 2           # Changed 'css2' to the number 2
       precision = 0
     [minify.tdewolff.html]
       keepComments = false
-      keepConditionalComments = true
+      keepSpecialComments = true # Updated key name
       keepDefaultAttrVals = true
       keepDocumentTags = true
       keepEndTags = true
       keepQuotes = false
       keepWhitespace = false
     [minify.tdewolff.js]
-      keepVarNames = false
-      noNullishOperator = false
       precision = 0
     [minify.tdewolff.json]
-      keepNumbers = false
       precision = 0
     [minify.tdewolff.svg]
-      keepComments = false
       precision = 0
     [minify.tdewolff.xml]
       keepWhitespace = false

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fonzi Vazquez</title>
-    <link>https://fonzi.xyz/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>Fonzi Vazquez</managingEditor>
     <webMaster>Fonzi Vazquez</webMaster>
     
-    <lastBuildDate>Wed, 22 Jul 2026 03:05:13 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Jul 2026 03:05:13 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FreeBSD: A Complete OS?</title>
-      <link>https://fonzi.xyz/blog/freebsd/</link>
+      <link>http://localhost:1313/blog/freebsd/</link>
       <pubDate>Wed, 22 Jul 2026 03:05:13 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/freebsd/</guid>
+      <guid>http://localhost:1313/blog/freebsd/</guid>
       <description>
 
 
@@ -42,57 +42,57 @@ I don&amp;rsquo;t really care, but I do enjoy simplicity and systemd is anything
     
     <item>
       <title>Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)</title>
-      <link>https://fonzi.xyz/blog/openvpn3-rust/</link>
+      <link>http://localhost:1313/blog/openvpn3-rust/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/openvpn3-rust/</guid>
+      <guid>http://localhost:1313/blog/openvpn3-rust/</guid>
       <description>A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality.</description>
     </item>
     
     <item>
       <title>Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain</title>
-      <link>https://fonzi.xyz/blog/playwright-auth0-parallel/</link>
+      <link>http://localhost:1313/blog/playwright-auth0-parallel/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/playwright-auth0-parallel/</guid>
+      <guid>http://localhost:1313/blog/playwright-auth0-parallel/</guid>
       <description>How we built a robust Playwright auth fixture to handle Auth0&amp;rsquo;s session limitations, and why it&amp;rsquo;s worth the pain.</description>
     </item>
     
     <item>
       <title>Testing HTML5 Canvas with CanvasGrid</title>
-      <link>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</link>
+      <link>http://localhost:1313/blog/testing-canvas-with-canvasgrid/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</guid>
+      <guid>http://localhost:1313/blog/testing-canvas-with-canvasgrid/</guid>
       <description>How I built a Playwright-first library to make automated canvas testing easy, after my MapGrab integration broke.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://fonzi.xyz/relay/post6/</link>
+      <link>http://localhost:1313/relay/post6/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/relay/post6/</guid>
+      <guid>http://localhost:1313/relay/post6/</guid>
       <description>&lt;p&gt;After years of performing lead/architect-level QA work without concern for titles, but rather for the sake of learning, I started Bison Software. The surprise wasn&amp;rsquo;t the technical work; it was the taxes. There were forms to fill out with a due date of 30 days before penalties and fees ensued. The true bugs were in the paperwork.&lt;/p&gt;
 &lt;p&gt;All good software has some bs. I guess all good systems have some bs as well&amp;hellip;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Running Two Sites, Analytics, and a Search Engine on a $5 VPS</title>
-      <link>https://fonzi.xyz/blog/stack/</link>
+      <link>http://localhost:1313/blog/stack/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/stack/</guid>
+      <guid>http://localhost:1313/blog/stack/</guid>
       <description>&lt;p&gt;There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.&lt;/p&gt;
 &lt;p&gt;The truth is simpler: I run &lt;strong&gt;two websites&lt;/strong&gt;, &lt;strong&gt;analytics&lt;/strong&gt;, and even &lt;strong&gt;a full search engine&lt;/strong&gt; on a single &lt;strong&gt;$5/month Vultr VPS&lt;/strong&gt;. And it works just fine.&lt;/p&gt;
 &lt;hr&gt;
@@ -117,12 +117,12 @@ I don&amp;rsquo;t really care, but I do enjoy simplicity and systemd is anything
     
     <item>
       <title>E2E Tests For Maps</title>
-      <link>https://fonzi.xyz/blog/maps/</link>
+      <link>http://localhost:1313/blog/maps/</link>
       <pubDate>Fri, 05 Sep 2025 14:44:55 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/maps/</guid>
+      <guid>http://localhost:1313/blog/maps/</guid>
       <description>
 
 
@@ -139,72 +139,72 @@ I don&amp;rsquo;t really care, but I do enjoy simplicity and systemd is anything
 &lt;/a&gt;
 &lt;/h1&gt;
 
-&lt;p&gt;Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a &lt;!-- raw HTML omitted --&gt; you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.&lt;/p&gt;</description>
+&lt;p&gt;Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a &lt;div&gt; you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://fonzi.xyz/relay/post5/</link>
+      <link>http://localhost:1313/relay/post5/</link>
       <pubDate>Sun, 18 May 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/relay/post5/</guid>
+      <guid>http://localhost:1313/relay/post5/</guid>
       <description>&lt;p&gt;Map Testing? How do you do it? Got a blog coming soon.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://fonzi.xyz/relay/post4/</link>
+      <link>http://localhost:1313/relay/post4/</link>
       <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/relay/post4/</guid>
+      <guid>http://localhost:1313/relay/post4/</guid>
       <description>&lt;p&gt;Today felt like I was QA, PM, PO, and janitor—cleaning up a mess I didn’t make, with 7 hours to launch. And getting a non stable testing environment.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://fonzi.xyz/relay/post3/</link>
+      <link>http://localhost:1313/relay/post3/</link>
       <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/relay/post3/</guid>
+      <guid>http://localhost:1313/relay/post3/</guid>
       <description>&lt;p&gt;I almost added a like button. Then I remembered my email is at the bottom.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://fonzi.xyz/relay/post1/</link>
+      <link>http://localhost:1313/relay/post1/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/relay/post1/</guid>
+      <guid>http://localhost:1313/relay/post1/</guid>
       <description>&lt;p&gt;Debugged the upload, verified S3, wrote the curl — then got asked for my request body.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://fonzi.xyz/relay/post2/</link>
+      <link>http://localhost:1313/relay/post2/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/relay/post2/</guid>
+      <guid>http://localhost:1313/relay/post2/</guid>
       <description>&lt;p&gt;I needed a place for stray thoughts, technical friction, and half-built ideas. But not a social media.💀&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>K6</title>
-      <link>https://fonzi.xyz/blog/k6/</link>
+      <link>http://localhost:1313/blog/k6/</link>
       <pubDate>Thu, 27 Mar 2025 20:38:42 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/k6/</guid>
+      <guid>http://localhost:1313/blog/k6/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Load Testing.&lt;/strong&gt;&lt;br&gt;
 A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.&lt;/p&gt;
 &lt;p&gt;First, let’s clarify the difference between &lt;strong&gt;Load Testing&lt;/strong&gt; and &lt;strong&gt;Performance Testing&lt;/strong&gt; — they are &lt;em&gt;not&lt;/em&gt; the same thing.&lt;/p&gt;
@@ -213,12 +213,12 @@ A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s 
     
     <item>
       <title>Grafana</title>
-      <link>https://fonzi.xyz/blog/grafana/</link>
+      <link>http://localhost:1313/blog/grafana/</link>
       <pubDate>Mon, 30 Dec 2024 10:22:41 -0600</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/grafana/</guid>
+      <guid>http://localhost:1313/blog/grafana/</guid>
       <description>&lt;p&gt;Sometimes, there&amp;rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.&lt;/p&gt;
 &lt;p&gt;The Problem: No way to monitor significant deviations.&lt;/p&gt;
 &lt;p&gt;Initially, I figured it&amp;rsquo;d be cool to read directly from our data source. In this case, MongoDB. We had a simple limitation: not being in the enterprise Grafana tier nor MongoDB Enterprise, which meant we did not have a direct connection to MongoDB as a data source.&lt;/p&gt;</description>
@@ -226,12 +226,12 @@ A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s 
     
     <item>
       <title>Starlink... In the Middle of Nowhere</title>
-      <link>https://fonzi.xyz/blog/starlink/</link>
+      <link>http://localhost:1313/blog/starlink/</link>
       <pubDate>Thu, 07 Nov 2024 17:48:43 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/starlink/</guid>
+      <guid>http://localhost:1313/blog/starlink/</guid>
       <description>&lt;p&gt;Starlink. I&amp;rsquo;ve been keeping my eye on it since I first heard about it. Finally, in 2024, I had the chance to buy a unit and install it.
 In the middle of nowhere, for that matter.&lt;/p&gt;
 &lt;p&gt;I own some land in Mexico 🇲🇽, so I&amp;rsquo;ve been building a small office as a stepping stone to the full house. Since I need to visit every once in a while to make sure everything is progressing.&lt;/p&gt;</description>
@@ -239,12 +239,12 @@ In the middle of nowhere, for that matter.&lt;/p&gt;
     
     <item>
       <title>Unlocking Efficiency with Parallel Testing in Playwright</title>
-      <link>https://fonzi.xyz/blog/test-parallelization/</link>
+      <link>http://localhost:1313/blog/test-parallelization/</link>
       <pubDate>Wed, 26 Jul 2023 11:22:09 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/test-parallelization/</guid>
+      <guid>http://localhost:1313/blog/test-parallelization/</guid>
       <description>
 
 
@@ -266,12 +266,12 @@ In the middle of nowhere, for that matter.&lt;/p&gt;
     
     <item>
       <title>CTOs and QA</title>
-      <link>https://fonzi.xyz/blog/ctos-and-qa/</link>
+      <link>http://localhost:1313/blog/ctos-and-qa/</link>
       <pubDate>Sat, 24 Jun 2023 22:16:28 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/ctos-and-qa/</guid>
+      <guid>http://localhost:1313/blog/ctos-and-qa/</guid>
       <description>
 
 
@@ -293,12 +293,12 @@ In the middle of nowhere, for that matter.&lt;/p&gt;
     
     <item>
       <title>Why Modern QA Needs an Upgrade: Addressing Technical Skill Gaps</title>
-      <link>https://fonzi.xyz/blog/how-to-scale-a-qa-team/</link>
+      <link>http://localhost:1313/blog/how-to-scale-a-qa-team/</link>
       <pubDate>Thu, 04 May 2023 19:53:43 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/how-to-scale-a-qa-team/</guid>
+      <guid>http://localhost:1313/blog/how-to-scale-a-qa-team/</guid>
       <description>
 
 
@@ -320,12 +320,12 @@ In the middle of nowhere, for that matter.&lt;/p&gt;
     
     <item>
       <title>TestOps Podcast</title>
-      <link>https://fonzi.xyz/blog/testops-podcast/</link>
+      <link>http://localhost:1313/blog/testops-podcast/</link>
       <pubDate>Tue, 04 Apr 2023 09:55:59 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/testops-podcast/</guid>
+      <guid>http://localhost:1313/blog/testops-podcast/</guid>
       <description>
 
 
@@ -347,12 +347,12 @@ In the middle of nowhere, for that matter.&lt;/p&gt;
     
     <item>
       <title>Pipelining Qa in Gitlab</title>
-      <link>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</link>
+      <link>http://localhost:1313/blog/pipelining-qa-in-gitlab/</link>
       <pubDate>Mon, 06 Mar 2023 19:22:56 -0600</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</guid>
+      <guid>http://localhost:1313/blog/pipelining-qa-in-gitlab/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab.
 I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&amp;rsquo;m not sure
 if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads. So why would Gitlab continue to propagate the re-invention of the wheel? Ideally CICD makes you more productive. But if you have to keep
@@ -362,23 +362,23 @@ market place with small pieces of code that solve a very specific issue.&lt;/p&g
     
     <item>
       <title>Sprints Are Bad For Every Department in Modern Software</title>
-      <link>https://fonzi.xyz/blog/sprits-are-bad/</link>
+      <link>http://localhost:1313/blog/sprits-are-bad/</link>
       <pubDate>Tue, 07 Feb 2023 09:10:03 -0600</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/sprits-are-bad/</guid>
+      <guid>http://localhost:1313/blog/sprits-are-bad/</guid>
       <description>&lt;p&gt;Sprints. Everyone uses them it seems like. However, there is a reason why there are new ways of developing software. Sprints are waterfalls in essence. Methodologies like Kanban really outshine sprints. In modern software development where you can create infrastructure in IaC and Deploy with tools like AWS / GitHub / Pipeline. These modern tools allow you to deploy faster, which is what every company claims they want to do, but never actually break out of the mold. Now some teams do need sprints, just like some teams do need water fall. But most &amp;ldquo;modern&amp;rdquo; teams will greatly benefit from Kanban. There is no reason why there should be these massive amounts of code getting released every 2-3 weeks where you can exercise every part of the release multiple times a day.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Chatgpt and QA</title>
-      <link>https://fonzi.xyz/blog/chatgpt-and-qa/</link>
+      <link>http://localhost:1313/blog/chatgpt-and-qa/</link>
       <pubDate>Tue, 17 Jan 2023 10:54:36 -0600</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/chatgpt-and-qa/</guid>
+      <guid>http://localhost:1313/blog/chatgpt-and-qa/</guid>
       <description>
 
 
@@ -405,12 +405,12 @@ scripts that you know how to integrate. If you don&amp;rsquo;t know how to code,
     
     <item>
       <title>Why I switched to Hugo?</title>
-      <link>https://fonzi.xyz/blog/hugo-ftw/</link>
+      <link>http://localhost:1313/blog/hugo-ftw/</link>
       <pubDate>Tue, 20 Dec 2022 14:51:43 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/hugo-ftw/</guid>
+      <guid>http://localhost:1313/blog/hugo-ftw/</guid>
       <description>
 
 
@@ -434,12 +434,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>TestOps? What is that?</title>
-      <link>https://fonzi.xyz/blog/testopts-what-is-that/</link>
+      <link>http://localhost:1313/blog/testopts-what-is-that/</link>
       <pubDate>Fri, 16 Dec 2022 16:14:08 -0600</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/testopts-what-is-that/</guid>
+      <guid>http://localhost:1313/blog/testopts-what-is-that/</guid>
       <description>
 
 
@@ -461,12 +461,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>UI Automation Root Issues</title>
-      <link>https://fonzi.xyz/blog/ui-automation-root-issues/</link>
+      <link>http://localhost:1313/blog/ui-automation-root-issues/</link>
       <pubDate>Sun, 04 Sep 2022 23:55:43 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/ui-automation-root-issues/</guid>
+      <guid>http://localhost:1313/blog/ui-automation-root-issues/</guid>
       <description>
 
 
@@ -488,12 +488,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>Node IPC. Going back in time.</title>
-      <link>https://fonzi.xyz/blog/node-ipc-going-back-in-time/</link>
+      <link>http://localhost:1313/blog/node-ipc-going-back-in-time/</link>
       <pubDate>Sat, 26 Mar 2022 18:35:15 -0500</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/node-ipc-going-back-in-time/</guid>
+      <guid>http://localhost:1313/blog/node-ipc-going-back-in-time/</guid>
       <description>
 
 
@@ -515,12 +515,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>DuckDuckGo Failed Search Engine</title>
-      <link>https://fonzi.xyz/blog/dudkduckgo-failed-search-engine/</link>
+      <link>http://localhost:1313/blog/dudkduckgo-failed-search-engine/</link>
       <pubDate>Sat, 12 Mar 2022 01:05:04 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/dudkduckgo-failed-search-engine/</guid>
+      <guid>http://localhost:1313/blog/dudkduckgo-failed-search-engine/</guid>
       <description>
 
 
@@ -542,12 +542,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>Facebook down! A warning.</title>
-      <link>https://fonzi.xyz/blog/facebook-down-a-warning/</link>
+      <link>http://localhost:1313/blog/facebook-down-a-warning/</link>
       <pubDate>Sat, 09 Oct 2021 00:59:43 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/facebook-down-a-warning/</guid>
+      <guid>http://localhost:1313/blog/facebook-down-a-warning/</guid>
       <description>
 
 
@@ -569,12 +569,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>Blogging Frameworks Are Bloat</title>
-      <link>https://fonzi.xyz/blog/blogging-frameworks-are-bloat/</link>
+      <link>http://localhost:1313/blog/blogging-frameworks-are-bloat/</link>
       <pubDate>Thu, 07 Oct 2021 03:26:17 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/blogging-frameworks-are-bloat/</guid>
+      <guid>http://localhost:1313/blog/blogging-frameworks-are-bloat/</guid>
       <description>
 
 
@@ -596,12 +596,12 @@ decent blogging platform out there that is lightweight.&lt;/p&gt;
     
     <item>
       <title>Hello There</title>
-      <link>https://fonzi.xyz/blog/hello-there/</link>
+      <link>http://localhost:1313/blog/hello-there/</link>
       <pubDate>Thu, 07 Oct 2021 02:55:42 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/hello-there/</guid>
+      <guid>http://localhost:1313/blog/hello-there/</guid>
       <description>
 
 

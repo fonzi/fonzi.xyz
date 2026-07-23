@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Desktop on Fonzi Vazquez</title>
-    <link>https://fonzi.xyz/tags/desktop/</link>
+    <link>http://localhost:1313/tags/desktop/</link>
     <description>Recent content in Desktop on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>Fonzi Vazquez</managingEditor>
     <webMaster>Fonzi Vazquez</webMaster>
     
-    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/tags/desktop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/desktop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)</title>
-      <link>https://fonzi.xyz/blog/openvpn3-rust/</link>
+      <link>http://localhost:1313/blog/openvpn3-rust/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>https://fonzi.xyz/blog/openvpn3-rust/</guid>
+      <guid>http://localhost:1313/blog/openvpn3-rust/</guid>
       <description>A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality.</description>
     </item>
     
