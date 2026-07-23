@@ -2,147 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://fonzi.xyz/</loc>
     <lastmod>2026-07-22T03:05:13+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/freebsd/</loc>
+    <loc>https://fonzi.xyz/blog/freebsd/</loc>
     <lastmod>2026-07-22T03:05:13+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cosmic/</loc>
+    <loc>https://fonzi.xyz/tags/cosmic/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/desktop/</loc>
+    <loc>https://fonzi.xyz/tags/desktop/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/iced/</loc>
+    <loc>https://fonzi.xyz/tags/iced/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>https://fonzi.xyz/tags/linux/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/openvpn/</loc>
+    <loc>https://fonzi.xyz/tags/openvpn/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rust/</loc>
+    <loc>https://fonzi.xyz/tags/rust/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://fonzi.xyz/tags/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/openvpn3-rust/</loc>
+    <loc>https://fonzi.xyz/blog/openvpn3-rust/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/auth0/</loc>
+    <loc>https://fonzi.xyz/tags/auth0/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automation/</loc>
+    <loc>https://fonzi.xyz/tags/automation/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/e2e/</loc>
+    <loc>https://fonzi.xyz/tags/e2e/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/playwright-auth0-parallel/</loc>
+    <loc>https://fonzi.xyz/blog/playwright-auth0-parallel/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/playwright/</loc>
+    <loc>https://fonzi.xyz/tags/playwright/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/testing/</loc>
+    <loc>https://fonzi.xyz/tags/testing/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/canvas/</loc>
+    <loc>https://fonzi.xyz/tags/canvas/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/javascript/</loc>
+    <loc>https://fonzi.xyz/tags/javascript/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/testing-canvas-with-canvasgrid/</loc>
+    <loc>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/post6/</loc>
+    <loc>https://fonzi.xyz/relay/post6/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/</loc>
+    <loc>https://fonzi.xyz/relay/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/stack/</loc>
+    <loc>https://fonzi.xyz/blog/stack/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/maps/</loc>
+    <loc>https://fonzi.xyz/blog/maps/</loc>
     <lastmod>2025-09-05T14:44:55-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/post5/</loc>
+    <loc>https://fonzi.xyz/relay/post5/</loc>
     <lastmod>2025-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/post4/</loc>
+    <loc>https://fonzi.xyz/relay/post4/</loc>
     <lastmod>2025-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/post3/</loc>
+    <loc>https://fonzi.xyz/relay/post3/</loc>
     <lastmod>2025-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/post1/</loc>
+    <loc>https://fonzi.xyz/relay/post1/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/relay/post2/</loc>
+    <loc>https://fonzi.xyz/relay/post2/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/k6/</loc>
+    <loc>https://fonzi.xyz/blog/k6/</loc>
     <lastmod>2025-03-27T20:38:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/grafana/</loc>
+    <loc>https://fonzi.xyz/blog/grafana/</loc>
     <lastmod>2024-12-30T10:22:41-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/starlink/</loc>
+    <loc>https://fonzi.xyz/blog/starlink/</loc>
     <lastmod>2024-11-07T17:48:43+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>https://fonzi.xyz/blog/</loc>
     <lastmod>2024-06-04T00:36:26-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/test-parallelization/</loc>
+    <loc>https://fonzi.xyz/blog/test-parallelization/</loc>
     <lastmod>2023-07-26T11:22:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/ctos-and-qa/</loc>
+    <loc>https://fonzi.xyz/blog/ctos-and-qa/</loc>
     <lastmod>2023-06-24T22:16:28-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/how-to-scale-a-qa-team/</loc>
+    <loc>https://fonzi.xyz/blog/how-to-scale-a-qa-team/</loc>
     <lastmod>2023-05-04T19:53:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/testops-podcast/</loc>
+    <loc>https://fonzi.xyz/blog/testops-podcast/</loc>
     <lastmod>2023-04-04T09:55:59-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/pipelining-qa-in-gitlab/</loc>
+    <loc>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</loc>
     <lastmod>2023-03-06T19:22:56-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/sprits-are-bad/</loc>
+    <loc>https://fonzi.xyz/blog/sprits-are-bad/</loc>
     <lastmod>2023-02-07T09:10:03-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/chatgpt-and-qa/</loc>
+    <loc>https://fonzi.xyz/blog/chatgpt-and-qa/</loc>
     <lastmod>2023-01-17T10:54:36-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/hugo-ftw/</loc>
+    <loc>https://fonzi.xyz/blog/hugo-ftw/</loc>
     <lastmod>2022-12-20T14:51:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/testopts-what-is-that/</loc>
+    <loc>https://fonzi.xyz/blog/testopts-what-is-that/</loc>
     <lastmod>2022-12-16T16:14:08-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/ui-automation-root-issues/</loc>
+    <loc>https://fonzi.xyz/blog/ui-automation-root-issues/</loc>
     <lastmod>2022-09-04T23:55:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/node-ipc-going-back-in-time/</loc>
+    <loc>https://fonzi.xyz/blog/node-ipc-going-back-in-time/</loc>
     <lastmod>2022-03-26T18:35:15-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/dudkduckgo-failed-search-engine/</loc>
+    <loc>https://fonzi.xyz/blog/dudkduckgo-failed-search-engine/</loc>
     <lastmod>2022-03-12T01:05:04+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/facebook-down-a-warning/</loc>
+    <loc>https://fonzi.xyz/blog/facebook-down-a-warning/</loc>
     <lastmod>2021-10-09T00:59:43+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blogging-frameworks-are-bloat/</loc>
+    <loc>https://fonzi.xyz/blog/blogging-frameworks-are-bloat/</loc>
     <lastmod>2021-10-07T03:26:17+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/hello-there/</loc>
+    <loc>https://fonzi.xyz/blog/hello-there/</loc>
     <lastmod>2021-10-07T02:55:42+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://fonzi.xyz/categories/</loc>
   </url>
 </urlset>

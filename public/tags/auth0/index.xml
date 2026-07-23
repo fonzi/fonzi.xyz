@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Auth0 on Fonzi Vazquez</title>
-    <link>http://localhost:1313/tags/auth0/</link>
+    <link>https://fonzi.xyz/tags/auth0/</link>
     <description>Recent content in Auth0 on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>Fonzi Vazquez</managingEditor>
     <webMaster>Fonzi Vazquez</webMaster>
     
-    <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/auth0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/tags/auth0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain</title>
-      <link>http://localhost:1313/blog/playwright-auth0-parallel/</link>
+      <link>https://fonzi.xyz/blog/playwright-auth0-parallel/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       
       <author>Fonzi Vazquez</author>
-      <guid>http://localhost:1313/blog/playwright-auth0-parallel/</guid>
+      <guid>https://fonzi.xyz/blog/playwright-auth0-parallel/</guid>
       <description>How we built a robust Playwright auth fixture to handle Auth0&amp;rsquo;s session limitations, and why it&amp;rsquo;s worth the pain.</description>
     </item>
     
