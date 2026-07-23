@@ -1,0 +1,613 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='http://localhost:1313/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreeBSD: A Complete OS? - Fonzi Vazquez</title>
+    <meta name="description" content="*BSD is pretty great. Who knew?" />
+    
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:url" content="http://localhost:1313/blog/freebsd/">
+	<meta property="og:site_name" content="Fonzi Vazquez">
+	<meta property="og:title" content="FreeBSD: A Complete OS?">
+	<meta property="og:description" content="*BSD is pretty great. Who knew?">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-07-22T03:05:13+00:00">
+		<meta property="article:modified_time" content="2026-07-22T03:05:13+00:00">
+
+    
+
+    
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="FreeBSD: A Complete OS?">
+	<meta name="twitter:description" content="*BSD is pretty great. Who knew?">
+
+    <link rel="stylesheet" href="/style.css" integrity="">
+
+
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'light';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/theme-switch.js" integrity=""></script>
+
+
+
+    <script defer src="/js/hide-navbar-on-scroll.js" integrity=""></script>
+
+
+
+
+
+    <script defer src="/js/zooming.js" integrity=""></script>
+
+
+
+
+
+
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.js" integrity=""></script>
+        
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.js" integrity=""></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/blog/">Blog</a></li><li>
+                                <a href="/relay/">Relay</a></li><li>
+                                <a href="https://searx.fonzi.xyz">Searx</a></li><li>
+                                <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a></li></ul>
+                </div>
+            </div>
+        
+            <div class="brand">
+                <div>
+                    <a href="/">Fonzi Vazquez</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="header-menu-item pure-menu-item ">
+                    
+                        <a href="/relay/" class="pure-menu-link">Relay</a>
+                    
+                </li><li class="header-menu-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="header-menu-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    
+        
+        <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#freebsd">FreeBSD</a></li>
+    <li><a href="#why-its-awesome">Why it&rsquo;s awesome</a>
+      <ul>
+        <li><a href="#scripting-the-magic">Scripting the magic</a></li>
+        <li><a href="#bsd-apps">*BSD Apps</a></li>
+        <li><a href="#freebsd-documentation">FreeBSD Documentation</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-not-so-awesome">The not so awesome.</a></li>
+    <li><a href="#the-logo">The Logo.</a></li>
+    <li><a href="#will-i-switch-to-bsd">Will I switch to *BSD?</a>
+      <ul>
+        <li><a href="#performance">Performance</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+    
+
+
+
+    <div class="content-margin">
+
+
+
+
+<article class="line-numbers">
+    
+    
+
+    
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="freebsd">
+
+
+<h2 class="header-anchor-wrapper">FreeBSD
+  <a href="#freebsd" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h2>
+
+<p>I have known about BSD ever since I got into GNU/Linux. I remember going and trying BSD and different Linux Distros and even SUN systems. Just looking at how things worked. This was about a decade ago&hellip;</p>
+<p>I think there is a revival of more niche OS&rsquo;s since GNU/Linux is splintered in more than 1 way. But the largest debate by far is systemd.
+There are two camps. Those that enjoy systemd (or don&rsquo;t care) and those that don&rsquo;t like systemd.
+I don&rsquo;t really care, but I do enjoy simplicity and systemd is anything but. I did look at VOID Linux. Which does get rid of systemd, but then I thought, why not try a *BSD?</p>
+<p>So I did. And here we are. Turns out installing it was pretty easy on a Thinkpad X230.
+I&rsquo;m using it as my daily driver now for my netbook that I toss around, not my main laptop.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="why-its-awesome">
+
+
+<h2 class="header-anchor-wrapper">Why it&rsquo;s awesome
+  <a href="#why-its-awesome" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h2>
+
+<p>First, Why FreeBSD and not OpenBSD. Well my first exposure to a desktop OS running BSD when starting this project, was actually NomadBSD a great way to try it out. I tried it, runs XFCE which is great and figured I might as well try the other ones.</p>
+<p>Besides the cool logo of FreeBSD, it has a built in feature that I really enjoy and need. JAILS.</p>
+<p>That&rsquo;s right, how cool is it that I can keep daemons in Jails? Also it has Linuxulator. Which allowed me to set up this netbook as a daily driver.</p>
+<p>The biggest issue I have with BSD systems is that I&rsquo;m deep into GNU/Linux and protonmail. Protonmail has a bridge which allows communication between their servers and a desktop email client that is encrypted and secure. However, protonmail does not have a BSD installer. Only GNU/Linux. This is where Linuxulator comes in.</p>
+<p>So, I needed GNU/Linux on BSD, so I went ahead and setup a Ubuntu Jail at <code>/compat/ubuntu</code>, thinking that would be enough and quick. It wasn&rsquo;t. The default FreeBSD linux jail, is a lightweight. Turns out that protonmail bridge is bloat (LOL). I did pull the deb file into the jail and it failed to install with a bunch of missing libraries. After a quick search, turns out that I could just add more items to the <code>sources.list</code> to get the full Ubuntu experience (so I did, even though I&rsquo;m sure there is a better way to do this). I went ahead and added the full archives (Universe, Multiverse, and Restricted) just to get the deb file to compile and install.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chroot /compat/ubuntu /bin/bash <span style="color:#75715e"># drops you into the jail instance</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>root@x230:/# cat /etc/apt/sources.list 
+</span></span><span style="display:flex;"><span>deb http://archive.ubuntu.com/ubuntu jammy main
+</span></span><span style="display:flex;"><span>deb http://archive.ubuntu.com/ubuntu jammy main universe multiverse restricted
+</span></span><span style="display:flex;"><span>deb http://archive.ubuntu.com/ubuntu jammy-updates main universe multiverse restricted
+</span></span><span style="display:flex;"><span>deb http://archive.ubuntu.com/ubuntu jammy-security main universe multiverse restricted
+</span></span></code></pre></div><p>I spent the next few hours trying to figure out why proton bridge cli would quit when I threw it on a script to auto-start on boot. Turns out that protonmail bridge cli, is waiting on a terminal session to be opened. So having it through a script it would always crash. I even tried having a TMUX instance auto start, but I still had to open the terminal and switch over to the jail and continue before I could get my emails flowing into Thunderbird/Betterbird.</p>
+<p>So why did I need bridge? Why not use Hydroxide like everyone else in *BSD, well because I have split emails through proton: @fonzi.xyz @bison.software @protonmail. I need these to be compartmentalized. I then can decide which domain to listen and get notifications for, I can pick one domain and just mute the rest. Hydroxide does not offer domain splitting, plus if I&rsquo;ve learned anything the most likely hacks done in third parties apps, that use an upstream service and leaks happen. So I had to find a real solution.</p>
+<p>Finally, after hours of pulling my hair, and staying up until 4:00AM. I found a small reddit thread. by the user <a href="https://www.reddit.com/r/ProtonMail/comments/1mj1dn3/success_running_protonmail_bridge_headless_on/">u/Salonique</a>. The function he found is amazing. Turns out that there is a tool called <code>unbuffer</code> which is part of the <code>expect</code> package. <code>apt install expect</code>. Finally I got the bridge to listen to a pseudo terminal that would auto start and not crash. I did strip the passphrase of the GPG key so that the bridge can self start. It&rsquo;s on local and not a server so i&rsquo;m not too worried about not having a passphrase there. I ended up writing a quick script and added it to the <code>rc.conf</code> and it auto boots now quietly.</p>
+<p>Now, I&rsquo;m 100% automated. But the irony isn&rsquo;t lost on me: I moved to FreeBSD to not use linux, only to spend hours to put linux in a Jail and an app running inside that cage. But now I have an inbox that I can use and mute on any of the domains. And it&rsquo;s all running on a 12 year old Thinkpad. That should say how awesome the virtualization of a jail is and how much more superior it is than docker for this use case.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="scripting-the-magic">
+
+
+<h3 class="header-anchor-wrapper">Scripting the magic
+  <a href="#scripting-the-magic" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h3>
+
+<p>In the example below you can spot the <code>unbuffer</code> command working it&rsquo;s magic. And to get this script working, all that is needed is to add the following line in <code>rc.conf</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Protonmail Bridge</span>
+</span></span><span style="display:flex;"><span>protonbridge_enable<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YES&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fonzi@x230:~ $ cat /usr/local/etc/rc.d/protonbridge 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PROVIDE: protonbridge</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># REQUIRE: LOGIN DAEMON NETWORKING linux</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># KEYWORD: shutdown</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>. /etc/rc.subr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;protonbridge&#34;</span>
+</span></span><span style="display:flex;"><span>rcvar<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;protonbridge_enable&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>load_rc_config $name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>: <span style="color:#e6db74">${</span>protonbridge_enable:=<span style="color:#e6db74">&#34;NO&#34;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># --- Configuration ---</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Trying &#39;proton-bridge&#39; which is often the main engine binary</span>
+</span></span><span style="display:flex;"><span>REAL_BINARY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/lib/protonmail/bridge/proton-bridge&#34;</span>
+</span></span><span style="display:flex;"><span>JAIL_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/compat/ubuntu&#34;</span>
+</span></span><span style="display:flex;"><span>pidfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/run/</span><span style="color:#e6db74">${</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">.pid&#34;</span>
+</span></span><span style="display:flex;"><span>logfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/protonbridge.log&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bridge_start<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Starting Protonmail Bridge engine...&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># -o captures the output to our log file</span>
+</span></span><span style="display:flex;"><span>    /usr/sbin/daemon -f -p <span style="color:#e6db74">${</span>pidfile<span style="color:#e6db74">}</span> -o <span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        /usr/sbin/chroot <span style="color:#e6db74">${</span>JAIL_PATH<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        /usr/bin/env HOME<span style="color:#f92672">=</span>/root TERM<span style="color:#f92672">=</span>xterm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        /usr/bin/unbuffer <span style="color:#e6db74">${</span>REAL_BINARY<span style="color:#e6db74">}</span> --cli --no-window
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bridge_stop<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Stopping Proton Mail Bridge...&#34;</span>
+</span></span><span style="display:flex;"><span>    pkill -f <span style="color:#e6db74">&#34;proton-bridge&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span> -f <span style="color:#e6db74">${</span>pidfile<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm <span style="color:#e6db74">${</span>pidfile<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start_cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bridge_start&#34;</span>
+</span></span><span style="display:flex;"><span>stop_cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bridge_stop&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>run_rc_command <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div></section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="bsd-apps">
+
+
+<h3 class="header-anchor-wrapper">*BSD Apps
+  <a href="#bsd-apps" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h3>
+
+<p>Another great thing about FreeBSD is that there is software ports. Basically, a bunch of GNU/Linux apps have been ported over to BSD, and they work mostly out of the box. There are some that fail, such as <code>vscode</code>. Which I had to manually compile on the thinkpad. <strong>Only took about 24 hours.</strong> Due to electron, but got it working. Now this blog entry was written in FreeBSD and VSCode.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="freebsd-documentation">
+
+
+<h3 class="header-anchor-wrapper">FreeBSD Documentation
+  <a href="#freebsd-documentation" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h3>
+
+<p>By far, the best part of FreeBSD, it has to be stated, the best kept-secret. DOCUMENTATION, glorious documentation. I read through the docs, felt like I was an expert, clearly not. But take into account what I accomplished in the first 8 hours of FreeBSD (and of course having linux knowledge helped a lot). Installed the OS, setup XFCE, setup most packages I need, setup the proton bridge fiasco from above, and started to compile VSCode and installed hugo ahead of time to generate the HTML for this site itself. That was all thanks to the documentation. What other OS can you hop on and learn about how it all works from top to bottom in a single documentation source? That&rsquo;s the real power behind a single dev team behind a full OS not just a kernel. And the package manager? <code>pkg install {insert name}</code> this looks for ports too if you set that up.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="the-not-so-awesome">
+
+
+<h2 class="header-anchor-wrapper">The not so awesome.
+  <a href="#the-not-so-awesome" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h2>
+
+<p>Well, like everything it has pros and cons, what don&rsquo;t i like about FreeBSD, well to be honest. It&rsquo;s an OS that is a lot smaller, so many hardware limitation still exists, it&rsquo;s not like linux where any machine will just work out of the box. Sure you can get it working, but if you&rsquo;re not into tech and tinkering or running a server, then yeah that is a downside.</p>
+<p>Another thing. Once you get used to sudo in linux it&rsquo;s a bit jarring to have to hop into the root account with <code>su -</code> every time to do anything, although I think there is a way to do sudo, I have just not set it up, but i&rsquo;m trying to do it the *BSD way.</p>
+<p>I do know that there is a <code>doas</code> option, however, it&rsquo;s not configured by default? At least not on my install, maybe I missed something.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="the-logo">
+
+
+<h2 class="header-anchor-wrapper">The Logo.
+  <a href="#the-logo" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h2>
+
+<p>Yep, I like their logo so much, I figured it required it required own small section. How cool is it to see a fun little devil that does the work behind the OS. And his name is <code>Beastie</code> how cool is that lore behind <code>daemons</code> in computing. If you know you know.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>               ,        ,
+</span></span><span style="display:flex;"><span>              /<span style="color:#f92672">(</span>        <span style="color:#f92672">)</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#ae81ff">\ \_</span>__   / |
+</span></span><span style="display:flex;"><span>              /- _  <span style="color:#e6db74">`</span>-/  <span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">             (/\/ \ \   /\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">             / /   | `    \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">             O O   ) /    |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">             `-^--&#39;</span><span style="color:#e6db74">`</span>&lt;     <span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            (_.)  _  )   /
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">             `.___/`    /
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               `-----&#39;</span> /
+</span></span><span style="display:flex;"><span>  &lt;----.     __ / __   <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  &lt;----|<span style="color:#f92672">====</span>O<span style="color:#f92672">)))==)</span> <span style="color:#ae81ff">\)</span> /<span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span>  &lt;----<span style="color:#e6db74">&#39;    `--&#39;</span> <span style="color:#e6db74">`</span>.__,<span style="color:#e6db74">&#39; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               |        |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                \       /
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           ______( (_  / \______
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  (FL)   ,&#39;</span>  ,-----<span style="color:#960050;background-color:#1e0010">&#39;</span>   |        <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>         <span style="color:#e6db74">`</span>--<span style="color:#f92672">{</span>__________<span style="color:#f92672">)</span>        <span style="color:#ae81ff">\/</span>   <span style="color:#e6db74">&#34;Berkeley Unix Daemon&#34;</span>
+</span></span></code></pre></div><p><img src="https://i.ibb.co/spw8bQBc/PXL-20260723-131126293-2.jpg" alt="Thinkpad x230"></p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="will-i-switch-to-bsd">
+
+
+<h2 class="header-anchor-wrapper">Will I switch to *BSD?
+  <a href="#will-i-switch-to-bsd" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h2>
+
+<p>I&rsquo;m not sure yet. But everything is pointing to a yes. I have been curious about other OS&rsquo;s other than just GNU/Linux. However I still very much enjoy GNU/LINUX. I will more than likely continue testing the OS and see if I run into any other bottle necks. There is something magical about getting an OS and figuring out how things work and doing it yourself. Such as the protonmail bridge stuff above. It reminds me of 2008/2009 when I got my first Ubuntu CD in the mail from the UK directly from Canonical. Not everything was fully figured out and doing it yourself keeps the spirit of learning and tinkering alive and well after all these years.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="performance">
+
+
+<h3 class="header-anchor-wrapper">Performance
+  <a href="#performance" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h3>
+
+<p>It&rsquo;s worth considering how well *BSD performs on this thinkpad. I am running apps that require very little resources. VSCode is the heaviest I&rsquo;d say. So here&rsquo;s a btop screenshot at idle. You can see that there&rsquo;s barely any resources getting used. We&rsquo;ll see how it holds as the system grows and then it&rsquo;ll most likley be bad app development instead of the OS&rsquo;s itself.<br>
+<img src="https://i.ibb.co/1fWbP00W/Screenshot-2026-07-23-16-26-28.png" alt="BTOP"></p>
+</section>
+    
+</article>
+</div>
+
+
+                
+                    
+                
+
+                
+            </div>
+        </main>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p></article>
+</footer>
+
+</body>
+</html>

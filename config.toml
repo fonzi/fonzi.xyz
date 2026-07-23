@@ -1,64 +1,57 @@
 baseURL = 'https://fonzi.xyz'
 languageCode = 'en-us'
-title = 'Fonzi Vazquez'
+title = "Fonzi Vazquez" # This is the site title that appears in browser tabs
 theme = "hugo-theme-monochrome"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
+
 [params]
-footer = '<p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p>'
-menu = 'main'
-enable_site_search = true # default: false
-enable_open_graph = true # default: true
-enable_zooming_js = true # default: true
-author = 'Fonzi Vazquez'
-description = 'Tech rants and maybe some tutorials.'
-title = "Fonzi's site"
-[[menu.navbar]]
-identifier = "Blog"
-name = "Blog"
-title = "Blog"
-url = "/blog/"
-weight = 2
-#[[menu.navbar]]
-#identifier = "About"
-#name = "About"
-#title = "About"
-#url = "/about/"
-#weight = 3
-#[[menu.navbar]]
-#identifier = "Tutorials"
-#name = "Tutorials"
-#title = "Tutorials"
-#url = "/tutorials/"
-#weight = 4
+  description = 'Tech rants and maybe some tutorials.'
+  footer = '<p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p>'
+  menu = 'main'
+  enable_site_search = true
+  enable_open_graph = true
+  enable_zooming_js = true
+
+  # FIX: Author must be defined as a block with a 'name' field
+  [params.author]
+    name = 'Fonzi Vazquez'
 
 [[menu.navbar]]
-identifier = "Relay"
-name = "Relay"
-title = "Relay"
-url = "/relay/"
-weight = 2
-[[menu.navbar]]
-identifier = "Searx"
-name = "Searx"
-title = "Searx"
-url = "https://searx.fonzi.xyz"
-weight = 5
+  identifier = "Blog"
+  name = "Blog"
+  title = "Blog"
+  url = "/blog/"
+  weight = 2
 
 [[menu.navbar]]
-identifier = "Tor"
-name = "Tor"
-title = "Tor"
-url = "http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion"
-weight = 10
+  identifier = "Relay"
+  name = "Relay"
+  title = "Relay"
+  url = "/relay/"
+  weight = 2
+
+[[menu.navbar]]
+  identifier = "Searx"
+  name = "Searx"
+  title = "Searx"
+  url = "https://searx.fonzi.xyz"
+  weight = 5
+
+[[menu.navbar]]
+  identifier = "Tor"
+  name = "Tor"
+  title = "Tor"
+  url = "http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion"
+  weight = 10
 
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON"]
 
+# This is standard Hugo author info (good to keep)
 [author]
-name = "Fonzi Vazquez"
-homepage = "https://fonzi.xyz"
-
+  name = "Fonzi Vazquez"
+  homepage = "https://fonzi.xyz"
 
 [minify]
   disableCSS = false
@@ -92,4 +85,3 @@ homepage = "https://fonzi.xyz"
       precision = 0
     [minify.tdewolff.xml]
       keepWhitespace = false
-

@@ -2,229 +2,557 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Fonzi Vazquez</title>
-    <link>https://fonzi.xyz/blog/</link>
+    <link>http://localhost:1313/blog/</link>
     <description>Recent content in Blog on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Jun 2024 00:36:26 -0500</lastBuildDate><atom:link href="https://fonzi.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>Fonzi Vazquez</managingEditor>
+    <webMaster>Fonzi Vazquez</webMaster>
+    
+    <lastBuildDate>Tue, 04 Jun 2024 00:36:26 -0500</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD: A Complete OS?</title>
+      <link>http://localhost:1313/blog/freebsd/</link>
+      <pubDate>Wed, 22 Jul 2026 03:05:13 +0000</pubDate>
+      
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/freebsd/</guid>
+      <description>
+
+
+&lt;h2 class=&#34;header-anchor-wrapper&#34;&gt;FreeBSD
+  &lt;a href=&#34;#freebsd&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;So I have seen FreeBSD ever since I got into GNU/Linux. I remember going and trying BSD and
+different Linux Distros and even SUN systems. Just looking at how things worked. This was about a decade ago&amp;hellip;&lt;/p&gt;
+&lt;p&gt;I think there is a revival of more niche OS&amp;rsquo;s since GNU/Linux is splintered.
+There are two camps. Those that enjoy systemd (or don&amp;rsquo;t care) and those that don&amp;rsquo;t like systemd.
+I don&amp;rsquo;t really care, but I do enjoy simplicity and systemd is anything but. I did look at VOID Linux. Which does get rid of systemd, but then I thought, why not try a *BSD?&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Why I Built a COSMIC-Native OpenVPN3 GUI (Even Though I Like the CLI)</title>
-      <link>https://fonzi.xyz/blog/openvpn3-rust/</link>
+      <link>http://localhost:1313/blog/openvpn3-rust/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/openvpn3-rust/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/openvpn3-rust/</guid>
       <description>A pragmatic take on why desktop Linux needs first-class apps, even when the CLI already works—and how community feedback turned a Python prototype into a Rust reality.</description>
     </item>
     
     <item>
       <title>Parallel Playwright Auth: Surviving Auth0&#39;s Session Pain</title>
-      <link>https://fonzi.xyz/blog/playwright-auth0-parallel/</link>
+      <link>http://localhost:1313/blog/playwright-auth0-parallel/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/playwright-auth0-parallel/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/playwright-auth0-parallel/</guid>
       <description>How we built a robust Playwright auth fixture to handle Auth0&amp;rsquo;s session limitations, and why it&amp;rsquo;s worth the pain.</description>
     </item>
     
     <item>
       <title>Testing HTML5 Canvas with CanvasGrid</title>
-      <link>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</link>
+      <link>http://localhost:1313/blog/testing-canvas-with-canvasgrid/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/testing-canvas-with-canvasgrid/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/testing-canvas-with-canvasgrid/</guid>
       <description>How I built a Playwright-first library to make automated canvas testing easy, after my MapGrab integration broke.</description>
     </item>
     
     <item>
       <title>Running Two Sites, Analytics, and a Search Engine on a $5 VPS</title>
-      <link>https://fonzi.xyz/blog/stack/</link>
+      <link>http://localhost:1313/blog/stack/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/stack/</guid>
-      <description>There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.
-The truth is simpler: I run two websites, analytics, and even a full search engine on a single $5/month Vultr VPS. And it works just fine.
-The VPS My entire setup lives on a $5/month Vultr instance with:
-1 vCPU 1 GB RAM 25 GB SSD That’s all I need.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/stack/</guid>
+      <description>&lt;p&gt;There’s a myth you need heavy infrastructure to run real projects online. Kubernetes clusters, managed cloud services, and expensive bills often get presented as the “default” for hosting anything serious.&lt;/p&gt;
+&lt;p&gt;The truth is simpler: I run &lt;strong&gt;two websites&lt;/strong&gt;, &lt;strong&gt;analytics&lt;/strong&gt;, and even &lt;strong&gt;a full search engine&lt;/strong&gt; on a single &lt;strong&gt;$5/month Vultr VPS&lt;/strong&gt;. And it works just fine.&lt;/p&gt;
+&lt;hr&gt;
+
+
+
+&lt;h2 class=&#34;header-anchor-wrapper&#34;&gt;The VPS
+  &lt;a href=&#34;#the-vps&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;My entire setup lives on a $5/month Vultr instance with:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>E2E Tests For Maps</title>
-      <link>https://fonzi.xyz/blog/maps/</link>
+      <link>http://localhost:1313/blog/maps/</link>
       <pubDate>Fri, 05 Sep 2025 14:44:55 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/maps/</guid>
-      <description>Testing Interactive Maps with Playwright and MapGrab Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.
-I recently built an automated test suite for map views using Playwright together with the MapGrab</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/maps/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Testing Interactive Maps with Playwright and MapGrab
+  &lt;a href=&#34;#testing-interactive-maps-with-playwright-and-mapgrab&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;Maps are some of the trickiest UI components to test. They’re dynamic, data-driven, and highly interactive. Unlike static DOM elements, a map tile or layer isn’t just a &lt;!-- raw HTML omitted --&gt; you can click(). You need to assert visibility on a canvas, zoom to a region, and sometimes even intercept the map’s internal events.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>K6</title>
-      <link>https://fonzi.xyz/blog/k6/</link>
+      <link>http://localhost:1313/blog/k6/</link>
       <pubDate>Thu, 27 Mar 2025 20:38:42 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/k6/</guid>
-      <description>Load Testing.
-A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.
-First, let’s clarify the difference between Load Testing and Performance Testing — they are not the same thing.
-Load Testing – Literally overload your system to simulate peak and worst-case user influx scenarios. You could say that load testing is a subset of performance testing.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/k6/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Load Testing.&lt;/strong&gt;&lt;br&gt;
+A somewhat challenging subject for most QAs I’ve worked with. Usually, it’s ignored or done incorrectly due to a misunderstanding of what it actually means.&lt;/p&gt;
+&lt;p&gt;First, let’s clarify the difference between &lt;strong&gt;Load Testing&lt;/strong&gt; and &lt;strong&gt;Performance Testing&lt;/strong&gt; — they are &lt;em&gt;not&lt;/em&gt; the same thing.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Load Testing&lt;/strong&gt; – Literally overload your system to simulate peak and worst-case user influx scenarios. You could say that load testing is a subset of performance testing.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Grafana</title>
-      <link>https://fonzi.xyz/blog/grafana/</link>
+      <link>http://localhost:1313/blog/grafana/</link>
       <pubDate>Mon, 30 Dec 2024 10:22:41 -0600</pubDate>
       
-      <guid>https://fonzi.xyz/blog/grafana/</guid>
-      <description>Sometimes, there&amp;rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.
-The Problem: No way to monitor significant deviations.
-Initially, I figured it&amp;rsquo;d be cool to read directly from our data source.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/grafana/</guid>
+      <description>&lt;p&gt;Sometimes, there&amp;rsquo;s a need for QA to monitor data. This has been an interesting challenge in recent years, where entire ETL pipeline monitoring tools have emerged. We recently had an incident at work where some of our users were dropping properties (most likely due to human error). We still wanted to catch and alert on significant deviations.&lt;/p&gt;
+&lt;p&gt;The Problem: No way to monitor significant deviations.&lt;/p&gt;
+&lt;p&gt;Initially, I figured it&amp;rsquo;d be cool to read directly from our data source. In this case, MongoDB. We had a simple limitation: not being in the enterprise Grafana tier nor MongoDB Enterprise, which meant we did not have a direct connection to MongoDB as a data source.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Starlink... In the Middle of Nowhere</title>
-      <link>https://fonzi.xyz/blog/starlink/</link>
+      <link>http://localhost:1313/blog/starlink/</link>
       <pubDate>Thu, 07 Nov 2024 17:48:43 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/starlink/</guid>
-      <description>Starlink. I&amp;rsquo;ve been keeping my eye on it since I first heard about it. Finally, in 2024, I had the chance to buy a unit and install it. In the middle of nowhere, for that matter.
-I own some land in Mexico 🇲🇽, so I&amp;rsquo;ve been building a small office as a stepping stone to the full house. Since I need to visit every once in a while to make sure everything is progressing.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/starlink/</guid>
+      <description>&lt;p&gt;Starlink. I&amp;rsquo;ve been keeping my eye on it since I first heard about it. Finally, in 2024, I had the chance to buy a unit and install it.
+In the middle of nowhere, for that matter.&lt;/p&gt;
+&lt;p&gt;I own some land in Mexico 🇲🇽, so I&amp;rsquo;ve been building a small office as a stepping stone to the full house. Since I need to visit every once in a while to make sure everything is progressing.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Unlocking Efficiency with Parallel Testing in Playwright</title>
-      <link>https://fonzi.xyz/blog/test-parallelization/</link>
+      <link>http://localhost:1313/blog/test-parallelization/</link>
       <pubDate>Wed, 26 Jul 2023 11:22:09 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/test-parallelization/</guid>
-      <description>Parallel Testing in Playwright Software testing is a critical aspect of the development process, ensuring that applications function as expected and meet the required quality standards. However, as projects grow in complexity, the test suite can become time-consuming to execute, leading to longer feedback loops and delayed releases. To overcome this challenge, developers turn to parallel testing, a technique that distributes test execution across multiple machines or processes simultaneously. In this blog, we explore how Playwright, a powerful end-to-end testing framework, enables developers to implement and monitor parallel testing for faster, more efficient testing workflows.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/test-parallelization/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Parallel Testing in Playwright
+  &lt;a href=&#34;#parallel-testing-in-playwright&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;Software testing is a critical aspect of the development process, ensuring that applications function as expected and meet the required quality standards. However, as projects grow in complexity, the test suite can become time-consuming to execute, leading to longer feedback loops and delayed releases. To overcome this challenge, developers turn to parallel testing, a technique that distributes test execution across multiple machines or processes simultaneously. In this blog, we explore how Playwright, a powerful end-to-end testing framework, enables developers to implement and monitor parallel testing for faster, more efficient testing workflows.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>CTOs and QA</title>
-      <link>https://fonzi.xyz/blog/ctos-and-qa/</link>
+      <link>http://localhost:1313/blog/ctos-and-qa/</link>
       <pubDate>Sat, 24 Jun 2023 22:16:28 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/ctos-and-qa/</guid>
-      <description>The Relationship that needs to happen The relationship between QA and upper management in the software industry is often overlooked, yet it holds significant importance. While QA is typically placed under the umbrella of the engineering department, there is a strong case for QA to have its own VP who can provide dedicated leadership and representation. This separation allows for a more balanced decision-making process that considers both the engineering and QA perspectives.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/ctos-and-qa/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;The Relationship that needs to happen
+  &lt;a href=&#34;#the-relationship-that-needs-to-happen&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;The relationship between QA and upper management in the software industry is often overlooked, yet it holds significant importance. While QA is typically placed under the umbrella of the engineering department, there is a strong case for QA to have its own VP who can provide dedicated leadership and representation. This separation allows for a more balanced decision-making process that considers both the engineering and QA perspectives.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Why Modern QA Needs an Upgrade: Addressing Technical Skill Gaps</title>
-      <link>https://fonzi.xyz/blog/how-to-scale-a-qa-team/</link>
+      <link>http://localhost:1313/blog/how-to-scale-a-qa-team/</link>
       <pubDate>Thu, 04 May 2023 19:53:43 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/how-to-scale-a-qa-team/</guid>
-      <description>Why does modern QA Suck? For nearly a decade, I have been working in Quality Assurance (QA), and I have observed an endemic issue in the QA community: a lack of technical expertise. While there are undoubtedly skilled QA professionals out there, many QA teams struggle with basic technical concepts and practices. In this blog post, we&amp;rsquo;ll explore the common technical skill gaps in QA, why these gaps exist, and how we can start addressing them to elevate the QA industry as a whole.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/how-to-scale-a-qa-team/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Why does modern QA Suck?
+  &lt;a href=&#34;#why-does-modern-qa-suck&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;For nearly a decade, I have been working in Quality Assurance (QA), and I have observed an endemic issue in the QA community: a lack of technical expertise. While there are undoubtedly skilled QA professionals out there, many QA teams struggle with basic technical concepts and practices. In this blog post, we&amp;rsquo;ll explore the common technical skill gaps in QA, why these gaps exist, and how we can start addressing them to elevate the QA industry as a whole.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>TestOps Podcast</title>
-      <link>https://fonzi.xyz/blog/testops-podcast/</link>
+      <link>http://localhost:1313/blog/testops-podcast/</link>
       <pubDate>Tue, 04 Apr 2023 09:55:59 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/testops-podcast/</guid>
-      <description>I was in a podcast. Somehow. First, I want to thank Ruslan Akhmetzianov from QAMeta for inviting me over. If you have not heard of QAMeta, you&amp;rsquo;ve most likely heard of Allure, as I talk about it quite a bit.
-Feel free to listen to the podcast and share your opinions with me. Did I make a fool out of myself? Did I say enough? Not enough?
-Well, either way, this is one big step in a good direction for the testing industry and QA, as well as for myself.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/testops-podcast/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;I was in a podcast. Somehow.
+  &lt;a href=&#34;#i-was-in-a-podcast-somehow&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;First, I want to thank Ruslan Akhmetzianov from QAMeta for inviting me over. If you have not heard of QAMeta, you&amp;rsquo;ve most likely heard of Allure, as I talk about it quite a bit.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Pipelining Qa in Gitlab</title>
-      <link>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</link>
+      <link>http://localhost:1313/blog/pipelining-qa-in-gitlab/</link>
       <pubDate>Mon, 06 Mar 2023 19:22:56 -0600</pubDate>
       
-      <guid>https://fonzi.xyz/blog/pipelining-qa-in-gitlab/</guid>
-      <description>It&amp;rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab. I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&amp;rsquo;m not sure if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/pipelining-qa-in-gitlab/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been about 3 months that I switched from Github over to Gitlab. At my previous job. I had to use github actions for pipeline. Now I use Gitlab.
+I can honestly say that Github is 100 times better and more intuative on how it works. As well as the market place is a great resource. I&amp;rsquo;m not sure
+if Gitlab has something like that built into their roadmap. However, I keep writing code that I know other people have solved, because I find it in gitlab threads. So why would Gitlab continue to propagate the re-invention of the wheel? Ideally CICD makes you more productive. But if you have to keep
+writing custom code that other people have solved. Even if it just takes 30 minutes to look up, copy, paste and run, it would still be faster to have a
+market place with small pieces of code that solve a very specific issue.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Sprints Are Bad For Every Department in Modern Software</title>
-      <link>https://fonzi.xyz/blog/sprits-are-bad/</link>
+      <link>http://localhost:1313/blog/sprits-are-bad/</link>
       <pubDate>Tue, 07 Feb 2023 09:10:03 -0600</pubDate>
       
-      <guid>https://fonzi.xyz/blog/sprits-are-bad/</guid>
-      <description>Sprints. Everyone uses them it seems like. However, there is a reason why there are new ways of developing software. Sprints are waterfalls in essence. Methodologies like Kanban really outshine sprints. In modern software development where you can create infrastructure in IaC and Deploy with tools like AWS / GitHub / Pipeline. These modern tools allow you to deploy faster, which is what every company claims they want to do, but never actually break out of the mold.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/sprits-are-bad/</guid>
+      <description>&lt;p&gt;Sprints. Everyone uses them it seems like. However, there is a reason why there are new ways of developing software. Sprints are waterfalls in essence. Methodologies like Kanban really outshine sprints. In modern software development where you can create infrastructure in IaC and Deploy with tools like AWS / GitHub / Pipeline. These modern tools allow you to deploy faster, which is what every company claims they want to do, but never actually break out of the mold. Now some teams do need sprints, just like some teams do need water fall. But most &amp;ldquo;modern&amp;rdquo; teams will greatly benefit from Kanban. There is no reason why there should be these massive amounts of code getting released every 2-3 weeks where you can exercise every part of the release multiple times a day.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Chatgpt and QA</title>
-      <link>https://fonzi.xyz/blog/chatgpt-and-qa/</link>
+      <link>http://localhost:1313/blog/chatgpt-and-qa/</link>
       <pubDate>Tue, 17 Jan 2023 10:54:36 -0600</pubDate>
       
-      <guid>https://fonzi.xyz/blog/chatgpt-and-qa/</guid>
-      <description>ChatGPT. Speeding up every part of the SDLC If you read this blog, then you have heard of ChatGPT. AI for the masses. You know, a lot of people are saying it&amp;rsquo;s the end of software development as we know it, but are they right? I think it&amp;rsquo;s just another tool to help speed up development. I don&amp;rsquo;t think we are at the location where jobs can be fully replaced. Yet&amp;hellip; So how has it increased the SDLC speed.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/chatgpt-and-qa/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;ChatGPT. Speeding up every part of the SDLC
+  &lt;a href=&#34;#chatgpt-speeding-up-every-part-of-the-sdlc&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;If you read this blog, then you have heard of ChatGPT. AI for the masses. You know, a lot of people are saying it&amp;rsquo;s the end of software
+development as we know it, but are they right? I think it&amp;rsquo;s just another tool to help speed up development. I don&amp;rsquo;t think we are at the
+location where jobs can be fully replaced. Yet&amp;hellip; So how has it increased the SDLC speed. To start doing small simple POC projects
+has become really easy with this new tool. Not just that, but the context that ChatGPT has is amazing. You can literally use it as a more
+Junior or Senior Developer, depending on your own personal knowledge. If you know how to code, you will most likely use it to write up quick
+scripts that you know how to integrate. If you don&amp;rsquo;t know how to code, or you are just starting, it will be able to guide you through a full SaaS setup.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Why I switched to Hugo?</title>
-      <link>https://fonzi.xyz/blog/hugo-ftw/</link>
+      <link>http://localhost:1313/blog/hugo-ftw/</link>
       <pubDate>Tue, 20 Dec 2022 14:51:43 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/hugo-ftw/</guid>
-      <description>Why I switched to Hugo? If you&amp;rsquo;ve noticed at all. The page has changed drastically. I switched from hand cranked HTML and CSS into Hugo! Found that there is a decent blogging platform out there that is lightweight.
-Writing in markdown files, and just having it generate static HTML is great. No dealing with JS/CSS/HTML anymore. However, a framework does it. The nice thing about it is that there is no heavy JS on the server nor client side to render a neat little page.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/hugo-ftw/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Why I switched to Hugo?
+  &lt;a href=&#34;#why-i-switched-to-hugo&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve noticed at all. The page has changed drastically. I switched from hand cranked HTML and CSS into Hugo! Found that there is a
+decent blogging platform out there that is lightweight.&lt;/p&gt;
+&lt;p&gt;Writing in markdown files, and just having it generate static HTML is great. No dealing with JS/CSS/HTML anymore. However, a framework does it. The nice thing about it is that there is no heavy JS on the server nor client side to render a neat little page.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>TestOps? What is that?</title>
-      <link>https://fonzi.xyz/blog/testopts-what-is-that/</link>
+      <link>http://localhost:1313/blog/testopts-what-is-that/</link>
       <pubDate>Fri, 16 Dec 2022 16:14:08 -0600</pubDate>
       
-      <guid>https://fonzi.xyz/blog/testopts-what-is-that/</guid>
-      <description>TestOps? What is that? A new word is buzzing around. Let me guide you a bit back with buzzwords. The current hot field is DevOps everyone wants to be in DevOps every company needs DevOps. Before that, it used to be two roles. Developer and Operations. Then someone figured out that merging them would be more efficient and a new role was born. Same with TestOps is happening now. Now I think the general tech industry has still not really realized this as a whole.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/testopts-what-is-that/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;TestOps? What is that?
+  &lt;a href=&#34;#testops-what-is-that&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;A new word is buzzing around. Let me guide you a bit back with buzzwords. The current hot field is DevOps everyone wants to be in DevOps every company needs DevOps. Before that, it used to be two roles. Developer and Operations. Then someone figured out that merging them would be more efficient and a new role was born. Same with TestOps is happening now. Now I think the general tech industry has still not really realized this as a whole. However, more than likely it will be a very big buzz work here soon. At least that&amp;rsquo;s my hope :). Now that Selenium is getting dethroned and frameworks like cypress and playwright are more mature, or even &amp;ldquo;AI&amp;rdquo; supported testing tools like Mabl. There is a new need for a role that can truly support a massive amount of tests. This is where the ops part come in. Things like EvoMaster that are auto-generating API tests, still need someone to maintain that infrastructure. DevOps, could fill and will fill a lot of these roles. Here is TestOps will become a trend. DevOps will realize that they need someone who is versed in dev practices and test practices. What kind of tests to implement, and at which part of the pipeline they should run at. Usually testers (manual and automation) do not really get involved in the pipe lining in the full software cycle. However, most will be forced to learn or get pushed out of the industry. Software has become faster and more fierce. So testers need to adapt. The idea of testing at the end of a cycle (I&amp;rsquo;m looking at you Sprints) is a old way of thinking. Today software teams needs to follow the three main tenants of DevOps.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>UI Automation Root Issues</title>
-      <link>https://fonzi.xyz/blog/ui-automation-root-issues/</link>
+      <link>http://localhost:1313/blog/ui-automation-root-issues/</link>
       <pubDate>Sun, 04 Sep 2022 23:55:43 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/ui-automation-root-issues/</guid>
-      <description>UI Automation Root Issues Ever since the inception of webapps, there has been issues with UI automation. Teams tend to overlook the automation phase and ignore it. Mostly because it&amp;rsquo;s time consuming and it&amp;rsquo;s really hard to have a decent framework. Test are also brittle. However, I peronslly think the brittle-ness is not Automation specific but usually and underlaying issue in the web app. It usually ends up showing up as bad code.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/ui-automation-root-issues/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;UI Automation Root Issues
+  &lt;a href=&#34;#ui-automation-root-issues&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;Ever since the inception of webapps, there has been issues with UI automation. Teams tend to overlook the automation phase and ignore it. Mostly because it&amp;rsquo;s time consuming and it&amp;rsquo;s really hard to have a decent framework. Test are also brittle. However, I peronslly think the brittle-ness is not Automation specific but usually and underlaying issue in the web app. It usually ends up showing up as bad code. Bad implementations, and bad architecture. Since automation is usually created after the webapp, it usually follows those same bad practices as the webapp. Now I&amp;rsquo;m NOT saying that these are the only issues. But from my experience these are usually the true root issues.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Node IPC. Going back in time.</title>
-      <link>https://fonzi.xyz/blog/node-ipc-going-back-in-time/</link>
+      <link>http://localhost:1313/blog/node-ipc-going-back-in-time/</link>
       <pubDate>Sat, 26 Mar 2022 18:35:15 -0500</pubDate>
       
-      <guid>https://fonzi.xyz/blog/node-ipc-going-back-in-time/</guid>
-      <description>Node IPC Going Back in Time Well I&amp;rsquo;m sure if you follow this blog (if anyone). You most likley heard of node-ipc. This reminds me a lot from when people did not know how malwayre worked, and the famouse worm that self duplicated by looking up everyone in the email contacts and sending itself out. What does this recent event says about the current &amp;lsquo;software developers&amp;rsquo; that it affected. It means that they have or at least had no concern about security.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/node-ipc-going-back-in-time/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Node IPC Going Back in Time
+  &lt;a href=&#34;#node-ipc-going-back-in-time&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;Well I&amp;rsquo;m sure if you follow this blog (if anyone). You most likley heard of node-ipc. This reminds me a lot from when people did not know how malwayre worked, and the famouse worm that self duplicated by looking up everyone in the email contacts and sending itself out. What does this recent event says about the current &amp;lsquo;software developers&amp;rsquo; that it affected. It means that they have or at least had no concern about security. They just trusted their projects to one point of failure. A upstream library gone rouge. How could this been prevented? I think this goes back to the first things that I hinted, central technologies are a bad idea. Let this be a warning to alaways try to audit some code before you let some critical machine do an update. This is why the most important part of open source code is the abilty to audit the code. Now even this is by definition a new type of malware that has been called &amp;ldquo;protestware&amp;rdquo;, I disagree with this. How does deleting data from machines that have a Russian IP &amp;ldquo;protest&amp;rdquo; anything? What if this &amp;ldquo;protest&amp;rdquo; actually deleted work that could had expedited the end of the current Russia v Ukraine war. Or how does punishing every day Russians help them be against the war? If anything it&amp;rsquo;ll make them empathetic and start agreeing with the propaganda that the west is indeed out to hurt them personally. Brandon Nozaki Miller has himself pushed out of any career, nor will he ever be able to clear his reputation from this. He has hurted the open source trust and will be used as an example into why normal every day people should not switch from Windows or OSX to linux. Everyone is to blame here. Brandon Nozaki Miller, devs that just merged code into projects without auditing before (or looking at the releas notes. I highly suggest checking out &lt;a href=&#34;https://github.com/RIAEvangelist/node-ipc/issues&#34;&gt;the github issue page&lt;/a&gt; it is indeed comical, and it is even funnier watching Brandon Nozaki Miller delete the complains. Not only did he screw up and every one knows it, he is censoring opinions about it. To everyone commenting on there it would be better if you do a small snippet like this. No way he can delete this post.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DuckDuckGo Failed Search Engine</title>
-      <link>https://fonzi.xyz/blog/dudkduckgo-failed-search-engine/</link>
+      <link>http://localhost:1313/blog/dudkduckgo-failed-search-engine/</link>
       <pubDate>Sat, 12 Mar 2022 01:05:04 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/dudkduckgo-failed-search-engine/</guid>
-      <description>DuckDuckGo Failed Search Engine Well then. Here we are again. Another technology that will fall into the bin of dispair. DuckDuckGo, like all the other big tech companies will eventually die off. You have to wonder why they do this to themselves? To me it appears that technologies companies have forgotten their place in the world, and that is that technology moves fast. Really fast, and what is hip today, may not be hip tommorow.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/dudkduckgo-failed-search-engine/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;DuckDuckGo Failed Search Engine
+  &lt;a href=&#34;#duckduckgo-failed-search-engine&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;Well then. Here we are again. Another technology that will fall into the bin of dispair. DuckDuckGo, like all the other big tech companies will eventually die off. You have to wonder why they do this to themselves? To me it appears that technologies companies have forgotten their place in the world, and that is that technology moves fast. Really fast, and what is hip today, may not be hip tommorow. If you look at previous tech giants like Google, half the population, at least in the US, already despise it.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Facebook down! A warning.</title>
-      <link>https://fonzi.xyz/blog/facebook-down-a-warning/</link>
+      <link>http://localhost:1313/blog/facebook-down-a-warning/</link>
       <pubDate>Sat, 09 Oct 2021 00:59:43 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/facebook-down-a-warning/</guid>
-      <description>Facebook down! A warning. So as you&amp;rsquo;ve heard Facebook was down. Not just Facebook, but all of Facebook. Instagram, Whatsapp, Facebook, and some other smaller services. I got to see firsthand how hard this actually was. In the United States, we are pretty lucky that almost every person has a cell phone with data. However, in other countries like Mexico, they use Facebook messenger, and WhatsApp as a means of primary communication.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/facebook-down-a-warning/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Facebook down! A warning.
+  &lt;a href=&#34;#facebook-down-a-warning&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;So as you&amp;rsquo;ve heard Facebook was down. Not just Facebook, but all of Facebook. Instagram, Whatsapp, Facebook, and some other smaller services. I got to see firsthand how hard this actually was. In the United States, we are pretty lucky that almost every person has a cell phone with data. However, in other countries like Mexico, they use Facebook messenger, and WhatsApp as a means of primary communication. Facebook is free of data usage and so it&amp;rsquo;s WhatsApp down in Mexico with almost every plan that you can buy. For this reason, a lot of people use these services instead of using other non-facebook services. The real issue here is not that Facebook is giving their product for free, but rather, that people are willing to give all that personal information for just a simple messaging app. Data is a Billion dollar industry. Everyone wants data. And people get hardly any compensation for it because they are not aware of how much data is worth. Protect your data. Don&amp;rsquo;t give it away for free, at least make a little profit.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Blogging Frameworks Are Bloat</title>
-      <link>https://fonzi.xyz/blog/blogging-frameworks-are-bloat/</link>
+      <link>http://localhost:1313/blog/blogging-frameworks-are-bloat/</link>
       <pubDate>Thu, 07 Oct 2021 03:26:17 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/blogging-frameworks-are-bloat/</guid>
-      <description>Blogging Frameworks Are Bloat Yes! Blogging Frameworks are bloat. Think about WordPress. Some people install WordPress just to blog. How many issues do you introduce to a website with WordPress? Even if you look at other frameworks that are found on Github. They all require some other stack that&amp;rsquo;s never on your server. Then you get stuck in limbo trying to get this framework that has 1000 stars because people star it but never actually try it out.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/blogging-frameworks-are-bloat/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Blogging Frameworks Are Bloat
+  &lt;a href=&#34;#blogging-frameworks-are-bloat&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;Yes! Blogging Frameworks are bloat. Think about WordPress. Some people install WordPress just to blog. How many issues do you introduce to a website with WordPress? Even if you look at other frameworks that are found on Github. They all require some other stack that&amp;rsquo;s never on your server. Then you get stuck in limbo trying to get this framework that has 1000 stars because people star it but never actually try it out. So I ended just doing plain HTML with a little script I found in (github)[https://github.com/lukesmithxyz/lb]. I still need to modify this a bit, however, it got me off the ground right away. It&amp;rsquo;s gnu compliant so it&amp;rsquo;ll run on any system that has SED and bash. It just inserts blobs of text into files. In my instance, it throws code to blog.html and adds a new file for a standalone blog HTML as well as inserts text to rss.xml. This allows me to just write and not worry about how to run a specific framework, and all the security issues it brings with it. Now I hope that I&amp;rsquo;ll blog more since this is a much easier way to just add files to the blog list. No more manually adding those, no more cryptic commands that only exist in 1 project. This opens the question about what is happening to the tech industry/community. Do developers no longer enjoy simplicity? I can only imagine the things old-timers think when they see all this bloat on pages. Another popular way people do blogging, journalists mostly pay someone else to host their blog so they get an easy WYSIWYG system, but then complain when their freedom of speech is taken because they never actually owned the blog. It&amp;rsquo;s on someone else server. Their rules at that point. I do hope that this, what I&amp;rsquo;m doing having a very minimal website takes off again, what&amp;rsquo;s better than going back to decentralization with what already exists until the blockchain can fully be adopted if it&amp;rsquo;s ever adopted.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hello There</title>
-      <link>https://fonzi.xyz/blog/hello-there/</link>
+      <link>http://localhost:1313/blog/hello-there/</link>
       <pubDate>Thu, 07 Oct 2021 02:55:42 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/blog/hello-there/</guid>
-      <description>Hello There If you ended up here either you agreed with something on the homepage. Or you&amp;rsquo;re just clicking around. Either way.. Hello! This blog is dedicated to things I find interesting. Things about technology most of the time, but I also enjoy sociology a lot. So writing about human interactions maybe something from time to time. Also, you will find just recommendations for different things. This will mostly be something for me but I will try to curate those lists.</description>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/blog/hello-there/</guid>
+      <description>
+
+
+&lt;h1 class=&#34;header-anchor-wrapper&#34;&gt;Hello There
+  &lt;a href=&#34;#hello-there&#34; class=&#34;header-anchor-link&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;1rem&#34; height=&#34;1rem&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;If you ended up here either you agreed with something on the homepage. Or you&amp;rsquo;re just clicking around. Either way.. Hello! This blog is dedicated to things I find interesting. Things about technology most of the time, but I also enjoy sociology a lot. So writing about human interactions maybe something from time to time. Also, you will find just recommendations for different things. This will mostly be something for me but I will try to curate those lists. You will also find quick lessons I&amp;rsquo;ve learned.&lt;/p&gt;</description>
     </item>
     
   </channel>

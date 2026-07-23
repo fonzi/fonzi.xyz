@@ -2,125 +2,154 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Fonzi Vazquez</title>
-    <link>https://fonzi.xyz/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Fonzi Vazquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fonzi.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>Fonzi Vazquez</managingEditor>
+    <webMaster>Fonzi Vazquez</webMaster>
+    
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cosmic</title>
-      <link>https://fonzi.xyz/tags/cosmic/</link>
+      <link>http://localhost:1313/tags/cosmic/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/cosmic/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/cosmic/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Desktop</title>
-      <link>https://fonzi.xyz/tags/desktop/</link>
+      <link>http://localhost:1313/tags/desktop/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/desktop/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/desktop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iced</title>
-      <link>https://fonzi.xyz/tags/iced/</link>
+      <link>http://localhost:1313/tags/iced/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/iced/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/iced/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://fonzi.xyz/tags/linux/</link>
+      <link>http://localhost:1313/tags/linux/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/linux/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Openvpn</title>
-      <link>https://fonzi.xyz/tags/openvpn/</link>
+      <link>http://localhost:1313/tags/openvpn/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/openvpn/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/openvpn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rust</title>
-      <link>https://fonzi.xyz/tags/rust/</link>
+      <link>http://localhost:1313/tags/rust/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/rust/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/rust/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Auth0</title>
-      <link>https://fonzi.xyz/tags/auth0/</link>
+      <link>http://localhost:1313/tags/auth0/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/auth0/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/auth0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Automation</title>
-      <link>https://fonzi.xyz/tags/automation/</link>
+      <link>http://localhost:1313/tags/automation/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/automation/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>E2e</title>
-      <link>https://fonzi.xyz/tags/e2e/</link>
+      <link>http://localhost:1313/tags/e2e/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/e2e/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/e2e/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Playwright</title>
-      <link>https://fonzi.xyz/tags/playwright/</link>
+      <link>http://localhost:1313/tags/playwright/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/playwright/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/playwright/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Testing</title>
-      <link>https://fonzi.xyz/tags/testing/</link>
+      <link>http://localhost:1313/tags/testing/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/testing/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Canvas</title>
-      <link>https://fonzi.xyz/tags/canvas/</link>
+      <link>http://localhost:1313/tags/canvas/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/canvas/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/canvas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://fonzi.xyz/tags/javascript/</link>
+      <link>http://localhost:1313/tags/javascript/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://fonzi.xyz/tags/javascript/</guid>
+      
+      <author>Fonzi Vazquez</author>
+      <guid>http://localhost:1313/tags/javascript/</guid>
       <description></description>
     </item>
     
