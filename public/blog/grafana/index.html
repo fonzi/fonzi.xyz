@@ -252,13 +252,13 @@ Initially, I figured it’d be cool to read directly from our data source. In th
 <p>The first obstacle was figuring out how to read directly from the database in hopes of identifying some cool historical trends. No biggie. I was sure someone had already solved this issue, and I was mostly right. Someone had created a plugin that was easy to install: <a href="https://github.com/haohanyang/mongodb-datasource">MongoDB Datasource Plugin</a>. Coincidentally, there was a bug fix our team needed, and the author of the plugin was already working on it. You can see me testing this here: <a href="https://github.com/haohanyang/mongodb-datasource/issues/15">Issue #15</a>. Pretty sweet to be able to collaborate with Open Source for a day job, all because of a quick need.</p>
 <p>At first, this solution seemed like all we needed. However, I quickly realized we were missing something critical: historical data. To detect deviations, we needed a historical record of the user&rsquo;s data before any changes occurred. Since this was not implemented in MongoDB, I had to find another way.</p>
 <p>You can see that I had a cool Login Failure Rate. Since that does have historical data in its collection. However, I still needed properties.</p>
-<p><img src="https://i.ibb.co/vQQn8MM/grafana-first.png" alt="Grafana"></p>
+<p><img src="/grafana-first.png" alt="Grafana"></p>
 <p>The middleware I created was a quick tool that scraped the MongoDB collection, pushed the data to Pushgateway and Prometheus, and then allowed Prometheus/InfluxDB to retain the historical data. We run this tool every two hours, which gives us solid historical insights.</p>
 <p>This is pretty cool, actually. We already had a case where we needed some data to be stored, and the way it works is as follows:</p>
 <p><code>Script Runs in Bibtucket ----&gt; Bitucket Restuls get pushed to PushGateway ----&gt; PushGateway is scraped by Prometheus ----&gt; Prometheus stores in InfluxDB</code></p>
 <p>This is the general pipeline of data flow. From MongoDB with no historical data to keeping historical data on a pinch. The ideal solution would be to update the MongoDB collection to keep the data as well.</p>
 <p>Once we had this setup, we could calculate deviations by percentage. Now, we get Slack alerts if a user experiences a significant drop in properties. This allows us to monitor all our users simultaneously without fear of missing critical changes.</p>
-<p><img src="https://i.ibb.co/tq8Yh95/percentage-monitor.png" alt="Monitor"></p>
+<p><img src="/percentage-monitor.png" alt="Monitor"></p>
 <p>We use this type of monitor now, with an environment variable for each of our users, to avoid being overwhelmed with lines and to narrow down to the problem user.</p>
 <p>Some of the math involved behind the scenes includes:</p>
 <p><code>sum by (email) (user_hotel_info{environment=&quot;prod&quot;} offset 15m)</code> (historical data)</p>

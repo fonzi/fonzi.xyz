@@ -12,7 +12,7 @@ I own some land in Mexico 🇲🇽, so I've been building a small office as a st
 
 Top speed was 132 Mbps, averaging around 50-60 Mbps on clear days. Even through a heavy storm, the internet kept running fine. Needless to say, I've been super impressed.
 
-![Dishy](https://i.ibb.co/rXFY54B/starlinkmx-jpeg.jpg)
+![Dishy](/starlinkmx.jpg)
 
 This is just a simple setup that is not fully permanent, and it’ll be a bit longer before I install it permanently elsewhere. In the meantime, I tied it down with some wire so it doesn’t get tilted during heavy winds. Since it’s a bit hard to source items in this location, you need to think outside the box.
 

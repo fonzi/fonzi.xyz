@@ -15,12 +15,12 @@ If COSMIC is going to succeed as a serious desktop environment, common workflows
 
 This project actually started as a Python/PyQt5 application. It worked well enough as a proof of concept, but it felt like a guest on the system rather than a resident. 
 
-![The Original Python Prototype - Functional, but the UI was a bit 'boring'](https://preview.redd.it/built-a-full-openvpn3-gui-for-linux-tested-on-cosmic-live-v0-n1y15b5ssw6g1.png?width=1080&crop=smart&auto=webp&s=27148542470967daaa3bfdfd8d1a8f787083c13b)
+![The Original Python Prototype - Functional, but the UI was a bit 'boring'](/built-a-full-openvpn3-gui-for-linux-tested-on-cosmic-live.webp)
 *The initial Python/PyQt5 version. It proved the demand was there, but it didn't feel 'COSMIC'.*
 
 After sharing the prototype on r/pop_os, the feedback was clear: if I wanted it to be a true "first-class citizen" of the COSMIC ecosystem, I needed a more performant foundation. I decided to rewrite the entire thing in **Rust using the Iced framework**.
 
-![The Rust/Iced Evolution - Native look and feel with better performance](https://preview.redd.it/update-openvpn3-gui-now-rebuilt-in-rust-repo-link-included-v0-x5bo9zqyea7g1.png?width=1080&crop=smart&auto=webp&s=47c52d3bba5ea9abec5d256cefa30bd891421f87)
+![The Rust/Iced Evolution - Native look and feel with better performance](/update-openvpn3-gui-now-rebuilt-in-rust-repo-link-included.webp)
 *The Rust rewrite: Faster, lighter, and much closer to the modern Linux desktop aesthetic.*
 
 ## Why the GUI Wins: Features You Can't \"Tail\"

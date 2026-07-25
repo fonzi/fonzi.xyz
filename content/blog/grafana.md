@@ -16,7 +16,7 @@ At first, this solution seemed like all we needed. However, I quickly realized w
 
 You can see that I had a cool Login Failure Rate. Since that does have historical data in its collection. However, I still needed properties.
 
-![Grafana](https://i.ibb.co/vQQn8MM/grafana-first.png)
+![Grafana](/grafana-first.png)
 
 The middleware I created was a quick tool that scraped the MongoDB collection, pushed the data to Pushgateway and Prometheus, and then allowed Prometheus/InfluxDB to retain the historical data. We run this tool every two hours, which gives us solid historical insights.
 
@@ -28,7 +28,7 @@ This is the general pipeline of data flow. From MongoDB with no historical data 
 
 Once we had this setup, we could calculate deviations by percentage. Now, we get Slack alerts if a user experiences a significant drop in properties. This allows us to monitor all our users simultaneously without fear of missing critical changes.
 
-![Monitor](https://i.ibb.co/tq8Yh95/percentage-monitor.png)
+![Monitor](/percentage-monitor.png)
 
 We use this type of monitor now, with an environment variable for each of our users, to avoid being overwhelmed with lines and to narrow down to the problem user.
 

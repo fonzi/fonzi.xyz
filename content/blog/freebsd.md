@@ -146,7 +146,7 @@ Yep, I like their logo so much, I figured it required it required own small sect
 
 ```
 
-![Thinkpad x230](https://i.ibb.co/spw8bQBc/PXL-20260723-131126293-2.jpg)
+![Thinkpad x230](/freebsd-thinkpad.jpg)
 
 ## Will I switch to *BSD?
 
