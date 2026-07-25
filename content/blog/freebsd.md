@@ -155,4 +155,4 @@ I'm not sure yet. But everything is pointing to a yes. I have been curious about
 ### Performance
 
 It's worth considering how well *BSD performs on this thinkpad. I am running apps that require very little resources. VSCode is the heaviest I'd say. So here's a btop screenshot at idle. You can see that there's barely any resources getting used. We'll see how it holds as the system grows and then it'll most likley be bad app development instead of the OS's itself.  
-![BTOP](https://i.ibb.co/1fWbP00W/Screenshot-2026-07-23-16-26-28.png)
+![BTOP](/thinkpadbtop.png)
