@@ -32,3 +32,45 @@ for more go here : https://searx.github.io/searx/admin/update-searx.html?highlig
 #### Website
 Website Html files are located at `/var/www/*`
 To Update just do a `git pull`
+
+## Hugo workflow (prod-like local testing)
+
+Use these commands to build exactly like production and preview locally without Hugo dev-mode URL rewriting.
+
+Build production output:
+
+`make prod-build`
+
+Serve that output locally:
+
+`make prod-serve`
+
+Open: `http://localhost:4173`
+
+Notes:
+
+- `prod-build` writes output to `.dist-prod/`.
+- `prod-serve` is a plain static server, so you test the exact built files.
+- `prod-preview` runs build + serve in one command.
+
+## What to push to this repo
+
+Push source files and config:
+
+- `content/`
+- `layouts/`
+- `static/`
+- `assets/`
+- `config.toml`
+- `themes/` (or the theme submodule reference if you use submodules)
+- `Makefile`
+- `README.md`
+
+Do not push generated build output:
+
+- `.dist-prod/`
+- `public/`
+- `resources/_gen/`
+- `.hugo_build.lock`
+
+This repository now includes `.gitignore` entries for those generated files.
