@@ -1,0 +1,458 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en-us'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://fonzi.xyz/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unlocking Efficiency with Parallel Testing in Playwright - Fonzi Vazquez</title>
+
+    
+
+    
+    <meta name="author" content="Fonzi Vazquez" />
+    
+
+    
+        <meta property="og:url" content="https://fonzi.xyz/blog/test-parallelization/">
+	<meta property="og:site_name" content="Fonzi Vazquez">
+	<meta property="og:title" content="Unlocking Efficiency with Parallel Testing in Playwright">
+	<meta property="og:description" content="Parallel Testing in Playwright Software testing is a critical aspect of the development process, ensuring that applications function as expected and meet the required quality standards. However, as projects grow in complexity, the test suite can become time-consuming to execute, leading to longer feedback loops and delayed releases. To overcome this challenge, developers turn to parallel testing, a technique that distributes test execution across multiple machines or processes simultaneously. In this blog, we explore how Playwright, a powerful end-to-end testing framework, enables developers to implement and monitor parallel testing for faster, more efficient testing workflows.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2023-07-26T11:22:09-05:00">
+		<meta property="article:modified_time" content="2023-07-26T11:22:09-05:00">
+
+    
+
+    
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Unlocking Efficiency with Parallel Testing in Playwright">
+	<meta name="twitter:description" content="Parallel Testing in Playwright Software testing is a critical aspect of the development process, ensuring that applications function as expected and meet the required quality standards. However, as projects grow in complexity, the test suite can become time-consuming to execute, leading to longer feedback loops and delayed releases. To overcome this challenge, developers turn to parallel testing, a technique that distributes test execution across multiple machines or processes simultaneously. In this blog, we explore how Playwright, a powerful end-to-end testing framework, enables developers to implement and monitor parallel testing for faster, more efficient testing workflows.">
+
+    <link rel="stylesheet" href="/style.min.8a144210472dc672758b605cb4d76945940f2216c92c0f038e88b60e5c21da40.css" integrity="sha256-ihRCEEctxnJ1i2BctNdpRZQPIhbJLA8Djoi2Dlwh2kA=">
+
+
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'light';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/theme-switch.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
+
+
+
+    <script defer src="/js/hide-navbar-on-scroll.9b896455f91c8b1bc5055acb32be0f85678a1eadd0d20439994dba207d2b3707.js" integrity="sha256-m4lkVfkcixvFBVrLMr4PhWeKHq3Q0gQ5mU26IH0rNwc="></script>
+
+
+
+
+
+    <script defer src="/js/zooming.10d718ecdb4a98eab370ed60963ea87f1c612ac225609eadc52f0e536bc1517c.js" integrity="sha256-ENcY7NtKmOqzcO1glj6ofxxhKsIlYJ6txS8OU2vBUXw="></script>
+
+
+
+
+
+
+
+    
+        
+        
+            <script defer src="/js/builtin-copy.a89c7b4e13df953403c75897ad4b6db68fad6534043bb234d29a80015f1ec9d1.js" integrity="sha256-qJx7ThPflTQDx1iXrUttto&#43;tZTQEO7I00pqAAV8eydE="></script>
+        
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en-us.391b74c70c29e5039c7d4c529631520a13864a6454b8c8c5c37d11644cedd048.js" integrity="sha256-ORt0xwwp5QOcfUxSljFSChOGSmRUuMjFw30RZEzt0Eg="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/blog/">Blog</a></li><li>
+                                <a href="/relay/">Relay</a></li><li>
+                                <a href="https://searx.fonzi.xyz">Searx</a></li><li>
+                                <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion">Tor</a></li></ul>
+                </div>
+            </div>
+        
+            <div class="brand">
+                <div>
+                    <a href="/">Fonzi Vazquez</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
+                    
+                        <a href="/blog/" class="pure-menu-link">Blog</a>
+                    
+                </li><li class="header-menu-item pure-menu-item ">
+                    
+                        <a href="/relay/" class="pure-menu-link">Relay</a>
+                    
+                </li><li class="header-menu-item pure-menu-item ">
+                    
+                        <a href="https://searx.fonzi.xyz" class="pure-menu-link">Searx</a>
+                    
+                </li><li class="header-menu-item pure-menu-item ">
+                    
+                        <a href="http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion" class="pure-menu-link">Tor</a>
+                    
+                </li></ul>
+</nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+<main>
+            <div id="content" class="content-margin">
+                
+
+
+    <div class="content-margin">
+
+
+
+
+<article class="line-numbers">
+    
+    
+
+    
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="parallel-testing-in-playwright">
+
+
+<h1 class="header-anchor-wrapper">Parallel Testing in Playwright
+  <a href="#parallel-testing-in-playwright" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h1>
+
+<p>Software testing is a critical aspect of the development process, ensuring that applications function as expected and meet the required quality standards. However, as projects grow in complexity, the test suite can become time-consuming to execute, leading to longer feedback loops and delayed releases. To overcome this challenge, developers turn to parallel testing, a technique that distributes test execution across multiple machines or processes simultaneously. In this blog, we explore how Playwright, a powerful end-to-end testing framework, enables developers to implement and monitor parallel testing for faster, more efficient testing workflows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#75715e">// test.spec.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">test</span>, <span style="color:#a6e22e">expect</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@playwright/test&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Login Test&#39;</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Your login test implementation here
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Signup Test&#39;</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Your signup test implementation here
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Search Test&#39;</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Your search test implementation here
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Checkout Test&#39;</span>, <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Your checkout test implementation here
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div></section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="implementing-parallel-testing-in-playwright">
+
+
+<h1 class="header-anchor-wrapper">Implementing Parallel Testing in Playwright:
+  <a href="#implementing-parallel-testing-in-playwright" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h1>
+
+<p>Parallel testing in Playwright is straightforward and can be achieved with just a few lines of code. By organizing tests using Playwright&rsquo;s built-in test runner, developers can execute tests concurrently, saving precious time during the test cycle. For instance, let&rsquo;s consider a test suite with login, signup, search, and checkout tests.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// playwright.config.json
+</span></span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;workers&#34;</span>: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="distributed-parallelism-using-playwright-test-runner">
+
+
+<h1 class="header-anchor-wrapper">Distributed Parallelism using Playwright Test Runner:
+  <a href="#distributed-parallelism-using-playwright-test-runner" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h1>
+
+<p>For large-scale projects, Playwright offers distributed parallelism by leveraging cloud-based infrastructure to run tests across multiple machines. This method is highly efficient and further shortens test execution time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Run tests in distributed parallel mode</span>
+</span></span><span style="display:flex;"><span>npx playwright test --project<span style="color:#f92672">=</span>my_project --workers<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span></code></pre></div></section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="monitoring-and-reporting">
+
+
+<h1 class="header-anchor-wrapper">Monitoring and Reporting:
+  <a href="#monitoring-and-reporting" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h1>
+
+<p>Monitoring the test execution is essential to track progress and identify any issues. Playwright allows developers to configure multiple reporters to generate various types of test reports, such as dot format, JSON, and JUnit XML, or the best Allure Reporting.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#75715e">// playwright.config.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PlaywrightTestConfig</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@playwright/test&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span>: <span style="color:#66d9ef">PlaywrightTestConfig</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reporter</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#39;dot&#39;</span>],
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#39;allure-playwright&#39;</span>].
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#39;json&#39;</span>, { <span style="color:#a6e22e">outputFile</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;test-results.json&#39;</span> }],
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#39;junit&#39;</span>, { <span style="color:#a6e22e">outputFile</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;test-results.xml&#39;</span> }],
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">config</span>;
+</span></span></code></pre></div></section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="overall">
+
+
+<h1 class="header-anchor-wrapper">Overall
+  <a href="#overall" class="header-anchor-link">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</a>
+</h1>
+
+<p>Parallel testing with Playwright is a game-changer for teams seeking faster and more efficient test cycles. By implementing method-level parallelism and distributed parallelism, developers can significantly reduce test execution times and receive quicker feedback on the application&rsquo;s quality. With monitoring and reporting capabilities, teams gain valuable insights into test progress and results. As development projects continue to grow in scale and complexity, adopting parallel testing in Playwright becomes a strategic decision for ensuring top-notch software quality in a time-efficient manner.</p>
+<p>Sharding: Sharding involves dividing the test suite into smaller subsets or &ldquo;shards&rdquo; and running each shard on a separate machine or process. This allows multiple machines to execute different parts of the test suite concurrently, significantly reducing the overall test execution time. Sharding is particularly useful for large test suites or distributed environments.</p>
+<p>Workers: Workers, on the other hand, are individual processes running on the same machine that execute test files in parallel. Each worker can run multiple tests within a single file, making use of multi-core CPUs to speed up the test execution. Workers share the same environment and resources, but they are isolated from each other, ensuring a clean environment for each test execution.</p>
+<p>In summary, sharding focuses on distributing the test suite across multiple machines, while workers focus on parallelizing test execution within a single machine. Both approaches are valuable techniques for achieving faster and more efficient parallel testing, but they target different aspects of test execution optimization. Choosing between sharding and workers depends on factors such as test suite size, available resources, and the desired level of parallelization.</p>
+<pre tabindex="0"><code>                                 +-----------------+
+                                 |                 |
+                                 |   Test Suite    |
+                                 |                 |
+                                 +-------+---------+
+                                         |
+                                         v
+
+    +--------------+       +-----------------+      +-----------------+
+    |              |       |                 |      |                 |
+    |   Shard 1    |       |     Shard 2     | ...  |   Shard N       |
+    |              |       |                 |      |                 |
+    +------+-------+       +-----------------+      +-----------------+
+           |                        |                         |
+           v                        v                         v
+
+    +------------+           +------------+           +------------+
+    |            |           |            |           |            |
+    |  Worker 1  |           |  Worker 2  |   ......  |  Worker M  |
+    |            |           |            |           |            |
+    +------------+           +------------+           +------------+
+</code></pre></section>
+    
+</article>
+</div>
+
+
+                
+                    
+                
+
+                
+            </div>
+        </main>
+<footer>
+    <article><p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p></article>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Hugo build outputs
+/dist/
+/public/
+/.dist-prod/
+/resources/_gen/
+
+# Hugo lock
+/.hugo_build.lock

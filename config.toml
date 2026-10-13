@@ -1,0 +1,80 @@
+baseURL = 'https://fonzi.xyz'
+locale = 'en-us' # UPDATED: replaced languageCode
+title = "Fonzi Vazquez"
+theme = "hugo-theme-monochrome"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+
+[markup.goldmark.renderer]
+  unsafe = true # Correct! This fixes your Map blog post
+
+[params]
+  description = 'Tech rants and maybe some tutorials.'
+  footer = '<p><a href="https://github.com/fonzi">Github</a> <a href="https://www.linkedin.com/in/vazquezalfonso/">LinkedIn</a> <a href="https://fonzi.xyz/index.xml">RSS</a> <a href="mailto:me@fonzi.xyz">E-Mail</a> </p>'
+  menu = 'main'
+  enable_site_search = true
+  enable_open_graph = true
+  enable_zooming_js = true
+
+  [params.author]
+    name = 'Fonzi Vazquez'
+
+[[menu.navbar]]
+  identifier = "Blog"
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+
+[[menu.navbar]]
+  identifier = "Relay"
+  name = "Relay"
+  url = "/relay/"
+  weight = 2
+
+[[menu.navbar]]
+  identifier = "Searx"
+  name = "Searx"
+  url = "https://searx.fonzi.xyz"
+  weight = 5
+
+[[menu.navbar]]
+  identifier = "Tor"
+  name = "Tor"
+  url = "http://t7mhyj7a3ukowy6zpsmymxcrpspjxaqwlhmvfpf34cstzoj6c7lupxyd.onion"
+  weight = 10
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[author]
+  name = "Fonzi Vazquez"
+  homepage = "https://fonzi.xyz"
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = false
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      version = 2           # Changed 'css2' to the number 2
+      precision = 0
+    [minify.tdewolff.html]
+      keepComments = false
+      keepSpecialComments = true # Updated key name
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+      precision = 0
+    [minify.tdewolff.json]
+      precision = 0
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false

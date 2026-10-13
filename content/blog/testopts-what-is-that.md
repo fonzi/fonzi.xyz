@@ -1,0 +1,18 @@
+---
+title: "TestOps? What is that?"
+date: Fri, 16 Dec 2022 16:14:08 -0600
+draft: false
+description: "What even is TestOps?"
+---
+
+# TestOps? What is that?
+
+A new word is buzzing around. Let me guide you a bit back with buzzwords. The current hot field is DevOps everyone wants to be in DevOps every company needs DevOps. Before that, it used to be two roles. Developer and Operations. Then someone figured out that merging them would be more efficient and a new role was born. Same with TestOps is happening now. Now I think the general tech industry has still not really realized this as a whole. However, more than likely it will be a very big buzz work here soon. At least that's my hope :). Now that Selenium is getting dethroned and frameworks like cypress and playwright are more mature, or even "AI" supported testing tools like Mabl. There is a new need for a role that can truly support a massive amount of tests. This is where the ops part come in. Things like EvoMaster that are auto-generating API tests, still need someone to maintain that infrastructure. DevOps, could fill and will fill a lot of these roles. Here is TestOps will become a trend. DevOps will realize that they need someone who is versed in dev practices and test practices. What kind of tests to implement, and at which part of the pipeline they should run at. Usually testers (manual and automation) do not really get involved in the pipe lining in the full software cycle. However, most will be forced to learn or get pushed out of the industry. Software has become faster and more fierce. So testers need to adapt. The idea of testing at the end of a cycle (I'm looking at you Sprints) is a old way of thinking. Today software teams needs to follow the three main tenants of DevOps.
+
+- Faster flow (push testing to the left)
+- Feedback (fast information must be provided to developers)
+- CI (Things should be happening when integration takes place and the feedback loop needs to keep moving). This third tenant also has experimentation and learning.
+
+Now once you see the new cycle, you can start to see why the role of TestOps will start to appear. Companies will still be interested in having tests ran. And DevOps really still does not take into consideration testing very much. Nor are most DevOps folks in the mentality of finding edge cases. I'm not one to think that QA will be pushed out of the industry, it'll still exist, just how it exist for manufacturing. However it will become more automated instead of manual, just like it did in manufacturing. Testers should start adopting the tenants of DevOps and a lot of things will become more clear, and they will become exponentially better at their jobs as well. Testers are a rich mine of knowledge when it comes to workflows, which means that they can share a lot of information with OPS on how clients may use the software which may show a much better infrastructure layout. However, the wind blows. The lines are getting blurred here. TestOps will end up been a part of DevOps and they will mainly focus on the CI side. As soon as tests get kicked off as soon as Pull Request or Merge Request come online. Tests should run. But the big question that QA can fill here, is what tests should run there? Or further down to the right. Why do I think TestOps is the next "big" thing? Because we went from water fall, where the initial cycle was defined. To sprints (the most common one right now) that are mini waterfalls. To now the new kids on the block, Kanban and clean room. So the more efficient these cycles become the more broad these roles will become.
+
+*Fri, 16 Dec 2022 16:14:08 -0600*
