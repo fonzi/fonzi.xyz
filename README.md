@@ -34,8 +34,8 @@ docker run -d --name searxng --restart unless-stopped \
 For more: https://docs.searxng.org/admin/installation-docker.html
 
 #### Website
-Website Html files are located at `/var/www/*`
-To Update just do a `git pull`
+Website Html files are located at `/var/www/jukebox/public`.
+Pushing to `main` deploys: the GitHub Action builds with Hugo and uploads `public/` to the server. Just push the markdown.
 
 ## Hugo workflow (prod-like local testing)
 

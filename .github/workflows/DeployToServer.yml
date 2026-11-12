@@ -7,10 +7,19 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout@v2
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: true   # theme
 
-    - name: executing remote ssh commands using password
+    - uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: '0.163.3'   # keep in sync with .hvm
+        extended: true
+
+    - name: Build
+      run: make prod-build PROD_DIR=public
+
+    - name: Update repo on server
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -18,9 +27,18 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          whoami
           cd /var/www/jukebox
-          ls -all
           git fetch origin main
           git reset --hard origin/main
-          ls -all
+
+    - name: Upload built site
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: public
+        target: /var/www/jukebox/public
+        strip_components: 1
+        rm: true   # wipe old build so deleted pages don't linger
